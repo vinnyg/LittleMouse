@@ -15,6 +15,8 @@ SDLWrapper::~SDLWrapper()
 		delete it->second;
 	}
 
+	SDL_QuitSubSystem(SDL_INIT_VIDEO);
+
 	m_windowMap.clear();
 
 	SDL_Quit();
@@ -26,6 +28,10 @@ void SDLWrapper::CreateWindow(std::string windowRef, std::string title, int w, i
 	if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
 	{
 		m_windowMap.insert(std::make_pair(windowRef, new SDLWindow(title, w, h)));
+	}
+	else
+	{
+		SDL_Init(SDL_INIT_VIDEO);
 	}
 }
 

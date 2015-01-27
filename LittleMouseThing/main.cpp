@@ -1,10 +1,8 @@
-#include "SDLWindow.h"
+#include "SDLWrapper.h"
 
 int main(int argc, char* args[])
 {
-	SDLWindow* window = new SDLWindow();
 
-	delete window;
 
 	return 0;
 }
