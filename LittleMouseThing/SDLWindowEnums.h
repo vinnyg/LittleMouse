@@ -1,6 +1,6 @@
-namespace SDLWindowMode
+namespace LM
 {
-	enum WindowMode
+	enum class SDLWindowMode
 	{
 		WM_WINDOWED = 0,
 		WM_BORDERLESS,
