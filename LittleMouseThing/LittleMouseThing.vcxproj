@@ -75,7 +75,7 @@
     <ClCompile Include="SDLRenderer.cpp" />
     <ClCompile Include="SDLTexture.cpp" />
     <ClCompile Include="SDLWindow.cpp" />
-    <ClCompile Include="SDLWrapper.cpp" />
+    <ClCompile Include="SDLWindowFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -84,7 +84,7 @@
     <ClInclude Include="SDLTexture.h" />
     <ClInclude Include="SDLWindow.h" />
     <ClInclude Include="SDLWindowEnums.h" />
-    <ClInclude Include="SDLWrapper.h" />
+    <ClInclude Include="SDLWindowFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
 #include "SDLRenderer.h"
 
-SDLRenderer::SDLRenderer(SDL_Window* window)
+LM::SDLRenderer::SDLRenderer(SDL_Window* window)
 {
 	m_pRenderer = SDL_CreateRenderer(window, -1, 0);
 	SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
@@ -8,7 +8,7 @@ SDLRenderer::SDLRenderer(SDL_Window* window)
 	SDL_RenderPresent(m_pRenderer);
 }
 
-SDLRenderer::~SDLRenderer()
+LM::SDLRenderer::~SDLRenderer()
 {
 	if (m_pRenderer != nullptr)
 	{
@@ -17,7 +17,7 @@ SDLRenderer::~SDLRenderer()
 }
 
 //Add a simple texture to the draw queue.
-void SDLRenderer::DrawTexture(SDL_Texture* tex, float src_x, float src_y, float src_w, float src_h, float dst_x, float dst_y, float dst_w, float dst_h)
+void LM::SDLRenderer::DrawTexture(SDL_Texture* tex, float src_x, float src_y, float src_w, float src_h, float dst_x, float dst_y, float dst_w, float dst_h)
 {
 	SDL_Rect src, dst;
 	src.x = src_x;
@@ -32,12 +32,12 @@ void SDLRenderer::DrawTexture(SDL_Texture* tex, float src_x, float src_y, float 
 }
 
 //Add a texture to the draw queue with additional parameters.
-void SDLRenderer::DrawTexture(SDL_Texture* tex, float src_x, float src_y, float src_w, float src_h, float dst_x, float dst_y, float dst_w, float dst_h, float offset_x, float offset_y, double angle)
+void LM::SDLRenderer::DrawTexture(SDL_Texture* tex, float src_x, float src_y, float src_w, float src_h, float dst_x, float dst_y, float dst_w, float dst_h, float offset_x, float offset_y, double angle)
 {
 
 }
 
-void SDLRenderer::Render()
+void LM::SDLRenderer::Render()
 {
 	SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
 	SDL_RenderClear(m_pRenderer);

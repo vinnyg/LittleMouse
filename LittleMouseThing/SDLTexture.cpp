@@ -1,11 +1,11 @@
 #include "SDLTexture.h"
 
-SDLTexture::SDLTexture(int width, int height, int frames) : m_textureWidth(width), m_textureHeight(height), m_textureFrames(frames)
+LM::SDLTexture::SDLTexture(int width, int height, int frames) : m_textureWidth(width), m_textureHeight(height), m_textureFrames(frames)
 {
-	m_pTexture = SDL_CreateTexture()
+	//m_pTexture = SDL_CreateTexture();
 }
 
-SDLTexture::~SDLTexture()
+LM::SDLTexture::~SDLTexture()
 {
 	if (m_pTexture != nullptr)
 	{ 

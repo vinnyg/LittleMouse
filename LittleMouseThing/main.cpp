@@ -1,9 +1,9 @@
-#include "SDLWrapper.h"
+#include "SDLWindowFactory.h"
 
 
 int main(int argc, char* args[])
 {
-	LM::SDLWrapper* engine = new LM::SDLWrapper();
+	LM::SDLWindowFactory* engine = new LM::SDLWindowFactory();
 	engine->CreateWindow("someName", "Window", 640, 480);
 
 	delete engine;
