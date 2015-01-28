@@ -3,6 +3,7 @@
 
 #include <map>
 #include "SDLWindow.h"
+#include "SDLRenderer.h"
 
 namespace LM 
 {

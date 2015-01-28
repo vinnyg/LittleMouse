@@ -9,7 +9,7 @@ namespace LM
 	class SDLWindow
 	{
 	private:
-		SDL_Window* m_pWindow = nullptr;
+		SDL_Window* m_pWindow;
 		SDLWindowMode m_windowMode;
 	public:
 		SDLWindow(std::string title, int w, int h);
