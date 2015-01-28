@@ -34,7 +34,7 @@ namespace LM
 
 		if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
 		{
-			m_windowMap.insert(std::make_pair(windowRef, std::make_unique<SDLWindow>(new SDLWindow(title, w, h))));
+			m_windowMap.insert(std::make_pair(windowRef, std::make_unique<SDLWindow>(title, w, h)));
 		}
 	}
 
