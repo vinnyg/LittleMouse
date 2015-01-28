@@ -1,4 +1,4 @@
-#include <iterator>
+//#include <iterator>
 #include "SDLWrapper.h"
 namespace LM
 {
@@ -9,13 +9,13 @@ namespace LM
 
 	SDLWrapper::~SDLWrapper()
 	{
-		std::map<std::string, SDLWindow*>::iterator it = m_windowMap.begin();
+		/*std::map<std::string, SDLWindow*>::iterator it = m_windowMap.begin();
 		while (it != m_windowMap.end())
 		{
 			delete it->second;
 
 			++it;
-		}
+		}*/
 
 		SDL_QuitSubSystem(SDL_INIT_VIDEO);
 
@@ -34,7 +34,7 @@ namespace LM
 
 		if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
 		{
-			m_windowMap.insert(std::make_pair(windowRef, new SDLWindow(title, w, h)));
+			m_windowMap.insert(std::make_pair(windowRef, std::make_unique<SDLWindow>(new SDLWindow(title, w, h))));
 		}
 	}
 
