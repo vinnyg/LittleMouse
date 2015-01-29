@@ -12,13 +12,12 @@ namespace LM
 	public:
 		LMSDLRenderer(SDL_Window* window, int index, Uint32 flags);
 		~LMSDLRenderer();
-		void RenderCopy(SDL_Texture* tex, int src_x, int src_y, int src_w, int src_h, int dst_x, int dst_y, int dst_w, int dst_h, int offset_x, int offset_y, double angle);
+		void RenderCopy(SDL_Texture* tex, int src_x = 0, int src_y = 0, int src_w = -1, int src_h = -1, int dst_x = 0, int dst_y = 0, int dst_w = -1, int dst_h = -1, int offset_x = 0, int offset_y = 0, double angle = 0.0);
 		void Render();	//Defunct
 		void SetDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 		void Clear();
 		void Present();
 		void SetTarget(SDL_Texture* tex);
-		SDL_Renderer* GetRenderer() { return m_pRenderer; }
 	};
 }
 

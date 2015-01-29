@@ -70,6 +70,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="LMPoint.cpp" />
     <ClCompile Include="LMVector2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="LMSDLRenderer.cpp" />
@@ -79,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="LMPoint.h" />
     <ClInclude Include="LMVector2.h" />
     <ClInclude Include="LMSDLRenderer.h" />
     <ClInclude Include="SDLTexture.h" />
