@@ -19,6 +19,7 @@ namespace LM
 		void SetWindowPosition(int x, int y);
 		void SetWindowMode(SDLWindowMode mode);
 		void SetWindowSettings(std::string title, int w, int h, SDLWindowMode mode);
+		SDL_Window* GetWindow() { return m_pWindow; }
 	};
 }
 
