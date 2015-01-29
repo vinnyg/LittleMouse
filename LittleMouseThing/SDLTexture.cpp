@@ -2,7 +2,7 @@
 
 namespace LM
 {
-	SDLTexture::SDLTexture(int width, int height, int frames) : m_textureWidth(width), m_textureHeight(height), m_textureFrames(frames)
+	SDLTexture::SDLTexture(int width, int height, int frames) : m_width(width), m_height(height), m_frameCount(frames)
 	{
 		//m_pTexture = SDL_CreateTexture();
 	}

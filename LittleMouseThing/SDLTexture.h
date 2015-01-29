@@ -9,15 +9,18 @@ namespace LM
 	{
 	private:
 		SDL_Texture* m_pTexture;
-		int m_textureWidth;
-		int m_textureHeight;
-		int m_textureFrames;
+		int m_width;
+		int m_height;
+		int m_frameCount;
+		int m_animationSpeed;
 	public:
 		SDLTexture(int width, int height, int frames);
 		~SDLTexture();
-		int GetWidth() { return m_textureWidth; }
-		int GetHeight() { return m_textureHeight; }
-		int GetFrames() { return m_textureFrames; }
+		int GetWidth() { return m_width; }
+		int GetHeight() { return m_height; }
+		int GetFrameCount() { return m_frameCount; }
+		int GetAnimationSpeed() { return m_animationSpeed; }
+		int SetAnimationSpeed(int speed) { m_animationSpeed = speed; }
 	};
 
 }
