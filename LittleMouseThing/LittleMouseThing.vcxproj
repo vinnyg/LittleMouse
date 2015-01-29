@@ -72,19 +72,19 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LMVector2.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SDLRenderer.cpp" />
+    <ClCompile Include="LMSDLRenderer.cpp" />
     <ClCompile Include="SDLTexture.cpp" />
-    <ClCompile Include="SDLWindow.cpp" />
-    <ClCompile Include="SDLWindowFactory.cpp" />
+    <ClCompile Include="LMSDLWindow.cpp" />
+    <ClCompile Include="SDLWindowComponentInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="LMVector2.h" />
-    <ClInclude Include="SDLRenderer.h" />
+    <ClInclude Include="LMSDLRenderer.h" />
     <ClInclude Include="SDLTexture.h" />
-    <ClInclude Include="SDLWindow.h" />
+    <ClInclude Include="LMSDLWindow.h" />
     <ClInclude Include="SDLWindowEnums.h" />
-    <ClInclude Include="SDLWindowFactory.h" />
+    <ClInclude Include="SDLWindowComponentInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
