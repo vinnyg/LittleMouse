@@ -4,7 +4,15 @@ namespace LM
 {
 	LMSDLWindow::LMSDLWindow(std::string title, int w, int h)
 	{
-		m_pWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
+		if (!(SDL_WasInit(SDL_INIT_VIDEO) > 0))
+		{
+			SDL_Init(SDL_INIT_VIDEO);
+		}
+
+		if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
+		{
+			m_pWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
+		}
 	}
 
 	LMSDLWindow::~LMSDLWindow()
@@ -12,17 +20,17 @@ namespace LM
 		SDL_DestroyWindow(m_pWindow);
 	}
 
-	void LMSDLWindow::SetWindowTitle(std::string title)
+	void LMSDLWindow::SetTitle(std::string title)
 	{
 		SDL_SetWindowTitle(m_pWindow, title.c_str());
 	}
 
-	void LMSDLWindow::SetWindowSize(int w, int h)
+	void LMSDLWindow::SetSize(int w, int h)
 	{
 		SDL_SetWindowSize(m_pWindow, w, h);
 	}
 
-	void LMSDLWindow::SetWindowMode(SDLWindowMode mode)
+	void LMSDLWindow::SetMode(SDLWindowMode mode)
 	{
 		m_windowMode = mode;
 
@@ -50,24 +58,24 @@ namespace LM
 	}
 
 	//Change and apply window settings at once.
-	void LMSDLWindow::SetWindowSettings(std::string title, int w, int h, SDLWindowMode mode)
+	void LMSDLWindow::SetProperties(std::string title, int w, int h, SDLWindowMode mode)
 	{
 		//We do these checks out here to reduce function calls.
 		if (SDL_GetWindowTitle(m_pWindow) != title.c_str())
 		{
-			SetWindowTitle(title);
+			SetTitle(title);
 		}
 
 		int currentW, currentH;
 		SDL_GetWindowSize(m_pWindow, &currentW, &currentH);
 		if ((w != currentW) || (h != currentH))
 		{
-			SetWindowSize(w, h);
+			SetSize(w, h);
 		}
 
 		if (m_windowMode != mode)
 		{
-			SetWindowMode(mode);
+			SetMode(mode);
 		}
 	}
 }

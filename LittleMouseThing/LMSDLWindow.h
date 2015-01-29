@@ -14,11 +14,17 @@ namespace LM
 	public:
 		LMSDLWindow(std::string title, int w, int h);
 		~LMSDLWindow();
-		void SetWindowTitle(std::string title);
-		void SetWindowSize(int w, int h);
-		void SetWindowPosition(int x, int y);
-		void SetWindowMode(SDLWindowMode mode);
-		void SetWindowSettings(std::string title, int w, int h, SDLWindowMode mode);
+		void SetTitle(std::string title);
+		void SetSize(int w, int h);
+		void SetPosition(int x, int y);
+		void SetMode(SDLWindowMode mode);
+		void SetProperties(std::string title, int w, int h, SDLWindowMode mode);
+
+		std::string GetTitle() { return SDL_GetWindowTitle(m_pWindow); }
+		void GetSize(int &w, int &h) { return SDL_GetWindowSize(m_pWindow, &w, &h); }
+		void GetPosition(int &x, int &y) { return SDL_GetWindowPosition(m_pWindow, &x, &y); }
+		SDLWindowMode GetMode() { return m_windowMode; }
+
 		SDL_Window* GetWindow() { return m_pWindow; }
 	};
 }
