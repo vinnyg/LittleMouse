@@ -12,15 +12,15 @@ namespace LM
 		int m_width;
 		int m_height;
 		int m_frameCount;
-		int m_animationSpeed;
+		//float m_animationSpeed;
 	public:
 		SDLTexture(int width, int height, int frames);
 		~SDLTexture();
 		int GetWidth() { return m_width; }
 		int GetHeight() { return m_height; }
 		int GetFrameCount() { return m_frameCount; }
-		int GetAnimationSpeed() { return m_animationSpeed; }
-		int SetAnimationSpeed(int speed) { m_animationSpeed = speed; }
+		//float GetAnimationSpeed() { return m_animationSpeed; }
+		//float SetAnimationSpeed(float speed) { m_animationSpeed = speed; }
 	};
 
 }
