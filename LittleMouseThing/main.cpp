@@ -1,12 +1,12 @@
-#include "SDLWindowFactory.h"
+#include "SDLWindowComponentInterface.h"
 
 
 int main(int argc, char* args[])
 {
-	LM::SDLWindowFactory* engine = new LM::SDLWindowFactory();
-	engine->CreateWindow("someName", "Window", 640, 480);
+	LM::SDLWindowComponentInterface* video = new LM::SDLWindowComponentInterface();
+	video->CreateWindow("someName", "Window", 640, 480);
 
-	delete engine;
+	delete video;
 
 	return 0;
 }

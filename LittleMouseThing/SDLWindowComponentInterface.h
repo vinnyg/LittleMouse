@@ -1,22 +1,21 @@
-lass#ifndef SDLWINDOWFACTORY_H
-#define SDLWINDOWFACTORY_H
+#ifndef SDLWINDOWCOMPONENTINTERFACE_H
+#define SDLWINDOWCOMPONENTINTERFACE_H
 
 #include <memory>
 //#include <map>
 #include <vector>
-#include "SDLWindow.h"
+#include "LMSDLWindow.h"
 
 namespace LM 
 {
-	class SDLWindowFactory
+	class SDLWindowComponentInterface
 	{
 	private:
-		std::vector<std::unique_ptr<SDLWindow>> m_windowVector;
+		std::vector<std::unique_ptr<LMSDLWindow>> m_windowVector;
 		//std::map<std::string, std::unique_ptr<SDLWindow>> m_windowMap;
 	public:
-		SDLWindowFactory();
-		~SDLWindowFactory();
-		//Window Subsystem
+		SDLWindowComponentInterface();
+		~SDLWindowComponentInterface();
 		void CreateWindow(std::string windowRef, std::string title, int w, int h);
 		void DestroyWindow(std::string windowRef);
 	};
