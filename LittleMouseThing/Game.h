@@ -2,8 +2,6 @@
 #define GAME_H
 #include<SDL.h>
 
-//This is a change.
-
 class Game
 {
 private:
