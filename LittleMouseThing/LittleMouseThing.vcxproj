@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LMPoint.cpp" />
+    <ClCompile Include="LMRect.cpp" />
     <ClCompile Include="LMVector2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="LMSDLRenderer.cpp" />
@@ -80,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Geometry.h" />
+    <ClInclude Include="LMRect.h" />
+    <ClInclude Include="LMWrapper.h" />
     <ClInclude Include="LMPoint.h" />
     <ClInclude Include="LMVector2.h" />
     <ClInclude Include="LMSDLRenderer.h" />
