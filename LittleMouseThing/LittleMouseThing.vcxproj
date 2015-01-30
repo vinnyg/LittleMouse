@@ -70,26 +70,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="LMPoint.cpp" />
-    <ClCompile Include="LMRect.cpp" />
-    <ClCompile Include="LMVector2.cpp" />
+    <ClCompile Include="Point2.cpp" />
+    <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="LMSDLRenderer.cpp" />
+    <ClCompile Include="SDLRenderer.cpp" />
     <ClCompile Include="SDLTexture.cpp" />
-    <ClCompile Include="LMSDLWindow.cpp" />
+    <ClCompile Include="SDLWindow.cpp" />
     <ClCompile Include="SDLWindowComponentInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Geometry.h" />
-    <ClInclude Include="LMRect.h" />
+    <ClInclude Include="Rect.h" />
     <ClInclude Include="LMWrapper.h" />
-    <ClInclude Include="LMPoint.h" />
-    <ClInclude Include="LMVector2.h" />
-    <ClInclude Include="LMSDLRenderer.h" />
+    <ClInclude Include="Point2.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="SDLRenderer.h" />
     <ClInclude Include="SDLRenderFlipEnum.h" />
     <ClInclude Include="SDLTexture.h" />
-    <ClInclude Include="LMSDLWindow.h" />
+    <ClInclude Include="SDLWindow.h" />
     <ClInclude Include="SDLWindowModeEnum.h" />
     <ClInclude Include="SDLWindowComponentInterface.h" />
   </ItemGroup>

@@ -1,34 +1,34 @@
-#include "LMVector2.h"
+#include "Vector2.h"
 
 namespace LM
 {
-	LMVector2::LMVector2()
+	Vector2::Vector2()
 	{
 		lengthX = 0;
 		lengthY = 0;
 	}
 
-	LMVector2::LMVector2(LM::LMPoint p1, LM::LMPoint p2)
+	Vector2::Vector2(LM::Point2 p1, LM::Point2 p2)
 	{
 		lengthX = p2.GetX() - p1.GetX();
 		lengthY = p2.GetY() - p1.GetY();
 	}
 
-	LMVector2::~LMVector2()
+	Vector2::~Vector2()
 	{
 	}
 
-	float LMVector2::GetMagnitude()
+	float Vector2::GetMagnitude()
 	{
 		return sqrt(float((lengthX * lengthX) + (lengthY * lengthY)));
 	}
 
-	LMVector2 LMVector2::GetNormal()
+	Vector2 Vector2::GetNormal()
 	{
-		return LMVector2(-lengthY, lengthX);
+		return Vector2(-lengthY, lengthX);
 	}
 
-	float LMVector2::GetDotProduct(LMVector2 &operandVector)
+	float Vector2::GetDotProduct(Vector2 &operandVector)
 	{
 		return lengthX * operandVector.GetX() + lengthY * operandVector.GetY();
 	}

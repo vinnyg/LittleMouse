@@ -1,8 +1,8 @@
-#include "LMSDLWindow.h"
+#include "SDLWindow.h"
 
 namespace LM
 {
-	LMSDLWindow::LMSDLWindow(std::string title, int w, int h)
+	SDLWindow::SDLWindow(std::string title, int w, int h)
 	{
 		if (!(SDL_WasInit(SDL_INIT_VIDEO) > 0))
 		{
@@ -15,22 +15,22 @@ namespace LM
 		}
 	}
 
-	LMSDLWindow::~LMSDLWindow()
+	SDLWindow::~SDLWindow()
 	{
 		SDL_DestroyWindow(m_pWindow);
 	}
 
-	void LMSDLWindow::SetTitle(std::string title)
+	void SDLWindow::SetTitle(std::string title)
 	{
 		SDL_SetWindowTitle(m_pWindow, title.c_str());
 	}
 
-	void LMSDLWindow::SetSize(int w, int h)
+	void SDLWindow::SetSize(int w, int h)
 	{
 		SDL_SetWindowSize(m_pWindow, w, h);
 	}
 
-	void LMSDLWindow::SetMode(SDLWindowMode mode)
+	void SDLWindow::SetMode(SDLWindowMode mode)
 	{
 		m_windowMode = mode;
 
@@ -58,7 +58,7 @@ namespace LM
 	}
 
 	//Change and apply window settings at once.
-	void LMSDLWindow::SetProperties(std::string title, int w, int h, SDLWindowMode mode)
+	void SDLWindow::SetProperties(std::string title, int w, int h, SDLWindowMode mode)
 	{
 		//We do these checks out here to reduce function calls.
 		if (SDL_GetWindowTitle(m_pWindow) != title.c_str())

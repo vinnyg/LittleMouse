@@ -1,5 +1,5 @@
 #pragma once
 
-#include "LMVector2.h"
-#include "LMPoint.h"
-#include "LMRect.h"
+#include "Vector2.h"
+#include "Point2.h"
+#include "Rect.h"

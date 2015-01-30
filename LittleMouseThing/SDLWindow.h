@@ -1,19 +1,19 @@
-#ifndef LMSDLWINDOW_H
-#define LMSDLWINDOW_H
+#ifndef SDLWINDOW_H
+#define SDLWINDOW_H
 #include <SDL.h>
 #include <string>
 #include "SDLWindowModeEnum.h"
 
 namespace LM
 {
-	class LMSDLWindow
+	class SDLWindow
 	{
 	private:
 		SDL_Window* m_pWindow;
 		SDLWindowMode m_windowMode;
 	public:
-		LMSDLWindow(std::string title, int w, int h);
-		~LMSDLWindow();
+		SDLWindow(std::string title, int w, int h);
+		~SDLWindow();
 		void SetTitle(std::string title);
 		void SetSize(int w, int h);
 		void SetPosition(int x, int y);
