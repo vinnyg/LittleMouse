@@ -21,11 +21,11 @@ namespace LM
 		int GetX() const { return x; }
 		int GetY() const { return y; }
 
-		Point2 &operator+(const Point2 rhs);
-		Point2 &operator-(const Point2 rhs);
-		Point2 &operator*(const int rhs);
-		Point2 &operator/(const int rhs);
-		Point2 &operator=(const Point2 rhs);
+		Point2 operator+(const Point2 rhs);
+		Point2 operator-(const Point2 rhs);
+		Point2 operator*(const int rhs);
+		Point2 operator/(const int rhs);
+		Point2 operator=(const Point2 rhs);
 	};
 
 }

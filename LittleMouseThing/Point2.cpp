@@ -26,22 +26,22 @@ namespace LM
 		y = point.y;
 	}
 
-	Point2 &Point2::operator+(const Point2 rhs)
+	Point2 Point2::operator+(const Point2 rhs)
 	{
 		return Point2(x + rhs.x, y + rhs.y);
 	}
 
-	Point2 &Point2::operator-(const Point2 rhs)
+	Point2 Point2::operator-(const Point2 rhs)
 	{
 		return Point2(x - rhs.x, y - rhs.y);
 	}
 
-	Point2 &Point2::operator*(const int rhs)
+	Point2 Point2::operator*(const int rhs)
 	{
 		return Point2(x * rhs, y * rhs);
 	}
 
-	Point2 &Point2::operator/(const int rhs)
+	Point2 Point2::operator/(const int rhs)
 	{
 		return Point2(x / rhs, y / rhs);
 	}
