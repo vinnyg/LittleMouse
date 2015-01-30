@@ -2,32 +2,29 @@
 
 namespace LM
 {
-	SDLTexture::SDLTexture(SDL_Texture* texture)
+	SDLTexture::SDLTexture(SDL_Texture* texture) : m_pTexture(texture), m_frameCount(1)
 	{
-		m_pTexture = texture;
 		SDL_QueryTexture(m_pTexture, &m_format, &m_access, &m_width, &m_height);
-		m_frameCount = 1;
 	}
 
-	SDLTexture::SDLTexture(SDL_Texture* texture, int width, int height)
+	SDLTexture::SDLTexture(SDL_Texture* texture, int width, int height) : m_pTexture(texture), m_width(width), m_height(height), m_frameCount(1)
 	{
-		m_pTexture = texture;
-		m_width = width;
-		m_height = height;
 		SDL_QueryTexture(m_pTexture, &m_format, &m_access, nullptr, nullptr);
-		m_frameCount = 1;
 	}
 
-	SDLTexture::SDLTexture(SDL_Texture* texture, int frames)
+	SDLTexture::SDLTexture(SDL_Texture* texture, int frames) : m_pTexture(texture), m_frameCount((frames > 0 ? frames : 1))
 	{
-		//m_animationSpeed = 1.0f;
-		//m_pTexture = SDL_CreateTexture();
+		int tmp_width, tmp_height;
+		SDL_QueryTexture(m_pTexture, &m_format, &m_access, (m_frameCount > 1) ? &tmp_width : &m_width, (m_frameCount > 1) ? &tmp_height : &m_height);
+		if (m_frameCount > 1)
+		{
+			m_width = tmp_width / m_frameCount;
+			m_height = tmp_height / m_frameCount;
+		}
 	}
 
 	SDLTexture::SDLTexture(SDL_Texture* texture, int width, int height, int frames) : m_pTexture(texture), m_width(width), m_height(height), m_frameCount(frames)
 	{
-		//m_animationSpeed = 1.0f;
-		//m_pTexture = SDL_CreateTexture();
 	}
 
 	SDLTexture::~SDLTexture()
