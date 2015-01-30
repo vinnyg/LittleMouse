@@ -10,7 +10,7 @@ namespace LM
 		h = 0;
 	}
 
-	LMRect(const SDL_Rect &rect)
+	LMRect::LMRect(const SDL_Rect &rect)
 	{
 		x = rect.x;
 		y = rect.y;
@@ -18,7 +18,7 @@ namespace LM
 		h = rect.h;
 	}
 
-	LMRect(const LM_Rect &rect)
+	LMRect::LMRect(const LMRect &rect)
 	{
 		x = rect.x;
 		y = rect.y;
@@ -26,7 +26,7 @@ namespace LM
 		h = rect.h;
 	}
 
-	LMRect(const LMPoint &position, LMPoint &dimension)
+	LMRect::LMRect(const LMPoint &position, LMPoint &dimension)
 	{
 		x = position.GetX();
 		y = position.GetY();
@@ -34,13 +34,13 @@ namespace LM
 		h = dimension.GetY();
 	}
 
-	void SetPosition(Point &pos)
+	void LMRect::SetPosition(LMPoint &pos)
 	{
 		x = pos.GetX();
 		y = pos.GetY();
 	}
 
-	void SetDimension(Point &dimension)
+	void LMRect::SetDimension(LMPoint &dimension)
 	{
 		w = dimension.GetX();
 		h = dimension.GetY();
