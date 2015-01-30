@@ -22,7 +22,6 @@ namespace LM
 		//float GetAnimationSpeed() { return m_animationSpeed; }
 		//float SetAnimationSpeed(float speed) { m_animationSpeed = speed; }
 	};
-
 }
 
 #endif
