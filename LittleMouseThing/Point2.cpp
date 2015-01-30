@@ -2,28 +2,20 @@
 
 namespace LM
 {
-	Point2::Point2()
+	Point2::Point2() : x(0), y(0)
 	{
-		x = 0;
-		y = 0;
 	}
 
-	Point2::Point2(int _x, int _y)
+	Point2::Point2(int _x, int _y) : x(_x), y(_y)
 	{
-		x = _x;
-		y = _y;
 	}
 
-	Point2::Point2(const Point2 &point)
+	Point2::Point2(const Point2 &point) : x(point.x), y(point.y)
 	{
-		x = point.x;
-		y = point.y;
 	}
 
-	Point2::Point2(const SDL_Point &point)
+	Point2::Point2(const SDL_Point &point) : x(point.x), y(point.y)
 	{
-		x = point.x;
-		y = point.y;
 	}
 
 	Point2 Point2::operator+(const Point2 rhs)
