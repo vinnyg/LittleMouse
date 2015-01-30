@@ -10,6 +10,11 @@ namespace LM
 		h = 0;
 	}
 
+	Rect::Rect(const int _x, const int _y, const int _w, const int _h) : x(_x), y(_y), w(_w), h(_h)
+	{
+	}
+
+
 	Rect::Rect(const SDL_Rect &rect)
 	{
 		x = rect.x;
@@ -44,5 +49,15 @@ namespace LM
 	{
 		w = dimension.GetX();
 		h = dimension.GetY();
+	}
+
+	Point Rect::GetPosition()
+	{
+		return Point(x, y);
+	}
+
+	Point Rect::GetDimensions()
+	{
+		return Point(x, y);
 	}
 }

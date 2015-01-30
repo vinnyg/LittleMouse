@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SDL.h>
-#include "LMPoint2.h"
+#include "Point2.h"
 
 namespace LM
 {
@@ -17,6 +17,9 @@ namespace LM
 		Rect(const SDL_Rect &rect);
 		Rect(const Rect &rect);
 		Rect(const Point2 &position, Point2 &dimension);
+
+		Rect(const int _x, const int _y, const int _w, const int _h);
+
 		void SetX(int _x) { x = _x; }
 		void SetY(int _y) { y = _y; }
 		void SetWidth(int _w) { w = _w; }
@@ -27,5 +30,7 @@ namespace LM
 		int GetY() { return y; }
 		int GetWidth() { return w; }
 		int GetHeight() { return h; }
+		Point GetPosition();
+		Point GetDimensions();
 	};
 }
