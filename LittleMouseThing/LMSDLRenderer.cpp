@@ -1,7 +1,5 @@
 #include "LMSDLRenderer.h"
 
-//This is a change.
-
 namespace LM
 {
 	LMSDLRenderer::LMSDLRenderer(SDL_Window* window, int index, Uint32 flags)
