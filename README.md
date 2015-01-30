@@ -1,2 +1,2 @@
 # LittleMouse
-Currently a WIP C++ SDL Wrapper
+WIP C++ SDL Wrapper
