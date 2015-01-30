@@ -14,6 +14,7 @@ namespace LM
 		int h;
 	public:
 		LMRect();
+		LMRect(const int _x, const int _y, const int _w, const int _h);
 		LMRect(const SDL_Rect &rect);
 		LMRect(const LMRect &rect);
 		LMRect(const LMPoint &position, LMPoint &dimension);
@@ -27,5 +28,7 @@ namespace LM
 		int GetY() { return y; }
 		int GetWidth() { return w; }
 		int GetHeight() { return h; }
+		LMPoint GetPosition();
+		LMPoint GetDimensions();
 	};
 }
