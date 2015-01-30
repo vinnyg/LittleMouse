@@ -30,7 +30,7 @@ namespace LM
 		int GetY() { return y; }
 		int GetWidth() { return w; }
 		int GetHeight() { return h; }
-		Point GetPosition();
-		Point GetDimensions();
+		Point2 GetPosition();
+		Point2 GetDimensions();
 	};
 }

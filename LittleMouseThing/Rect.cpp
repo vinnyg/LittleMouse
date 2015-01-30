@@ -51,13 +51,13 @@ namespace LM
 		h = dimension.GetY();
 	}
 
-	Point Rect::GetPosition()
+	Point2 Rect::GetPosition()
 	{
-		return Point(x, y);
+		return Point2(x, y);
 	}
 
-	Point Rect::GetDimensions()
+	Point2 Rect::GetDimensions()
 	{
-		return Point(x, y);
+		return Point2(x, y);
 	}
 }
