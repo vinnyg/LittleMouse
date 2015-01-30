@@ -2,7 +2,7 @@
 #define LMSDLWINDOW_H
 #include <SDL.h>
 #include <string>
-#include "SDLWindowEnums.h"
+#include "SDLWindowModeEnum.h"
 
 namespace LM
 {

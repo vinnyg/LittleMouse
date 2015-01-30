@@ -36,19 +36,19 @@ namespace LM
 
 		switch (m_windowMode)
 		{
-		case SDLWindowMode::WM_WINDOWED:
+		case SDLWindowMode::kWindowed:
 		{
 			SDL_SetWindowBordered(m_pWindow, SDL_FALSE);
 			SDL_SetWindowFullscreen(m_pWindow, SDL_FALSE);
 		}
 		break;
-		case SDLWindowMode::WM_BORDERLESS:
+		case SDLWindowMode::kBorderless:
 		{
 			SDL_SetWindowBordered(m_pWindow, SDL_TRUE);
 			SDL_SetWindowFullscreen(m_pWindow, SDL_FALSE);
 		}
 		break;
-		case SDLWindowMode::WM_FULLSCREEN:
+		case SDLWindowMode::kFullscreen:
 		{
 			SDL_SetWindowBordered(m_pWindow, SDL_FALSE);
 			SDL_SetWindowFullscreen(m_pWindow, SDL_TRUE);
