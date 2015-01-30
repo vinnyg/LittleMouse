@@ -4,14 +4,14 @@
 #include <memory>
 //#include <map>
 #include <vector>
-#include "LMSDLWindow.h"
+#include "SDLWindow.h"
 
 namespace LM 
 {
 	class SDLWindowComponentInterface
 	{
 	private:
-		std::vector<std::unique_ptr<LMSDLWindow>> m_windowVector;
+		std::vector<std::unique_ptr<SDLWindow>> m_windowVector;
 		//std::map<std::string, std::unique_ptr<SDLWindow>> m_windowMap;
 	public:
 		SDLWindowComponentInterface();

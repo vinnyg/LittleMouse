@@ -1,25 +1,25 @@
 #pragma once
 
 #include <math.h>
-#include "LMPoint.h"
+#include "Point2.h"
 
 namespace LM
 {
-	class LMVector2
+	class Vector2
 	{
 	private:
 		int lengthX;
 		int lengthY;
 	public:
-		LMVector2();
-		LMVector2(int x, int y) : lengthX(x), lengthY(y) {};
-		LMVector2(LMPoint p1, LMPoint p2);
-		~LMVector2();
+		Vector2();
+		Vector2(int x, int y) : lengthX(x), lengthY(y) {};
+		Vector2(Point2 p1, Point2 p2);
+		~Vector2();
 		int GetX() const { return lengthX; }
 		int GetY() const { return lengthY; }
 		float GetMagnitude();
-		LMVector2 GetNormal();
-		float GetDotProduct(LMVector2 &operandVector);
+		Vector2 GetNormal();
+		float GetDotProduct(Vector2 &operandVector);
 		//LMVector2 &operator= (const LMVector2 &rhs) const;
 		//LMVector2 &operator+ (const LMVector2 &rhs) const;
 		//LMVector2 &operator- (const LMVector2 &rhs) const;

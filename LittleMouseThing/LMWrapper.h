@@ -1,5 +1,5 @@
 #pragma once
 
-#include "LMSDLWindow.h"
-#include "LMSDLRenderer.h"
+#include "SDLWindow.h"
+#include "SDLRenderer.h"
 #include "Geometry.h"
