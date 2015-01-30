@@ -87,9 +87,10 @@
     <ClInclude Include="LMPoint.h" />
     <ClInclude Include="LMVector2.h" />
     <ClInclude Include="LMSDLRenderer.h" />
+    <ClInclude Include="SDLRenderFlipEnum.h" />
     <ClInclude Include="SDLTexture.h" />
     <ClInclude Include="LMSDLWindow.h" />
-    <ClInclude Include="SDLWindowEnums.h" />
+    <ClInclude Include="SDLWindowModeEnum.h" />
     <ClInclude Include="SDLWindowComponentInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

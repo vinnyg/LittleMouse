@@ -47,9 +47,6 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SDLWindowEnums.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SDLTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,6 +72,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLWindowModeEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLRenderFlipEnum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,6 +3,8 @@
 
 #include <SDL.h>
 #include "Geometry.h"
+#include "SDLRenderFlipEnum.h"
+
 
 namespace LM
 {
@@ -13,7 +15,7 @@ namespace LM
 	public:
 		LMSDLRenderer(SDL_Window* window, int index = -1, Uint32 flags = 0);
 		~LMSDLRenderer();
-		void RenderCopy(SDL_Texture* tex, LMRect &srcrect, LMRect &dstrect, LMPoint &center, double angle = 0.0);
+		void RenderCopy(SDL_Texture* tex, LMRect &srcrect, LMRect &dstrect, LMPoint &center, double angle, SDLRenderFlipEnum flip);
 		void Render();	//Defunct
 		void SetDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 		void Clear();

@@ -26,9 +26,9 @@ namespace LM
 	}
 
 	//Add a texture to the draw queue with additional parameters.
-	void LMSDLRenderer::RenderCopy(SDL_Texture* tex, LMRect &srcrect, LMRect &dstrect, LMPoint &center, double angle = 0.0)
+	void LMSDLRenderer::RenderCopy(SDL_Texture* tex, LMRect &srcrect, LMRect &dstrect, LMPoint &center, double angle, SDLRenderFlipEnum flip)
 	{
-		SDL_RenderCopyEx(m_pRenderer, tex, (&srcrect != nullptr) ? &srcrect : nullptr, (&dstrect != nullptr) ? &dstrect : nullptr, angle, (&center != nullptr) ? &center : nullptr, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(m_pRenderer, tex, (&srcrect != nullptr) ? &srcrect : nullptr, (&dstrect != nullptr) ? &dstrect : nullptr, angle, (&center != nullptr) ? &center : nullptr, static_cast<SDL_RendererFlip>(flip));
 	}
 
 	void LMSDLRenderer::SetDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
