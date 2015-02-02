@@ -30,6 +30,11 @@ namespace LM
 		SDL_SetWindowSize(m_pWindow, w, h);
 	}
 
+	void SDLWindow::SetPosition(int x, int y)
+	{
+		SDL_SetWindowPosition(m_pWindow, x, y);
+	}
+
 	void SDLWindow::SetMode(SDLWindowMode mode)
 	{
 		m_windowMode = mode;
