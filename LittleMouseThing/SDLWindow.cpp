@@ -60,7 +60,6 @@ namespace LM
 	//Change and apply window settings at once.
 	void SDLWindow::SetProperties(std::string title, int w, int h, SDLWindowMode mode)
 	{
-		//We do these checks out here to reduce function calls.
 		if (SDL_GetWindowTitle(m_pWindow) != title.c_str())
 		{
 			SetTitle(title);
