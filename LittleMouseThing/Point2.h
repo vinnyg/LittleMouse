@@ -1,5 +1,4 @@
-#ifndef POINT2_H
-#define POINT2_H
+#pragma once
 
 #include <SDL.h>
 
@@ -29,5 +28,3 @@ namespace LM
 	};
 
 }
-
-#endif
