@@ -1,5 +1,4 @@
-#ifndef SDLWINDOWCOMPONENTINTERFACE_H
-#define SDLWINDOWCOMPONENTINTERFACE_H
+#pragma once
 
 #include <memory>
 //#include <map>

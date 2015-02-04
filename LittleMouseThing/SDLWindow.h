@@ -1,5 +1,5 @@
-#ifndef SDLWINDOW_H
-#define SDLWINDOW_H
+#pragma once
+
 #include <SDL.h>
 #include <string>
 #include "SDLWindowModeEnum.h"
@@ -28,5 +28,3 @@ namespace LM
 		SDL_Window* GetWindow() { return m_pWindow; }
 	};
 }
-
-#endif
