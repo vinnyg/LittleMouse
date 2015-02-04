@@ -1,10 +1,9 @@
-#ifndef SDLRENDERER_H
-#define SDLRENDERER_H
+#pragma once
 
 #include <SDL.h>
 #include "Geometry.h"
 #include "SDLRenderFlipEnum.h"
-
+#include "SDLTexture.h"
 
 namespace LM
 {
@@ -18,11 +17,12 @@ namespace LM
 		void RenderCopy(SDL_Texture* tex, Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip);
 
 		void Render();	//Defunct
+
+		SDL_Renderer* GetRenderer() { return m_pRenderer; }
 		void SetDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 		void Clear();
 		void Present();
 		void SetTarget(SDL_Texture* tex);
+		SDLTexture* BindWithTexture(SDLTexture* texture);
 	};
 }
-
-#endif
