@@ -19,4 +19,3 @@ namespace LM
 		void DestroyWindow(std::string windowRef);
 	};
 }
-#endif
