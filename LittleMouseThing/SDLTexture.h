@@ -1,5 +1,4 @@
-#ifndef SDLTEXTURE_H
-#define SDLTEXTURE_H
+#pragma once
 
 #include <SDL.h>
 #include "Geometry.h"
@@ -25,12 +24,10 @@ namespace LM
 		~SDLTexture();
 		int QueryTexture(int* width, int* height);
 		int QueryTexture(Uint32* format, int* access, int* width, int* height);
-		int GetWidth() { return m_width; }
-		int GetHeight() { return m_height; }
+		int GetWidth() { return m_width; }	//Returns the width of an individual frame.
+		int GetHeight() { return m_height; }	//Returns the height of an individual frame.
 		int GetFrameCount() { return m_frameCount; }
 		//float GetAnimationSpeed() { return m_animationSpeed; }
 		//float SetAnimationSpeed(float speed) { m_animationSpeed = speed; }
 	};
 }
-
-#endif
