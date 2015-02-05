@@ -16,10 +16,10 @@ namespace LM
 
 	SDLSurface::~SDLSurface()
 	{
-		Free();
+		FreeSurface();
 	}
 
-	void SDLSurface::Free()
+	void SDLSurface::FreeSurface()
 	{
 		SDL_FreeSurface(m_pSurface);
 	}
@@ -40,7 +40,7 @@ namespace LM
 
 	int SDLSurface::Blit(Rect &srcRect, SDLSurface* dst, Rect &dstRect)
 	{
-		SDL_BlitSurface(m_pSurface, &srcRect, dst->Get(), &dstRect);
+		SDL_BlitSurface(m_pSurface, &srcRect, dst->GetSurface(), &dstRect);
 	}
 
 	int SDLSurface::GetAlphaMod(Uint8* alpha) const
@@ -58,7 +58,7 @@ namespace LM
 		return SDL_GetSurfaceBlendMode(m_pSurface, blendMode);
 	}
 
-	SDL_Surface* SDLSurface::Get() const
+	SDL_Surface* SDLSurface::GetSurface() const
 	{
 		return m_pSurface;
 	}

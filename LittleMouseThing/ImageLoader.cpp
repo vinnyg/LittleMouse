@@ -10,21 +10,22 @@ namespace LM
 
 	ImageLoader::~ImageLoader()
 	{
-		std::vector<SDLSurface*>::iterator it = m_images.begin();
-		while (it != m_images.end())
-		{
-			delete *it;
-			++it;
-		}
-		m_images.clear();
+		
 	}
 
-	SDLSurface* ImageLoader::CreateSurfaceFromFile(std::string filepath)
+	/*SDLTexture* LoadTexture(std::string filepath, SDLRenderer* renderer)
 	{
 		SDL_Surface* img = SDL_LoadBMP(filepath.c_str());
-		SDLSurface* surf = new SDLSurface(img);
-		m_images.push_back(surf);
+		std::shared_ptr<SDL_Texture> tex = std::make_shared<SDL_Texture>(SDL_CreateTextureFromSurface(renderer->GetRenderer(), img));
+		SDLTexture* texture;
+		//SDL_DestroySurface
+	}*/
 
-		return surf;
+	SDLTexture* LoadImage(std::string filepath)
+	{
+		SDL_Surface* img = SDL_LoadBMP(filepath.c_str());
+		/*std::shared_ptr<SDL_Texture> tex = std::make_shared<SDL_Texture>(SDL_CreateTextureFromSurface(renderer->GetRenderer(), img));*/
+		SDLTexture* texture;
+		//SDL_DestroySurface
 	}
 }
