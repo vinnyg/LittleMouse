@@ -15,9 +15,72 @@ namespace LM
 		}
 	}
 
+	SDLWindow::SDLWindow(const void* data)
+	{
+		m_pWindow = SDL_CreateWindowFrom(data);
+	}
+
 	SDLWindow::~SDLWindow()
 	{
-		SDL_DestroyWindow(m_pWindow);
+		Destroy();
+	}
+
+	void SDLWindow::Destroy()
+	{
+		if (m_pWindow != nullptr);
+		{
+			SDL_DestroyWindow(m_pWindow);
+		}
+	}
+
+	void* SDLWindow::GetData(const char* name)
+	{
+		return SDL_GetWindowData(m_pWindow, name);
+	}
+
+	float SDLWindow::GetBrightness()
+	{
+		return SDL_GetWindowBrightness(m_pWindow);
+	}
+
+	int SDLWindow::GetDisplayIndex()
+	{
+		return SDL_GetWindowDisplayIndex(m_pWindow);
+	}
+
+	int SDLWindow::GetDisplayMode(SDL_DisplayMode* mode)
+	{
+		return SDL_GetWindowDisplayMode(m_pWindow, mode);
+	}
+
+	int SDLWindow::GetGammaRamp(Uint16* red, Uint16* green, Uint16* blue)
+	{
+		return SDL_GetWindowGammaRamp(m_pWindow, red, green, blue);
+	}
+
+	int SDLWindow::GetGrabMode()
+	{
+		return SDL_GetWindowGrab(m_pWindow);
+	}
+
+	Uint32 SDLWindow::GetID()
+	{
+		return SDL_GetWindowID(m_pWindow);
+	}
+
+	void SDLWindow::GetMaximumSize(int* w, int* h)
+	{
+		SDL_GetWindowMaximumSize(m_pWindow, w, h);
+	}
+
+	void SDLWindow::GetMinimumSize(int* w, int* h)
+	{
+		SDL_GetWindowMinimumSize(m_pWindow, w, h);
+	}
+
+	Uint32 SDLWindow::GetPixelFormat()
+	{
+		return SDL_GetWindowPixelFormat(m_pWindow);
 	}
 
 	std::string SDLWindow::GetTitle() const
@@ -106,5 +169,10 @@ namespace LM
 		{
 			SetMode(mode);
 		}
+	}
+
+	SDL_bool SDLWindow::GetWMInfo(SDL_SysWMinfo* info)
+	{
+		return SDL_GetWindowWMInfo(m_pWindow, info);
 	}
 }
