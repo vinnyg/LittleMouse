@@ -29,19 +29,54 @@ namespace LM
 
 	SDLTexture::~SDLTexture()
 	{
+		Destroy();
+	}
+
+	void SDLTexture::Destroy()
+	{
 		if (m_pTexture != nullptr)
 		{
 			SDL_DestroyTexture(m_pTexture);
 		}
 	}
 
-	int SDLTexture::QueryTexture(int* width, int* height)
+	int SDLTexture::Query(int* width, int* height)
 	{
 		return SDL_QueryTexture(m_pTexture, nullptr, nullptr, width, height);
 	}
 
-	int SDLTexture::QueryTexture(Uint32* format, int* access, int* width, int* height)
+	int SDLTexture::Query(Uint32* format, int* access, int* width, int* height)
 	{
 		return SDL_QueryTexture(m_pTexture, format, access, width, height);
+	}
+
+	int SDLTexture::GetWidth() const
+	{
+		return m_width;
+	}
+
+	int SDLTexture::GetHeight() const
+	{
+		return m_height;
+	}
+
+	int SDLTexture::GetFrameCount() const
+	{
+		return m_frameCount;
+	}
+
+	int SDLTexture::SetAlphaMod(Uint8 alpha)
+	{
+		return SDL_SetTextureAlphaMod(m_pTexture, alpha);
+	}
+
+	int SDLTexture::SetColorMod(Uint8 r, Uint8 g, Uint8 b)
+	{
+		return SDL_SetTextureColorMod(m_pTexture, r, g, b);
+	}
+
+	int SDLTexture::SetBlendMode(SDL_BlendMode blendMode)
+	{
+		return SDL_SetTextureBlendMode(m_pTexture, blendMode);
 	}
 }

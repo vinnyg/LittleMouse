@@ -20,6 +20,31 @@ namespace LM
 		SDL_DestroyWindow(m_pWindow);
 	}
 
+	std::string SDLWindow::GetTitle() const
+	{
+		return SDL_GetWindowTitle(m_pWindow);
+	}
+
+	void SDLWindow::GetSize(int &w, int &h) const
+	{
+		return SDL_GetWindowSize(m_pWindow, &w, &h);
+	}
+
+	void SDLWindow::GetPosition(int &x, int &y) const
+	{ 
+		return SDL_GetWindowPosition(m_pWindow, &x, &y); 
+	}
+
+	SDLWindowMode SDLWindow::GetMode() const
+	{
+		return m_windowMode;
+	}
+
+	SDL_Window* SDLWindow::Get() const
+	{
+		return m_pWindow;
+	}
+
 	void SDLWindow::SetTitle(std::string title)
 	{
 		SDL_SetWindowTitle(m_pWindow, title.c_str());

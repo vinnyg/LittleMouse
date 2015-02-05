@@ -2,9 +2,8 @@
 
 #include <string>
 #include <vector>
-#include <memory>
-#include "SDLTexture.h"
-//#include "SDLRenderer.h"
+//#include <memory>
+#include "SDLSurface.h"
 
 namespace LM
 {
@@ -13,13 +12,12 @@ namespace LM
 	{
 	private:
 		int m_imageCount;
-		std::vector<SDLTexture*> m_images;
+		std::vector<SDLSurface*> m_images;
 	public:
 		ImageLoader();
 		~ImageLoader();
 		//SDLTexture* LoadTexture(std::string filepath, SDLRenderer* renderer);
-		SDLTexture* LoadImage(std::string filepath);
+		SDLSurface* CreateSurfaceFromFile(std::string filepath);
 		int GetImageCount() { return m_imageCount; }
 	};
-
 }
