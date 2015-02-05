@@ -9,8 +9,8 @@ namespace LM
 	{
 	private:
 		SDL_Texture* m_pTexture;
-		int m_width;
-		int m_height;
+		int m_frameWidth;
+		int m_frameHeight;
 		int m_frameCount;
 		Uint32 m_format;
 		int m_access;
@@ -18,9 +18,9 @@ namespace LM
 		//float m_animationSpeed;
 	public:
 		SDLTexture(SDL_Texture* texture);
-		SDLTexture(SDL_Texture* texture, int width, int height);
-		SDLTexture(SDL_Texture* texture, int frames);
-		SDLTexture(SDL_Texture* texture, int width, int height, int frames);
+		SDLTexture(SDL_Texture* texture, int frameWidth, int frameHeight);
+		SDLTexture(SDL_Texture* texture, int frameCount);
+		SDLTexture(SDL_Texture* texture, int frameWidth, int frameHeight, int frameCount);
 		~SDLTexture();
 		void Destroy();
 		int Query(int* width, int* height);
