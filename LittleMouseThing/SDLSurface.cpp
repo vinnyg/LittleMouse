@@ -4,14 +4,14 @@ namespace LM
 {
 	SDLSurface::SDLSurface(SDL_Surface* surface) : m_pSurface(surface) {}
 
-	SDLSurface::SDLSurface(int width, int height, int depth, Uint32 Rmask, Uint32 GMask, Uint32 Bask, Uint32 Amask)
+	SDLSurface::SDLSurface(Rect dimensions, int depth, MaskRGBA mask)
 	{
-		m_pSurface = SDL_CreateRGBSurface(0, width, height, depth, Rmask, GMask, Bask, Amask);
+		m_pSurface = SDL_CreateRGBSurface(0, dimensions.GetWidth(), dimensions.GetHeight(), depth, mask.red, mask.green, mask.blue, mask.alpha);
 	}
 
-	SDLSurface::SDLSurface(void* pixels, int width, int height, int depth, int pitch, Uint32 Rmask, Uint32 GMask, Uint32 Bask, Uint32 Amask)
+	SDLSurface::SDLSurface(void* pixels, Rect dimensions, int depth, int pitch, MaskRGBA mask)
 	{
-		m_pSurface = SDL_CreateRGBSurfaceFrom(pixels, width, height, depth, pitch, Rmask, GMask, Bask, Amask);
+		m_pSurface = SDL_CreateRGBSurfaceFrom(pixels, dimensions.GetWidth(), dimensions.GetHeight(), depth, pitch, mask.red, mask.green, mask.blue, mask.alpha);
 	}
 
 	SDLSurface::~SDLSurface()
@@ -48,9 +48,9 @@ namespace LM
 		return SDL_GetSurfaceAlphaMod(m_pSurface, alpha);
 	}
 
-	int SDLSurface::GetColorMod(Uint8* r, Uint8* g, Uint8* b) const
+	int SDLSurface::GetColorMod(ColorRGB &rgb) const
 	{
-		return SDL_GetSurfaceColorMod(m_pSurface, r, g, b);
+		return SDL_GetSurfaceColorMod(m_pSurface, &rgb.red, &rgb.green, &rgb.blue);
 	}
 
 	int SDLSurface::GetBlendMode(SDL_BlendMode* blendMode) const
@@ -68,9 +68,9 @@ namespace LM
 		return SDL_SetSurfaceAlphaMod(m_pSurface, alpha);
 	}
 
-	int SDLSurface::SetColorMod(Uint8 r, Uint8 g, Uint8 b)
+	int SDLSurface::SetColorMod(ColorRGB rgb)
 	{
-		return SDL_SetSurfaceColorMod(m_pSurface, r, g, b);
+		return SDL_SetSurfaceColorMod(m_pSurface, rgb.red, rgb.green, rgb.blue);
 	}
 
 	int SDLSurface::SetBlendMode(SDL_BlendMode blendMode)

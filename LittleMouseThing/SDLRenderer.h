@@ -4,6 +4,7 @@
 #include "Geometry.h"
 #include "SDLRenderFlipEnum.h"
 #include "SDLTexture.h"
+#include "Structs.h"
 
 namespace LM
 {
@@ -19,7 +20,7 @@ namespace LM
 		void Render();	//Defunct
 
 		SDL_Renderer* Get() { return m_pRenderer; }
-		void SetDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+		void SetDrawColor(ColorRGBA c);
 		void Clear();
 		void Present();
 		void SetTarget(SDL_Texture* tex);

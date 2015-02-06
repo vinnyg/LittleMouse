@@ -31,9 +31,9 @@ namespace LM
 		SDL_RenderCopyEx(m_pRenderer, tex, (&srcrect != nullptr) ? &srcrect : nullptr, (&dstrect != nullptr) ? &dstrect : nullptr, angle, (&center != nullptr) ? &center : nullptr, static_cast<SDL_RendererFlip>(flip));
 	}
 
-	void SDLRenderer::SetDrawColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+	void SDLRenderer::SetDrawColor(ColorRGBA c)
 	{
-		SDL_SetRenderDrawColor(m_pRenderer, r, g, b, a);
+		SDL_SetRenderDrawColor(m_pRenderer, c.red, c.green, c.blue, c.alpha);
 	}
 
 	void SDLRenderer::Clear()

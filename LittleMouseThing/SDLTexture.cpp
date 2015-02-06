@@ -27,6 +27,11 @@ namespace LM
 	{
 	}
 
+	/*SDLTexture::SDLTexture(SDLSurface* surface)
+	{
+		m_pTexture = SDL_CreateTextureFromSurface(surface->Get());
+	}*/
+
 	SDLTexture::~SDLTexture()
 	{
 		Destroy();
@@ -50,6 +55,21 @@ namespace LM
 		return SDL_QueryTexture(m_pTexture, format, access, width, height);
 	}
 
+	int SDLTexture::GetAlphaMod(Uint8* alpha) const
+	{
+		return SDL_GetTextureAlphaMod(m_pTexture, alpha);
+	}
+
+	int SDLTexture::GetColorMod(ColorRGB &rgb) const
+	{
+		return SDL_GetTextureColorMod(m_pTexture, &rgb.red, &rgb.green, &rgb.blue);
+	}
+
+	int SDLTexture::GetBlendMode(SDL_BlendMode* blendMode) const
+	{
+		return SDL_GetTextureBlendMode(m_pTexture, blendMode);
+	}
+
 	int SDLTexture::GetWidth() const
 	{
 		return m_frameWidth;
@@ -70,9 +90,9 @@ namespace LM
 		return SDL_SetTextureAlphaMod(m_pTexture, alpha);
 	}
 
-	int SDLTexture::SetColorMod(Uint8 r, Uint8 g, Uint8 b)
+	int SDLTexture::SetColorMod(ColorRGB rgb)
 	{
-		return SDL_SetTextureColorMod(m_pTexture, r, g, b);
+		return SDL_SetTextureColorMod(m_pTexture, rgb.red, rgb.green, rgb.blue);
 	}
 
 	int SDLTexture::SetBlendMode(SDL_BlendMode blendMode)
