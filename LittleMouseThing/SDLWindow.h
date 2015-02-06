@@ -4,7 +4,7 @@
 #include <SDL_syswm.h>
 #include <string>
 #include "SDLWindowModeEnum.h"
-
+#include "SDLSurface.h"
 
 namespace LM
 {
@@ -12,6 +12,7 @@ namespace LM
 	{
 	private:
 		SDL_Window* m_pWindow;
+		SDLSurface* m_pWindowSurface;
 		SDLWindowMode m_windowMode;
 	public:
 		SDLWindow(std::string title, int w, int h);
@@ -33,6 +34,7 @@ namespace LM
 		void GetSize(int &w, int &h) const;
 		void GetPosition(int &x, int &y) const;
 		SDLWindowMode GetMode() const;
+		SDLSurface* GetSurface() const;
 		void SetTitle(std::string title);
 		void SetSize(int w, int h);
 		void SetPosition(int x, int y);

@@ -12,6 +12,7 @@ namespace LM
 		if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
 		{
 			m_pWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
+			m_pWindowSurface = new SDLSurface(SDL_GetWindowSurface(m_pWindow));
 		}
 	}
 
@@ -30,6 +31,10 @@ namespace LM
 		if (m_pWindow != nullptr);
 		{
 			SDL_DestroyWindow(m_pWindow);
+			if (m_pWindowSurface != nullptr)
+			{
+				delete m_pWindowSurface;
+			}
 		}
 	}
 
@@ -86,6 +91,11 @@ namespace LM
 	std::string SDLWindow::GetTitle() const
 	{
 		return SDL_GetWindowTitle(m_pWindow);
+	}
+
+	SDLSurface* SDLWindow::GetSurface() const
+	{
+		return m_pWindowSurface;
 	}
 
 	void SDLWindow::GetSize(int &w, int &h) const

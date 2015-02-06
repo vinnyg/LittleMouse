@@ -2,6 +2,12 @@
 
 namespace LM
 {
+	SDLSurface::SDLSurface(const std::string filepath)
+	{
+		m_pSurface = SDL_LoadBMP(filepath.c_str());
+		
+	}
+
 	SDLSurface::SDLSurface(SDL_Surface* surface) : m_pSurface(surface) {}
 
 	SDLSurface::SDLSurface(Rect dimensions, int depth, MaskRGBA mask)
