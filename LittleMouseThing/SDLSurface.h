@@ -28,7 +28,6 @@ namespace LM
 		int SetColorMod(ColorRGB rgb);
 		int SetBlendMode(SDL_BlendMode blendMode);
 		int SetPalette(SDL_Palette* palette);
-		//SDLSurface* GetWindowSurface();
 		//int SetRLE(int flag);
 	};
 
