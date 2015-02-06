@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include "SDLRenderer.h"
 #include "SDLSurface.h"
 #include "Geometry.h"
 #include "Structs.h"
@@ -20,10 +21,10 @@ namespace LM
 		//float m_animationSpeed;
 	public:
 		SDLTexture(SDL_Texture* texture);
-		SDLTexture(SDL_Texture* texture, int frameWidth, int frameHeight);
-		SDLTexture(SDL_Texture* texture, int frameCount);
-		SDLTexture(SDL_Texture* texture, int frameWidth, int frameHeight, int frameCount);
-		//SDLTexture(SDLSurface* surface);
+		SDLTexture(SDLRenderer* renderer, SDLSurface* surface);
+		SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameWidth, int frameHeight);
+		SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameCount);
+		SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameWidth, int frameHeight, int frameCount);
 		~SDLTexture();
 		void Destroy();
 		int Query(int* width, int* height);
@@ -37,5 +38,6 @@ namespace LM
 		int SetAlphaMod(Uint8 alpha);
 		int SetColorMod(ColorRGB rgb);
 		int SetBlendMode(SDL_BlendMode blendMode);
+		void CopyToRenderer(SDLRenderer* renderer, Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip);
 	};
 }

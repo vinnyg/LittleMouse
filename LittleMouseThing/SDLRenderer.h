@@ -15,7 +15,7 @@ namespace LM
 	public:
 		SDLRenderer(SDL_Window* window, int index = -1, Uint32 flags = 0);
 		~SDLRenderer();
-		void RenderCopy(SDL_Texture* tex, Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip);
+		/*void RenderCopy(SDL_Texture* tex, Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip);*/
 
 		void Render();	//Defunct
 

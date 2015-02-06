@@ -4,17 +4,19 @@ namespace LM
 {
 	SDLTexture::SDLTexture(SDL_Texture* texture) : m_pTexture(texture), m_frameCount(1)
 	{
-		SDL_QueryTexture(m_pTexture, &m_format, &m_access, &m_frameWidth, &m_frameHeight);
+		SDL_QueryTexture(texture, &m_format, &m_access, &m_frameWidth, &m_frameHeight);
 	}
 
-	SDLTexture::SDLTexture(SDL_Texture* texture, int width, int height) : m_pTexture(texture), m_frameWidth(width), m_frameHeight(height), m_frameCount(1)
+	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int width, int height) : m_frameWidth(width), m_frameHeight(height), m_frameCount(1)
 	{
+		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
 		SDL_QueryTexture(m_pTexture, &m_format, &m_access, nullptr, nullptr);
 	}
 
-	SDLTexture::SDLTexture(SDL_Texture* texture, int frames) : m_pTexture(texture), m_frameCount((frames > 0 ? frames : 1))
+	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frames) : m_frameCount((frames > 0 ? frames : 1))
 	{
 		int tmp_width, tmp_height;
+		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
 		SDL_QueryTexture(m_pTexture, &m_format, &m_access, (m_frameCount > 1) ? &tmp_width : &m_frameWidth, (m_frameCount > 1) ? &tmp_height : &m_frameHeight);
 		if (m_frameCount > 1)
 		{
@@ -23,14 +25,16 @@ namespace LM
 		}
 	}
 
-	SDLTexture::SDLTexture(SDL_Texture* texture, int width, int height, int frames) : m_pTexture(texture), m_frameWidth(width), m_frameHeight(height), m_frameCount(frames)
+	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int width, int height, int frames) : m_frameWidth(width), m_frameHeight(height), m_frameCount(frames)
 	{
+		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
 	}
 
-	/*SDLTexture::SDLTexture(SDLSurface* surface)
+	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface)
 	{
-		m_pTexture = SDL_CreateTextureFromSurface(surface->Get());
-	}*/
+		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
+		SDL_QueryTexture(m_pTexture, &m_format, &m_access, &m_frameWidth, &m_frameHeight);
+	}
 
 	SDLTexture::~SDLTexture()
 	{
@@ -98,5 +102,11 @@ namespace LM
 	int SDLTexture::SetBlendMode(SDL_BlendMode blendMode)
 	{
 		return SDL_SetTextureBlendMode(m_pTexture, blendMode);
+	}
+
+	//Add a texture to the draw queue with additional parameters.
+	void SDLTexture::CopyToRenderer(SDLRenderer* renderer, Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip)
+	{
+		SDL_RenderCopyEx(renderer->Get(), m_pTexture, (&srcrect != nullptr) ? &srcrect : nullptr, (&dstrect != nullptr) ? &dstrect : nullptr, angle, (&center != nullptr) ? &center : nullptr, static_cast<SDL_RendererFlip>(flip));
 	}
 }
