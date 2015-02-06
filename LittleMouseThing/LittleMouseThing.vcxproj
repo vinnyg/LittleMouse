@@ -89,6 +89,7 @@
     <ClInclude Include="Point2.h" />
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="SDLSurface.h" />
+    <ClInclude Include="Structs.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="SDLRenderer.h" />
     <ClInclude Include="SDLRenderFlipEnum.h" />

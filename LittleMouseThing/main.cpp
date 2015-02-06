@@ -2,6 +2,7 @@
 #include "SDLWindow.h"
 #include "SDLRenderer.h"
 #include "SDLTexture.h"
+#include "SDLSurface.h"
 
 int main(int argc, char* args[])
 {
@@ -13,6 +14,9 @@ int main(int argc, char* args[])
 	window2.SetPosition(20, 40);
 
 	LM::SDLRenderer render(window.Get(), -1, 0);
+
+	/*SDL_Surface* img = SDL_LoadBMP(".\\Assets\\retro_block_exclamation.bmp");
+	LM::SDLSurface sur(img);*/
 
 	return 0;
 }
