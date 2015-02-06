@@ -28,7 +28,7 @@ namespace LM
 
 	void SDLWindow::Destroy()
 	{
-		if (m_pWindow != nullptr);
+		if (m_pWindow != nullptr)
 		{
 			SDL_DestroyWindow(m_pWindow);
 			if (m_pWindowSurface != nullptr)

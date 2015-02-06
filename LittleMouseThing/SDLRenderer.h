@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include "Geometry.h"
 #include "SDLRenderFlipEnum.h"
-#include "SDLTexture.h"
+
 #include "Structs.h"
 
 namespace LM
@@ -25,6 +25,6 @@ namespace LM
 		void Present();
 		void SetTarget(SDL_Texture* tex);
 
-		SDLTexture* BindWithTexture(SDLTexture* texture);
+		//SDLTexture* BindWithTexture(SDLTexture* texture);
 	};
 }

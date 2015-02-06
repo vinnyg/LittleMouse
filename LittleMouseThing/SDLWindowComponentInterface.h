@@ -15,7 +15,7 @@ namespace LM
 	public:
 		SDLWindowComponentInterface();
 		~SDLWindowComponentInterface();
-		void CreateWindow(std::string windowRef, std::string title, int w, int h);
-		void DestroyWindow(std::string windowRef);
+		void CreateSDLWindow(std::string windowRef, std::string title, int w, int h);
+		void DestroySDLWindow(std::string windowRef);
 	};
 }
