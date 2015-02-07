@@ -1,3 +1,5 @@
+#pragma once
+
 namespace LM
 {
 	enum class SDLRenderFlipEnum
