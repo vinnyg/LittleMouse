@@ -28,7 +28,7 @@ namespace LM
 	}
 
 	//Creates an SDL Window.
-	void SDLWindowComponentInterface::CreateWindow(std::string windowRef, std::string title, int w, int h)
+	void SDLWindowComponentInterface::CreateSDLWindow(std::string windowRef, std::string title, int w, int h)
 	{
 		if (!(SDL_WasInit(SDL_INIT_VIDEO) > 0))
 		{
@@ -43,7 +43,7 @@ namespace LM
 	}
 
 	//Destroy SDL Window.
-	void SDLWindowComponentInterface::DestroyWindow(std::string windowRef)
+	void SDLWindowComponentInterface::DestroySDLWindow(std::string windowRef)
 	{
 		//m_windowMap.erase(windowRef);
 	}

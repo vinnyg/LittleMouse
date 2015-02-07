@@ -2,25 +2,34 @@
 
 namespace LM
 {
-	Rect::Rect() : x(0), y(0), w(0), h(0)
+	Rect::Rect() : SDL_Rect()
 	{
 	}
 
-	Rect::Rect(const int _x, const int _y, const int _w, const int _h) : x(_x), y(_y), w(_w), h(_h)
+	Rect::Rect(const int _x, const int _y, const int _w, const int _h) : SDL_Rect()
 	{
+		this->x = _x;
+		this->y = _y;
+		this->w = _w;
+		this->h = _h;
+
 	}
 
 
-	Rect::Rect(const SDL_Rect &rect) : x(rect.x), y(rect.y), w(rect.w), h(rect.h)
+	Rect::Rect(const SDL_Rect &rect) : SDL_Rect()
 	{
 	}
 
-	Rect::Rect(const Rect &rect) : x(rect.x), y(rect.y), w(rect.w), h(rect.h)
+	Rect::Rect(const Rect &rect) : SDL_Rect()
 	{
 	}
 
-	Rect::Rect(const Point2 &position, Point2 &dimension) : x(position.GetX()), y(position.GetY()), w(dimension.GetX()), h(dimension.GetY())
+	Rect::Rect(const Point2 &position, Point2 &dimension) 
 	{
+		this->x = position.GetX();
+		this->y = position.GetY();
+		this->w = dimension.GetX();
+		this->h = dimension.GetY();
 	}
 
 	void Rect::SetPosition(Point2 &pos)

@@ -58,9 +58,9 @@ namespace LM
 		SDL_SetRenderTarget(m_pRenderer, tex);
 	}
 
-	SDLTexture* SDLRenderer::BindWithTexture(SDLTexture* texture)
-	{
-		//texture = new SDLTexture();
-		return texture;
-	}
+	//SDLTexture* SDLRenderer::BindWithTexture(SDLTexture* texture)
+	//{
+	//	//texture = new SDLTexture();
+	//	return texture;
+	//}
 }

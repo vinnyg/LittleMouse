@@ -7,11 +7,6 @@ namespace LM
 {
 	class Rect : public SDL_Rect
 	{
-	protected:
-		int x;
-		int y;
-		int w;
-		int h;
 	public:
 		Rect();
 		Rect(const SDL_Rect &rect);

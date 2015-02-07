@@ -46,7 +46,7 @@ namespace LM
 
 	int SDLSurface::Blit(Rect &srcRect, SDLSurface* dst, Rect &dstRect)
 	{
-		SDL_BlitSurface(m_pSurface, &srcRect, dst->Get(), &dstRect);
+		return SDL_BlitSurface(m_pSurface, &srcRect, dst->Get(), &dstRect);
 	}
 
 	int SDLSurface::GetAlphaMod(Uint8* alpha) const

@@ -14,6 +14,8 @@ namespace LM
 		SDL_Window* m_pWindow;
 		SDLSurface* m_pWindowSurface;
 		SDLWindowMode m_windowMode;
+
+		std::string title;
 	public:
 		SDLWindow(std::string title, int w, int h);
 		SDLWindow(const void* data);
