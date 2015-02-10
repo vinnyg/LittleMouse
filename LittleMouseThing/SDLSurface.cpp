@@ -64,6 +64,11 @@ namespace LM
 		return SDL_GetSurfaceBlendMode(m_pSurface, blendMode);
 	}
 
+	int SDLSurface::GetColorKey(Uint32* key) const
+	{
+		return SDL_GetColorKey(m_pSurface, key);
+	}
+
 	SDL_Surface* SDLSurface::Get() const
 	{
 		return m_pSurface;
@@ -82,6 +87,16 @@ namespace LM
 	int SDLSurface::SetBlendMode(SDL_BlendMode blendMode)
 	{
 		return SDL_SetSurfaceBlendMode(m_pSurface, blendMode);
+	}
+
+	int SDLSurface::SetColorKey(bool isEnabled, Uint32 key)
+	{
+		return SDL_SetColorKey(m_pSurface, static_cast<SDL_bool>(isEnabled), key);
+	}
+
+	int SDLSurface::SetRLE(bool isEnabled)
+	{
+		return SDL_SetSurfaceRLE(m_pSurface, static_cast<int>(isEnabled));
 	}
 }
 

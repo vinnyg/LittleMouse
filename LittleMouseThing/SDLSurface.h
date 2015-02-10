@@ -23,12 +23,14 @@ namespace LM
 		int GetAlphaMod(Uint8* alpha) const;
 		int GetColorMod(ColorRGB &rgb) const;
 		int GetBlendMode(SDL_BlendMode* blendMode) const;
+		int GetColorKey(Uint32* key) const;
 		SDL_Surface* Get() const;
 		int SetAlphaMod(Uint8 alpha);
 		int SetColorMod(ColorRGB rgb);
 		int SetBlendMode(SDL_BlendMode blendMode);
 		int SetPalette(SDL_Palette* palette);
-		//int SetRLE(int flag);
+		int SetColorKey(bool isEnabled, Uint32 key);
+		int SetRLE(bool isEnabled);
 	};
 
 
