@@ -1,7 +1,9 @@
 #pragma once
 #include <SDL.h>
 #include <String>
+
 #include "Geometry.h"
+#include "SDLImage.h"
 #include "Structs.h"
 
 namespace LM

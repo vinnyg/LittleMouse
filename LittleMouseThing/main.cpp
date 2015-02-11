@@ -4,12 +4,14 @@
 #include "SDLTexture.h"
 #include "SDLSurface.h"
 #include "SDLRenderFlipEnum.h"
+#include "SDLImage.h"
 
 int main(int argc, char* args[])
 {
 	//LM::SDLWindowComponentInterface* video = new LM::SDLWindowComponentInterface();
 
 	//Testing multiple windows.
+	LM::SDLImage img(IMG_INIT_PNG);
 	LM::SDLWindow window("Project", 640, 480);
 	LM::SDLWindow window2("Project", 320, 240);
 	window.SetMode(LM::SDLWindowMode::kBorderless);
@@ -18,8 +20,13 @@ int main(int argc, char* args[])
 	LM::SDLRenderer render(window.Get(), -1, 0);
 
 	//LM::SDLSurface sur("/Assets/Testing/retro_block_exclamation.bmp");
+#ifndef INCLUDE_SDL_IMAGE
 	LM::SDLSurface sur("C:\\LittleMouse\\LittleMouseThing\\Assets\\Testing\\retro_block_exclamation.bmp");
+#endif
 
+#ifdef INCLUDE_SDL_IMAGE
+	LM::SDLSurface sur("C:\\LittleMouse\\LittleMouseThing\\Assets\\Testing\\retro_block_exclamation.png");
+#endif
 
 	LM::SDLTexture tex(&render, &sur);
 

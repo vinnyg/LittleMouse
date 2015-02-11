@@ -1,11 +1,20 @@
 #include "SDLSurface.h"
+#ifdef INCLUDE_SDL_IMAGE
+#include <sdl_image.h>
+#endif
 
 namespace LM
 {
+
 	SDLSurface::SDLSurface(const std::string filepath)
 	{
+	#ifndef INCLUDE_SDL_IMAGE
 		m_pSurface = SDL_LoadBMP(filepath.c_str());
-		
+	#endif
+
+	#ifdef INCLUDE_SDL_IMAGE
+		m_pSurface = IMG_Load(filepath.c_str());
+	#endif
 	}
 
 	SDLSurface::SDLSurface(SDL_Surface* surface) : m_pSurface(surface) {}
