@@ -1,5 +1,7 @@
 #include "SDLImage.h"
 
+#ifdef INCLUDE_SDL_IMAGE
+
 namespace LM
 {
 	SDLImage::SDLImage()
@@ -28,3 +30,5 @@ namespace LM
 		return IMG_Init(0);
 	}
 }
+
+#endif

@@ -1,6 +1,8 @@
 #pragma once
 
-#define INCLUDE_SDL_IMAGE
+#include "SDLExtensionConfig.h"
+
+#ifdef INCLUDE_SDL_IMAGE
 
 #include <SDL_image.h>
 
@@ -17,3 +19,5 @@ namespace LM
 		int GetInitFlags() const;
 	};
 }
+
+#endif
