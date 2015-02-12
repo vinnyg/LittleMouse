@@ -6,24 +6,33 @@ namespace LM
 {
 	struct ColorRGB
 	{
-		Uint8 red;
-		Uint8 blue;
-		Uint8 green;
+		Uint8 r;
+		Uint8 g;
+		Uint8 b;
+
+		/*ColorRGB(const ColorRGBA& c) : r(c.r), g(c.g), b(c.b)
+		{
+		}*/
 	};
 
 	struct ColorRGBA
 	{
-		Uint8 red;
-		Uint8 blue;
-		Uint8 green;
-		Uint8 alpha;
+		Uint8 r;
+		Uint8 g;
+		Uint8 b;
+		Uint8 a;
+
+		/*ColorRGBA(const ColorRGB &c) : r(c.r), g(c.g), b(c.b), a(255)
+		{
+		}*/
 	};
 
+	
 	struct MaskRGBA
 	{
-		Uint32 red;
-		Uint32 blue;
-		Uint32 green;
-		Uint32 alpha;
+		Uint32 r;
+		Uint32 g;
+		Uint32 b;
+		Uint32 a;
 	};
 }
