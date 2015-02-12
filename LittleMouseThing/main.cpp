@@ -7,8 +7,9 @@
 #include "SDLImage.h"
 
 #include "SDLRenderFlipEnum.h"
-//#include "Primitive.h"
 #include "PrimPixel.h"
+#include "PrimLine.h"
+#include "PrimRect.h"
 #include "SDLSurface.h"
 
 
@@ -47,12 +48,20 @@ int main(int argc, char* args[])
 		255, 255, 255, 255
 	};
 
+	LM::ColorRGB whitergb =
+	{
+		255, 255, 255
+	};
+
 	LM::Rect src(0, 0, 128, 128);
 	LM::Rect dst(0, 0, 256, 256);
+	LM::Rect rct(100, 100, 300, 310);
 	LM::Point2 pt(0, 0);
 
 	LM::Point2 pt2(300, 300);
 	LM::PrimPixel pix(&render, pt2, white);
+	LM::PrimLine lin(&render, pt, pt2, white);
+	LM::PrimRect rec(&render, rct, true, white);
 
 	//sur.Blit(src, window.GetSurface(), dst);
 
@@ -60,8 +69,12 @@ int main(int argc, char* args[])
 	render.Clear();
 
 	tex.CopyToRenderer(&render, src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
-	
+	pix.SetDrawColor(whitergb);
+	lin.SetDrawColor(whitergb);
+	rec.SetDrawColor(whitergb);
 	pix.Draw();
+	lin.Draw();
+	rec.Draw();
 
 	render.Present();
 

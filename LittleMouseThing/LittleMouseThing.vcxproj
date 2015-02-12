@@ -72,7 +72,9 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="Point2.cpp" />
+    <ClCompile Include="PrimLine.cpp" />
     <ClCompile Include="PrimPixel.cpp" />
+    <ClCompile Include="PrimRect.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="SDLImage.cpp" />
@@ -88,7 +90,9 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Primitive.h" />
+    <ClInclude Include="PrimLine.h" />
     <ClInclude Include="PrimPixel.h" />
+    <ClInclude Include="PrimRect.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="LMWrapper.h" />
     <ClInclude Include="Point2.h" />
