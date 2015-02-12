@@ -37,6 +37,7 @@ namespace LM
 	int PrimPixel::Draw()
 	{
 	#ifndef INCLUDE_SDL_GFX
+		GetRenderer()->SetDrawColor(GetDrawRGBA());
 		return SDL_RenderDrawPoint(GetRenderer()->Get(), m_pos.GetX(), m_pos.GetY());
 	#else
 		return pixelRGBA(GetRenderer()->Get(), m_pos.GetX(), m_pos.GetY(), GetDrawColor().r, GetDrawColor().b, GetDrawColor().g, GetDrawAlpha());

@@ -38,6 +38,8 @@ namespace LM
 
 	int PrimRect::Draw()
 	{
+		GetRenderer()->SetDrawColor(GetDrawRGBA());
+
 		if (m_filled)
 		{
 			//SDL_RenderFillRect(GetRenderer()->Get(), m_Rect.get());

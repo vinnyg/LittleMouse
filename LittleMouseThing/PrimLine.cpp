@@ -55,6 +55,7 @@ namespace LM
 
 	int PrimLine::Draw()
 	{
+		GetRenderer()->SetDrawColor(GetDrawRGBA());
 		return SDL_RenderDrawLine(GetRenderer()->Get(), m_srcPos.GetX(), m_srcPos.GetY(), m_dstPos.GetX(), m_dstPos.GetY());
 	}
 }
