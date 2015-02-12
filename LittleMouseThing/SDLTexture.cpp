@@ -66,7 +66,7 @@ namespace LM
 
 	int SDLTexture::GetColorMod(ColorRGB &rgb) const
 	{
-		return SDL_GetTextureColorMod(m_pTexture, &rgb.red, &rgb.green, &rgb.blue);
+		return SDL_GetTextureColorMod(m_pTexture, &rgb.r, &rgb.g, &rgb.b);
 	}
 
 	int SDLTexture::GetBlendMode(SDL_BlendMode* blendMode) const
@@ -96,7 +96,7 @@ namespace LM
 
 	int SDLTexture::SetColorMod(ColorRGB rgb)
 	{
-		return SDL_SetTextureColorMod(m_pTexture, rgb.red, rgb.green, rgb.blue);
+		return SDL_SetTextureColorMod(m_pTexture, rgb.r, rgb.g, rgb.b);
 	}
 
 	int SDLTexture::SetBlendMode(SDL_BlendMode blendMode)
