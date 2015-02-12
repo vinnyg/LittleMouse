@@ -18,8 +18,8 @@ namespace LM
 	private:
 		std::shared_ptr<SDLRenderer> m_pRenderer;
 		//SDLRenderer* m_pRenderer;
-		ColorRGB m_drawColor;
-		Uint8 m_drawAlpha;
+		ColorRGBA m_drawRGBA;
+		//Uint8 m_drawAlpha;
 	public:
 		Primitive(SDLRenderer* renderer);
 		Primitive(SDLRenderer* renderer, ColorRGB color);
@@ -30,6 +30,7 @@ namespace LM
 		void SetDrawRGBA(ColorRGBA color);
 		SDLRenderer* GetRenderer() const;
 		ColorRGB GetDrawColor() const;
+		ColorRGBA GetDrawRGBA() const;
 		Uint8 GetDrawAlpha() const;
 		virtual int Draw() = 0;
 	};
