@@ -30,12 +30,6 @@ namespace LM
 		}
 	}
 
-	//Add a texture to the draw queue with additional parameters.
-	/*void SDLRenderer::RenderCopy(SDL_Texture* tex, Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip)
-	{
-		SDL_RenderCopyEx(m_pRenderer, tex, (&srcrect != nullptr) ? &srcrect : nullptr, (&dstrect != nullptr) ? &dstrect : nullptr, angle, (&center != nullptr) ? &center : nullptr, static_cast<SDL_RendererFlip>(flip));
-	}*/
-
 	void SDLRenderer::SetDrawColor(ColorRGBA c)
 	{
 		SDL_SetRenderDrawColor(m_pRenderer, c.r, c.g, c.b, c.a);
