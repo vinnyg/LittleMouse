@@ -43,6 +43,15 @@ int main(int argc, char* args[])
 		0, 0, 0, 255
 	};
 
+	LM::ColorRGBA ra;/* =
+	{
+		255, 0, 0, 128
+	};*/
+	ra.r = 255;
+	ra.g = 0;
+	ra.b = 0;
+	ra.a = 128;
+
 	LM::ColorRGBA white =
 	{
 		255, 255, 255, 255
@@ -61,17 +70,17 @@ int main(int argc, char* args[])
 	LM::Point2 pt2(300, 300);
 	LM::PrimPixel pix(&render, pt2, white);
 	LM::PrimLine lin(&render, pt, pt2, white);
-	LM::PrimRect rec(&render, rct, true, white);
+	LM::PrimRect rec(&render, rct, true, ra);
 
 	//sur.Blit(src, window.GetSurface(), dst);
 
 	render.SetDrawColor(c);
+	render.SetDrawBlendMode(SDL_BLENDMODE_BLEND);
 	render.Clear();
 
 	tex.CopyToRenderer(&render, src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
 	pix.SetDrawColor(whitergb);
 	lin.SetDrawColor(whitergb);
-	rec.SetDrawColor(whitergb);
 	pix.Draw();
 	lin.Draw();
 	rec.Draw();
