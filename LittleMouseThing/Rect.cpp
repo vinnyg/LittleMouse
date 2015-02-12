@@ -18,10 +18,18 @@ namespace LM
 
 	Rect::Rect(const SDL_Rect &rect) : SDL_Rect()
 	{
+		this->x = rect.x;
+		this->y = rect.y;
+		this->w = rect.w;
+		this->h = rect.h;
 	}
 
 	Rect::Rect(const Rect &rect) : SDL_Rect()
 	{
+		this->x = rect.x;
+		this->y = rect.y;
+		this->w = rect.w;
+		this->h = rect.h;
 	}
 
 	Rect::Rect(const Point2 &position, Point2 &dimension) 
