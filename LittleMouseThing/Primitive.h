@@ -16,8 +16,8 @@ namespace LM
 	class Primitive
 	{
 	private:
-		//std::shared_ptr<SDLRenderer> m_pRenderer;
-		SDLRenderer* m_pRenderer;
+		std::shared_ptr<SDLRenderer> m_pRenderer;
+		//SDLRenderer* m_pRenderer;
 		ColorRGB m_drawColor;
 		Uint8 m_drawAlpha;
 	public:
@@ -27,6 +27,7 @@ namespace LM
 		~Primitive();
 		void SetDrawColor(ColorRGB color);
 		void SetDrawAlpha(Uint8 alpha);
+		void SetDrawRGBA(ColorRGBA color);
 		SDLRenderer* GetRenderer() const;
 		ColorRGB GetDrawColor() const;
 		Uint8 GetDrawAlpha() const;
