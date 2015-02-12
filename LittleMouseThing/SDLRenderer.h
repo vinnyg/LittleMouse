@@ -13,6 +13,7 @@ namespace LM
 	private:
 		SDL_Renderer* m_pRenderer;
 	public:
+		SDLRenderer(SDLRenderer* r);
 		SDLRenderer(SDL_Window* window, int index = -1, Uint32 flags = 0);
 		~SDLRenderer();
 		/*void RenderCopy(SDL_Texture* tex, Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip);*/

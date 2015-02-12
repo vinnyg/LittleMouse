@@ -2,6 +2,11 @@
 
 namespace LM
 {
+	SDLRenderer::SDLRenderer(SDLRenderer* r)
+	{
+		m_pRenderer = r->Get();
+	}
+
 	SDLRenderer::SDLRenderer(SDL_Window* window, int index, Uint32 flags)
 	{
 		if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
@@ -33,7 +38,7 @@ namespace LM
 
 	void SDLRenderer::SetDrawColor(ColorRGBA c)
 	{
-		SDL_SetRenderDrawColor(m_pRenderer, c.red, c.green, c.blue, c.alpha);
+		SDL_SetRenderDrawColor(m_pRenderer, c.r, c.g, c.b, c.a);
 	}
 
 	void SDLRenderer::Clear()
