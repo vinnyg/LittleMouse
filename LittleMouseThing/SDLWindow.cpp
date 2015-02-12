@@ -143,13 +143,13 @@ namespace LM
 		{
 		case SDLWindowMode::kWindowed:
 		{
-			SDL_SetWindowBordered(m_pWindow, SDL_FALSE);
+			SDL_SetWindowBordered(m_pWindow, SDL_TRUE);
 			SDL_SetWindowFullscreen(m_pWindow, SDL_FALSE);
 		}
 		break;
 		case SDLWindowMode::kBorderless:
 		{
-			SDL_SetWindowBordered(m_pWindow, SDL_TRUE);
+			SDL_SetWindowBordered(m_pWindow, SDL_FALSE);
 			SDL_SetWindowFullscreen(m_pWindow, SDL_FALSE);
 		}
 		break;
