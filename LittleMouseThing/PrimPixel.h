@@ -13,6 +13,7 @@ namespace LM
 		PrimPixel(SDLRenderer* renderer, Point2 position, ColorRGB color);
 		PrimPixel(SDLRenderer* renderer, Point2 position, ColorRGBA color);
 		~PrimPixel();
+		void SetPosition(Point2 pos);
 		void SetPosition(int x, int y);
 		Point2 GetPosition() const;
 		virtual int Draw();
