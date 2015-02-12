@@ -1,10 +1,13 @@
 #pragma once
 #include <SDL.h>
 #include <String>
-
+#include "SDLExtensionConfig.h"
 #include "Geometry.h"
-#include "SDLImage.h"
 #include "Structs.h"
+#ifdef INCLUDE_SDL_IMAGE
+#include "SDLImage.h"
+#endif
+
 
 namespace LM
 {
