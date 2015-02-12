@@ -18,6 +18,13 @@ namespace LM
 	{
 	}
 
+	Point2 Point2::operator=(const Point2 rhs)
+	{
+		this->x = rhs.x;
+		this->y = rhs.y;
+		return *this;
+	}
+
 	Point2 Point2::operator+(const Point2 rhs)
 	{
 		return Point2(x + rhs.x, y + rhs.y);
