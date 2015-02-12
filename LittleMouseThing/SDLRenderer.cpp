@@ -30,9 +30,29 @@ namespace LM
 		}
 	}
 
-	void SDLRenderer::SetDrawColor(ColorRGBA c)
+	int SDLRenderer::SetDrawColor(ColorRGBA c)
 	{
-		SDL_SetRenderDrawColor(m_pRenderer, c.r, c.g, c.b, c.a);
+		return SDL_SetRenderDrawColor(m_pRenderer, c.r, c.g, c.b, c.a);
+	}
+
+	int SDLRenderer::SetDrawColor(ColorRGB c)
+	{
+		return SDL_SetRenderDrawColor(m_pRenderer, c.r, c.g, c.b, 255);
+	}
+
+	int SDLRenderer::SetDrawBlendMode(SDL_BlendMode blendMode)
+	{
+		return SDL_SetRenderDrawBlendMode(m_pRenderer, blendMode);
+	}
+
+	int SDLRenderer::GetDrawColor(ColorRGBA* c)
+	{
+		return SDL_GetRenderDrawColor(m_pRenderer, &(c->r), &(c->g), &(c->b), &(c->a));
+	}
+
+	int SDLRenderer::GetDrawBlendMode(SDL_BlendMode* blendMode)
+	{
+		return SDL_GetRenderDrawBlendMode(m_pRenderer, blendMode);
 	}
 
 	void SDLRenderer::Clear()

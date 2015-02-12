@@ -21,7 +21,11 @@ namespace LM
 		void Render();	//Defunct
 
 		SDL_Renderer* Get() { return m_pRenderer; }
-		void SetDrawColor(ColorRGBA c);
+		int SetDrawColor(ColorRGB c);
+		int SetDrawColor(ColorRGBA c);
+		int SetDrawBlendMode(SDL_BlendMode blendMode);
+		int GetDrawColor(ColorRGBA* c);
+		int GetDrawBlendMode(SDL_BlendMode* blendMode);
 		void Clear();
 		void Present();
 		void SetTarget(SDL_Texture* tex);
