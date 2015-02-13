@@ -23,7 +23,7 @@ namespace LM
 		return sqrt(float((lengthX * lengthX) + (lengthY * lengthY)));
 	}
 
-	Vector2 Vector2::GetNormal()
+	Vector2 Vector2::Normalise()
 	{
 		return Vector2(-lengthY, lengthX);
 	}
