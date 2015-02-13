@@ -12,16 +12,12 @@
 #include "PrimRect.h"
 #include "SDLSurface.h"
 
-
-
 int main(int argc, char* args[])
 {
-	//LM::SDLWindowComponentInterface* video = new LM::SDLWindowComponentInterface();
-
 	//Testing multiple windows.
-#ifdef INCLUDE_SDL_IMAGE
+	#ifdef INCLUDE_SDL_IMAGE
 	LM::SDLImage img(IMG_INIT_PNG);
-#endif
+	#endif
 	LM::SDLWindow window("Project", 640, 480);
 	LM::SDLWindow window2("Project", 320, 240);
 	window.SetMode(LM::SDLWindowMode::kBorderless);
@@ -43,14 +39,10 @@ int main(int argc, char* args[])
 		0, 0, 0, 255
 	};
 
-	LM::ColorRGBA ra;/* =
+	LM::ColorRGBA ra =
 	{
 		255, 0, 0, 128
-	};*/
-	ra.r = 255;
-	ra.g = 0;
-	ra.b = 0;
-	ra.a = 128;
+	};
 
 	LM::ColorRGBA white =
 	{
@@ -88,8 +80,6 @@ int main(int argc, char* args[])
 	render.Present();
 
 	system("Pause");
-
-	//delete render;
 
 	return 0;
 }

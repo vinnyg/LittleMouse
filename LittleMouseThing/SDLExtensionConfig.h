@@ -6,3 +6,4 @@ Enable SDL_Image Satellite Library
 Enable SDL_gfx Library
 ----------------------------------------------------------*/
 //#define INCLUDE_SDL_GFX
+

@@ -70,6 +70,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="Point2.cpp" />
     <ClCompile Include="PrimLine.cpp" />
@@ -89,6 +90,7 @@
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Geometry.h" />
+    <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="PrimLine.h" />
     <ClInclude Include="PrimPixel.h" />
