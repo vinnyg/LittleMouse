@@ -1,8 +1,8 @@
 #include "Keyboard.h"
-#include "SDL.h"
+
 namespace LM
 {
-	Keyboard::Keyboard()
+	Keyboard::Keyboard() : m_keyState(SDL_GetKeyboardState(nullptr))
 	{
 	}
 
@@ -11,7 +11,12 @@ namespace LM
 	{
 	}
 
-	int Keyboard::GetKeyValue(Key key)
+	void Keyboard::SetModState(SDL_Keymod modState)
+	{
+		SDL_SetModState(modState);
+	}
+
+	int Keyboard::GetSDLScanCode(Key key)
 	{
 		switch (key)
 		{
@@ -150,4 +155,23 @@ namespace LM
 		}
 	}
 
+	bool Keyboard::IsKeyHeld(Key key)
+	{
+		m_keyState = GetState(nullptr);
+
+		//return m_state.at(key);
+
+		return m_keyState[GetSDLScanCode(key)];
+	}
+
+	Uint8* Keyboard::GetState(int* numKeys)
+	{
+		m_keyState = SDL_GetKeyboardState(numKeys);
+		return 0;
+	}
+
+	SDL_Keymod Keyboard::GetModState()
+	{
+		return SDL_GetModState();
+	}
 }

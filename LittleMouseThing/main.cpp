@@ -12,6 +12,8 @@
 #include "PrimRect.h"
 #include "SDLSurface.h"
 
+#include "Keyboard.h"
+
 int main(int argc, char* args[])
 {
 	//Testing multiple windows.
@@ -33,6 +35,10 @@ int main(int argc, char* args[])
 #endif
 
 	LM::SDLTexture tex(&render, &sur);
+
+	LM::Keyboard keyboard;
+
+	bool isRunning = true;
 
 	LM::ColorRGBA c =
 	{
@@ -66,20 +72,39 @@ int main(int argc, char* args[])
 
 	//sur.Blit(src, window.GetSurface(), dst);
 
-	render.SetDrawColor(c);
-	render.SetDrawBlendMode(SDL_BLENDMODE_BLEND);
-	render.Clear();
+	while (isRunning)
+	{
+		SDL_Event e;
+		while (SDL_PollEvent(&e))
+		{
+			switch (e.type)
+			{
+				case SDL_KEYDOWN:
+				{
+					if (keyboard.IsKeyHeld(LM::Key::Key_ESCAPE))
+					{
+						isRunning = !isRunning;
+					}
+				} break;
+				
+			}
+		}
+		
 
-	tex.CopyToRenderer(&render, src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
-	pix.SetDrawColor(whitergb);
-	lin.SetDrawColor(whitergb);
-	pix.Draw();
-	lin.Draw();
-	rec.Draw();
+		render.SetDrawColor(c);
+		render.SetDrawBlendMode(SDL_BLENDMODE_BLEND);
+		render.Clear();
 
-	render.Present();
+		tex.CopyToRenderer(&render, src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
+		pix.SetDrawColor(whitergb);
+		lin.SetDrawColor(whitergb);
+		pix.Draw();
+		lin.Draw();
+		rec.Draw();
 
-	system("Pause");
+		render.Present();
+	}
+	
 
 	return 0;
 }

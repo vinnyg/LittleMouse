@@ -1,10 +1,12 @@
 #pragma once
 
 #include <map>
+#include <SDL.h>
 
 namespace LM
 {
-	enum class Key{
+	enum class Key
+	{
 		Key_BACKSPACE,
 		Key_TAB,
 		Key_CLEAR,
@@ -141,14 +143,19 @@ namespace LM
 	class Keyboard
 	{
 	private:
-		std::map<int, bool> m_state;
+		//std::map<Key, bool> m_state;
+		const Uint8* m_keyState;
+		int GetSDLScanCode(Key key);
 	public:
 		Keyboard();
 		~Keyboard();
-		bool IsKeyHeld();
-		bool IsKeyHit();
+		void SetModState(SDL_Keymod modState);
 
-	private:
-		int GetKeyValue(Key key);
+		bool IsKeyHeld(Key key);
+		bool IsKeyHit(Key key);
+		Uint8* GetState(int* numKeys);
+		SDL_Keymod GetModState();
+	//private:
+		
 	};
 }
