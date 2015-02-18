@@ -79,17 +79,23 @@ int main(int argc, char* args[])
 		{
 			switch (e.type)
 			{
-				case SDL_KEYDOWN:
+			/*case SDL_QUIT:
 				{
-					if (keyboard.IsKeyHeld(LM::Key::Key_ESCAPE))
-					{
-						isRunning = !isRunning;
-					}
+
+				} break;*/
+
+			case SDL_KEYDOWN:
+				{
+
 				} break;
 				
 			}
 		}
 		
+		if (keyboard.IsKeyHeld(LM::Key::Key_ESCAPE)/* && keyboard.IsKeyHeld(LM::Key::Key_a) */&& keyboard.IsKeyHeld(LM::Key::Key_w))
+		{
+			isRunning = !isRunning;
+		}
 
 		render.SetDrawColor(c);
 		render.SetDrawBlendMode(SDL_BLENDMODE_BLEND);
