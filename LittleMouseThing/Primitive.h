@@ -17,9 +17,7 @@ namespace LM
 	{
 	private:
 		std::shared_ptr<SDLRenderer> m_pRenderer;
-		//SDLRenderer* m_pRenderer;
 		ColorRGBA m_drawRGBA;
-		//Uint8 m_drawAlpha;
 	public:
 		Primitive(SDLRenderer* renderer);
 		Primitive(SDLRenderer* renderer, ColorRGB color);

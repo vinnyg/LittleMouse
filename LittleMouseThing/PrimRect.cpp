@@ -17,26 +17,26 @@ namespace LM
 
 	}*/
 
-	PrimRect::PrimRect(SDLRenderer* renderer, const Rect rect, bool fill) : Primitive(renderer), m_Rect(rect), m_filled(fill)
+	RectPrimitive::RectPrimitive(SDLRenderer* renderer, const Rect rect, bool fill) : Primitive(renderer), m_Rect(rect), m_filled(fill)
 	{
 
 	}
 
-	PrimRect::PrimRect(SDLRenderer* renderer, const Rect rect, bool fill, ColorRGB color) : Primitive(renderer, color), m_Rect(rect), m_filled(fill)
+	RectPrimitive::RectPrimitive(SDLRenderer* renderer, const Rect rect, bool fill, ColorRGB color) : Primitive(renderer, color), m_Rect(rect), m_filled(fill)
 	{
 
 	}
 
-	PrimRect::PrimRect(SDLRenderer* renderer, const Rect rect, bool fill, ColorRGBA color) : Primitive(renderer, color), m_Rect(rect), m_filled(fill)
+	RectPrimitive::RectPrimitive(SDLRenderer* renderer, const Rect rect, bool fill, ColorRGBA color) : Primitive(renderer, color), m_Rect(rect), m_filled(fill)
 	{
 
 	}
 
-	PrimRect::~PrimRect()
+	RectPrimitive::~RectPrimitive()
 	{
 	}
 
-	int PrimRect::Draw()
+	int RectPrimitive::Draw()
 	{
 		GetRenderer()->SetDrawColor(GetDrawRGBA());
 

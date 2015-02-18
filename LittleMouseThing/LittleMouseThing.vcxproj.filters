@@ -119,19 +119,19 @@
     <ClInclude Include="Primitive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PrimPixel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SDLExtensionConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PrimLine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PrimRect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Keyboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinePrimitive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelPrimitive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RectPrimitive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

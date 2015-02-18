@@ -7,9 +7,9 @@
 #include "SDLImage.h"
 
 #include "SDLRenderFlipEnum.h"
-#include "PrimPixel.h"
-#include "PrimLine.h"
-#include "PrimRect.h"
+#include "PixelPrimitive.h"
+#include "LinePrimitive.h"
+#include "RectPrimitive.h"
 #include "SDLSurface.h"
 
 #include "Keyboard.h"
@@ -66,9 +66,9 @@ int main(int argc, char* args[])
 	LM::Point2 pt(0, 0);
 
 	LM::Point2 pt2(300, 300);
-	LM::PrimPixel pix(&render, pt2, white);
-	LM::PrimLine lin(&render, pt, pt2, white);
-	LM::PrimRect rec(&render, rct, true, ra);
+	LM::PixelPrimitive pix(&render, pt2, white);
+	LM::LinePrimitive lin(&render, pt, pt2, white);
+	LM::RectPrimitive rec(&render, rct, true, ra);
 
 	//sur.Blit(src, window.GetSurface(), dst);
 
@@ -79,10 +79,10 @@ int main(int argc, char* args[])
 		{
 			switch (e.type)
 			{
-			/*case SDL_QUIT:
+			case SDL_QUIT:
 				{
 
-				} break;*/
+				} break;
 
 			case SDL_KEYDOWN:
 				{
@@ -92,7 +92,7 @@ int main(int argc, char* args[])
 			}
 		}
 		
-		if (keyboard.IsKeyHeld(LM::Key::Key_ESCAPE)/* && keyboard.IsKeyHeld(LM::Key::Key_a) */&& keyboard.IsKeyHeld(LM::Key::Key_w))
+		if (keyboard.IsKeyHeld(LM::Key::Key_ESCAPE)/* && keyboard.IsKeyHeld(LM::Key::Key_a) *//*&& keyboard.IsKeyHeld(LM::Key::Key_w)*/)
 		{
 			isRunning = !isRunning;
 		}

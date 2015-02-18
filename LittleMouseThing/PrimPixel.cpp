@@ -2,39 +2,39 @@
 
 namespace LM
 {
-	PrimPixel::PrimPixel(SDLRenderer* renderer, Point2 position) : Primitive(renderer), m_pos(position)
+	PixelPrimitive::PixelPrimitive(SDLRenderer* renderer, Point2 position) : Primitive(renderer), m_pos(position)
 	{
 	}
 
-	PrimPixel::PrimPixel(SDLRenderer* renderer, Point2 position, ColorRGB color) : Primitive(renderer, color), m_pos(position)
+	PixelPrimitive::PixelPrimitive(SDLRenderer* renderer, Point2 position, ColorRGB color) : Primitive(renderer, color), m_pos(position)
 	{
 	}
 
-	PrimPixel::PrimPixel(SDLRenderer* renderer, Point2 position, ColorRGBA color) : Primitive(renderer, color), m_pos(position)
+	PixelPrimitive::PixelPrimitive(SDLRenderer* renderer, Point2 position, ColorRGBA color) : Primitive(renderer, color), m_pos(position)
 	{
 	}
 
-	PrimPixel::~PrimPixel()
+	PixelPrimitive::~PixelPrimitive()
 	{
 	}
 
-	void PrimPixel::SetPosition(Point2 pos)
+	void PixelPrimitive::SetPosition(Point2 pos)
 	{
 		m_pos = pos;
 	}
 
-	void PrimPixel::SetPosition(int x, int y)
+	void PixelPrimitive::SetPosition(int x, int y)
 	{
 		m_pos.SetX(x);
 		m_pos.SetY(y);
 	}
 
-	Point2 PrimPixel::GetPosition() const
+	Point2 PixelPrimitive::GetPosition() const
 	{
 		return m_pos;
 	}
 
-	int PrimPixel::Draw()
+	int PixelPrimitive::Draw()
 	{
 	#ifndef INCLUDE_SDL_GFX
 		GetRenderer()->SetDrawColor(GetDrawRGBA());
