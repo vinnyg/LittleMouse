@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Primitives">
+      <UniqueIdentifier>{63cea24c-7de3-4dce-8c51-26a271833887}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,16 +57,16 @@
     <ClCompile Include="Primitive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PrimPixel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PrimLine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PrimRect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Keyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinePrimitive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelPrimitive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RectPrimitive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,23 +119,23 @@
     <ClInclude Include="SDLImage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Primitive.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SDLExtensionConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Primitive.h">
+      <Filter>Header Files\Primitives</Filter>
+    </ClInclude>
     <ClInclude Include="LinePrimitive.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Primitives</Filter>
     </ClInclude>
     <ClInclude Include="PixelPrimitive.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Primitives</Filter>
     </ClInclude>
     <ClInclude Include="RectPrimitive.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Primitives</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

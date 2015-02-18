@@ -50,7 +50,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_gfx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_gfx.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -73,9 +73,9 @@
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="Point2.cpp" />
-    <ClCompile Include="PrimLine.cpp" />
-    <ClCompile Include="PrimPixel.cpp" />
-    <ClCompile Include="PrimRect.cpp" />
+    <ClCompile Include="LinePrimitive.cpp" />
+    <ClCompile Include="PixelPrimitive.cpp" />
+    <ClCompile Include="RectPrimitive.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="SDLImage.cpp" />
