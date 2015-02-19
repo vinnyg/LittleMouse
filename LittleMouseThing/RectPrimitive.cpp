@@ -1,4 +1,4 @@
-#include "PrimRect.h"
+#include "RectPrimitive.h"
 
 namespace LM
 {

@@ -1,4 +1,4 @@
-#include "PrimPixel.h"
+#include "PixelPrimitive.h"
 
 namespace LM
 {

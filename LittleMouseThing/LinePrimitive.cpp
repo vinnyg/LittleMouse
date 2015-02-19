@@ -1,4 +1,4 @@
-#include "PrimLine.h"
+#include "LinePrimitive.h"
 
 namespace LM
 {

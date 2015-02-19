@@ -16,6 +16,9 @@
     <Filter Include="Header Files\Primitives">
       <UniqueIdentifier>{63cea24c-7de3-4dce-8c51-26a271833887}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Primitives">
+      <UniqueIdentifier>{b0e4ae1b-fb55-432c-9c2d-0ab90e0c9a19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,19 +57,22 @@
     <ClCompile Include="SDLImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Primitive.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Primitive.cpp">
+      <Filter>Source Files\Primitives</Filter>
+    </ClCompile>
     <ClCompile Include="LinePrimitive.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Primitives</Filter>
     </ClCompile>
     <ClCompile Include="PixelPrimitive.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Primitives</Filter>
     </ClCompile>
     <ClCompile Include="RectPrimitive.cpp">
+      <Filter>Source Files\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLTTFont.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -136,6 +142,12 @@
     </ClInclude>
     <ClInclude Include="RectPrimitive.h">
       <Filter>Header Files\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLTTFont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FontAttributeStructs.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
