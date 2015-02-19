@@ -81,6 +81,7 @@
     <ClCompile Include="SDLImage.cpp" />
     <ClCompile Include="SDLSurface.cpp" />
     <ClCompile Include="SDLTTFont.cpp" />
+    <ClCompile Include="TTFText.cpp" />
     <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SDLRenderer.cpp" />
@@ -89,6 +90,7 @@
     <ClCompile Include="SDLWindowComponentInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharEncodingEnum.h" />
     <ClInclude Include="FontAttributeStructs.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Geometry.h" />
@@ -106,6 +108,7 @@
     <ClInclude Include="SDLSurface.h" />
     <ClInclude Include="SDLTTFont.h" />
     <ClInclude Include="Structs.h" />
+    <ClInclude Include="TTFText.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="SDLRenderer.h" />
     <ClInclude Include="SDLRenderFlipEnum.h" />
