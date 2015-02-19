@@ -26,11 +26,4 @@ namespace LM
 		int maxYOffset;
 		int advanceOffset;
 	};
-
-	struct TextMetrics
-	{
-		int RenderedLATIN1Size;
-		int RenderedUTF8Size;
-		int RenderedUNICODESize;
-	};
 }
