@@ -16,6 +16,11 @@ namespace LM
 		}
 	}
 
+	TTF_Font* SDLTTFont::Get() const
+	{
+		return m_font;
+	}
+
 	void SDLTTFont::SetStyle(int style)
 	{
 		TTF_SetFontStyle(m_font, style);
@@ -28,7 +33,6 @@ namespace LM
 
 	void SDLTTFont::SetHinting(int hinting)
 	{
-		//m_hinting
 		TTF_SetFontHinting(m_font, hinting);
 	}
 

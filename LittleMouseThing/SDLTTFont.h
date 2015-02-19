@@ -18,6 +18,7 @@ namespace LM
 	public:
 		SDLTTFont(std::string file, int size);
 		~SDLTTFont();
+		TTF_Font* Get() const;
 		void SetStyle(int style);
 		void SetOutline(int width);
 		void SetHinting(int hinting);
@@ -31,6 +32,9 @@ namespace LM
 		void GetFaceAttributes(FaceAttributes* attributes) const;
 		int GetGlyphMetrics(GlyphMetrics* metrics, char ch) const;
 		int GlyphIsProvided(char ch) const;
+
+		//int GetSize();
+		//SDLSurface CreateSurfaceFromFont();
 	};
 }
 
