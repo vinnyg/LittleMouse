@@ -159,7 +159,10 @@
       <Filter>Header Files\TTF</Filter>
     </ClInclude>
     <ClInclude Include="TTFText.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\TTF</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderModeEnum.h">
+      <Filter>Header Files\TTF</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

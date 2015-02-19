@@ -103,6 +103,7 @@
     <ClInclude Include="LMWrapper.h" />
     <ClInclude Include="Point2.h" />
     <ClInclude Include="ImageLoader.h" />
+    <ClInclude Include="TextRenderModeEnum.h" />
     <ClInclude Include="SDLExtensionConfig.h" />
     <ClInclude Include="SDLImage.h" />
     <ClInclude Include="SDLSurface.h" />
