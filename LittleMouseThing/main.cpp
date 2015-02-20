@@ -19,9 +19,9 @@
 int main(int argc, char* args[])
 {
 	//Testing multiple windows.
-	#ifdef INCLUDE_SDL_IMAGE
+#ifdef INCLUDE_SDL_IMAGE
 	LM::SDLImage img(IMG_INIT_PNG);
-	#endif
+#endif
 	LM::SDLWindow window("Project", 640, 480);
 	LM::SDLWindow window2("Project", 320, 240);
 	window.SetMode(LM::SDLWindowMode::kBorderless);
@@ -40,9 +40,11 @@ int main(int argc, char* args[])
 	LM::SDLTexture tex(&render, &sur);
 	TTF_Init();
 	LM::SDLTTFont fon("./Assets/Fonts/Monthoers.ttf", 24);
-	//LM::SDLTTFont fon("%WINDIR%/fonts/arial.ttf", 24);
-	//LM::TTFText text1("This is text!!", &fon, LM::CharEncoding::ENC_LATIN1);
 
+	//LM::SDLTTFont fon("%WINDIR%/fonts/arial.ttf", 24);
+	//{
+		LM::TTFText text1("this is text!!465ty", &fon, LM::CharEncoding::ENC_LATIN1);
+	//}
 	LM::Keyboard keyboard;
 
 	bool isRunning = true;
@@ -77,11 +79,11 @@ int main(int argc, char* args[])
 	LM::LinePrimitive lin(&render, pt, pt2, white);
 	LM::RectPrimitive rec(&render, rct, true, ra);
 
-	//LM::SDLSurface texSurface = text1.RenderToSurface(LM::RenderMode::RenderSolid, white, white);
-	//LM::SDLTexture text1rend(&render, &texSurface);
-	//int t_w, t_h;
-	//text1rend.Query(&t_w, &t_h);
-	//LM::Rect dstText(200, 250, t_w, t_h);
+	LM::SDLSurface texSurface = text1.RenderToSurface(LM::RenderMode::RenderSolid, white, white);
+	LM::SDLTexture text1rend(&render, &texSurface);
+	int t_w, t_h;
+	text1rend.Query(&t_w, &t_h);
+	LM::Rect dstText(200, 250, t_w, t_h);
 
 	//sur.Blit(src, window.GetSurface(), dst);
 
@@ -114,7 +116,7 @@ int main(int argc, char* args[])
 		render.SetDrawBlendMode(SDL_BLENDMODE_BLEND);
 		render.Clear();
 
-		//text1rend.CopyToRenderer(&render, dstText);
+		text1rend.CopyToRenderer(&render, dstText);
 		tex.CopyToRenderer(&render, src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
 		pix.SetDrawColor(whitergb);
 		lin.SetDrawColor(whitergb);
@@ -124,7 +126,8 @@ int main(int argc, char* args[])
 
 		render.Present();
 	}
-	TTF_Quit();
+
+	//TTF_Quit();
 
 	return 0;
 }
