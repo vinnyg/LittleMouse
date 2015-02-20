@@ -11,6 +11,8 @@
 #include "LinePrimitive.h"
 #include "RectPrimitive.h"
 #include "SDLSurface.h"
+#include "SDLTTFont.h"
+#include "TTFText.h"
 
 #include "Keyboard.h"
 
@@ -31,10 +33,15 @@ int main(int argc, char* args[])
 #ifndef INCLUDE_SDL_IMAGE
 	LM::SDLSurface sur("C:\\LittleMouse\\LittleMouseThing\\Assets\\Testing\\retro_block_exclamation.bmp");
 #else
-	LM::SDLSurface sur("C:\\LittleMouse\\LittleMouseThing\\Assets\\Testing\\retro_block_exclamation.png");
+	/*LM::SDLSurface sur("C:\\LittleMouse\\LittleMouseThing\\Assets\\Testing\\retro_block_exclamation.png");*/
+	LM::SDLSurface sur("./Assets/Testing/retro_block_exclamation.png");
 #endif
 
 	LM::SDLTexture tex(&render, &sur);
+	TTF_Init();
+	LM::SDLTTFont fon("./Assets/Fonts/Monthoers.ttf", 24);
+	//LM::SDLTTFont fon("%WINDIR%/fonts/arial.ttf", 24);
+	//LM::TTFText text1("This is text!!", &fon, LM::CharEncoding::ENC_LATIN1);
 
 	LM::Keyboard keyboard;
 
@@ -70,6 +77,12 @@ int main(int argc, char* args[])
 	LM::LinePrimitive lin(&render, pt, pt2, white);
 	LM::RectPrimitive rec(&render, rct, true, ra);
 
+	//LM::SDLSurface texSurface = text1.RenderToSurface(LM::RenderMode::RenderSolid, white, white);
+	//LM::SDLTexture text1rend(&render, &texSurface);
+	//int t_w, t_h;
+	//text1rend.Query(&t_w, &t_h);
+	//LM::Rect dstText(200, 250, t_w, t_h);
+
 	//sur.Blit(src, window.GetSurface(), dst);
 
 	while (isRunning)
@@ -101,6 +114,7 @@ int main(int argc, char* args[])
 		render.SetDrawBlendMode(SDL_BLENDMODE_BLEND);
 		render.Clear();
 
+		//text1rend.CopyToRenderer(&render, dstText);
 		tex.CopyToRenderer(&render, src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
 		pix.SetDrawColor(whitergb);
 		lin.SetDrawColor(whitergb);
@@ -110,7 +124,7 @@ int main(int argc, char* args[])
 
 		render.Present();
 	}
-	
+	TTF_Quit();
 
 	return 0;
 }
