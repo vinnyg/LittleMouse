@@ -2,18 +2,22 @@
 
 namespace LM
 {
-	SDLTTFont::SDLTTFont(std::string file, int size)
+	SDLTTFont::SDLTTFont(std::string file, int size) : m_font(TTF_OpenFont(file.c_str(), size))
 	{
-		m_font = TTF_OpenFont(file.c_str(), size);
 	}
 
+	SDLTTFont::SDLTTFont(SDLTTFont* font) : m_font(font->Get())
+	{
+	}
+
+	SDLTTFont::SDLTTFont(const SDLTTFont &font) : m_font(font.Get())
+	{
+	}
 
 	SDLTTFont::~SDLTTFont()
 	{
 		if (m_font)
-		{
 			TTF_CloseFont(m_font);
-		}
 	}
 
 	TTF_Font* SDLTTFont::Get() const
