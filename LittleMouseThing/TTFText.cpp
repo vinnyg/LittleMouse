@@ -4,6 +4,7 @@ namespace LM
 {
 	TTFText::TTFText(std::string text, SDLTTFont* font, CharEncoding encoding) : m_text(text), m_font(std::make_shared<SDLTTFont>(font)), m_unicode(0), m_encoding(encoding != CharEncoding::ENC_UNICODE ? encoding : CharEncoding::ENC_LATIN1)
 	{
+
 	}
 
 	TTFText::TTFText(Uint16 text, SDLTTFont* font) : m_unicode(text), m_font(std::make_shared<SDLTTFont>(font)), m_text(""), m_encoding(CharEncoding::ENC_UNICODE)
@@ -28,19 +29,21 @@ namespace LM
 		bc.b = bg.b;
 		bc.a = bg.a;
 
+		SDL_Surface* s = nullptr;
+
 		switch (m_encoding)
 		{
 		case CharEncoding::ENC_LATIN1:
 			switch (mode)
 			{
 			case RenderMode::RenderSolid:
-				TTF_RenderText_Solid(m_font->Get(), m_text.c_str(), c);
+				s = TTF_RenderText_Solid(m_font->Get(), m_text.c_str(), c);
 				break;
 			case RenderMode::RenderShaded:
-				TTF_RenderText_Shaded(m_font->Get(), m_text.c_str(), c, bc);
+				s = TTF_RenderText_Shaded(m_font->Get(), m_text.c_str(), c, bc);
 				break;
 			case RenderMode::RenderBlended:
-				TTF_RenderText_Blended(m_font->Get(), m_text.c_str(), c);
+				s = TTF_RenderText_Blended(m_font->Get(), m_text.c_str(), c);
 				break;
 			}
 			break;
@@ -48,13 +51,13 @@ namespace LM
 			switch (mode)
 			{
 			case RenderMode::RenderSolid:
-				TTF_RenderUNICODE_Solid(m_font->Get(), &m_unicode, c);
+				s = TTF_RenderUNICODE_Solid(m_font->Get(), &m_unicode, c);
 				break;
 			case RenderMode::RenderShaded:
-				TTF_RenderUNICODE_Shaded(m_font->Get(), &m_unicode, c, bc);
+				s = TTF_RenderUNICODE_Shaded(m_font->Get(), &m_unicode, c, bc);
 				break;
 			case RenderMode::RenderBlended:
-				TTF_RenderUNICODE_Blended(m_font->Get(), &m_unicode, c);
+				s = TTF_RenderUNICODE_Blended(m_font->Get(), &m_unicode, c);
 				break;
 			}
 			break;
@@ -62,17 +65,19 @@ namespace LM
 			switch (mode)
 			{
 			case RenderMode::RenderSolid:
-				TTF_RenderUTF8_Solid(m_font->Get(), m_text.c_str(), c);
+				s = TTF_RenderUTF8_Solid(m_font->Get(), m_text.c_str(), c);
 				break;
 			case RenderMode::RenderShaded:
-				TTF_RenderUTF8_Shaded(m_font->Get(), m_text.c_str(), c, bc);
+				s = TTF_RenderUTF8_Shaded(m_font->Get(), m_text.c_str(), c, bc);
 				break;
 			case RenderMode::RenderBlended:
-				TTF_RenderUTF8_Blended(m_font->Get(), m_text.c_str(), c);
+				s = TTF_RenderUTF8_Blended(m_font->Get(), m_text.c_str(), c);
 				break;
 			}
 			break;
 		}
+
+		return SDLSurface(s);
 	}
 
 	void TTFText::SetText(std::string text)
@@ -100,24 +105,23 @@ namespace LM
 
 	int TTFText::GetTextSize(Rect* dimensions) const
 	{
-		int* w;
-		int* h;
+		int w, h;
 		int res;
 		switch (m_encoding)
 		{
 		case CharEncoding::ENC_LATIN1:
-			res = TTF_SizeText(m_font->Get(), m_text.c_str(), w, h);
+			res = TTF_SizeText(m_font->Get(), m_text.c_str(), &w, &h);
 			break;
 		case CharEncoding::ENC_UNICODE:
-			res = TTF_SizeUNICODE(m_font->Get(), &m_unicode, w, h);
+			res = TTF_SizeUNICODE(m_font->Get(), &m_unicode, &w, &h);
 			break;
 		case CharEncoding::ENC_UTF8:
-			res = TTF_SizeUTF8(m_font->Get(), m_text.c_str(), w, h);
+			res = TTF_SizeUTF8(m_font->Get(), m_text.c_str(), &w, &h);
 			break;
 		}
 
-		dimensions->SetWidth(*w);
-		dimensions->SetHeight(*h);
+		dimensions->SetWidth(w);
+		dimensions->SetHeight(h);
 		return res;
 	}
 
