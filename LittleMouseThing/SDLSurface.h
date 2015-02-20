@@ -16,6 +16,7 @@ namespace LM
 	private:
 		SDL_Surface* m_pSurface;
 	public:
+		SDLSurface(const SDLSurface &surface);
 		SDLSurface(const std::string filepath);
 		SDLSurface(SDL_Surface* surface);
 		SDLSurface(Rect dimensions, int depth, MaskRGBA mask);

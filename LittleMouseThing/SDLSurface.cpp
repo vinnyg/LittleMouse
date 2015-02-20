@@ -2,6 +2,9 @@
 
 namespace LM
 {
+	SDLSurface::SDLSurface(const SDLSurface &surface) : m_pSurface(surface.Get())
+	{
+	}
 
 	SDLSurface::SDLSurface(const std::string filepath)
 	{
