@@ -13,7 +13,8 @@ namespace LM
 	{
 	private:
 		std::string m_text;
-		std::shared_ptr<SDLTTFont> m_font;
+		//std::shared_ptr<SDLTTFont> m_font;
+		SDLTTFont* m_font;
 		Uint16 m_unicode;
 		CharEncoding m_encoding;
 	public:

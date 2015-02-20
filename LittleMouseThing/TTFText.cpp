@@ -2,12 +2,21 @@
 
 namespace LM
 {
-	TTFText::TTFText(std::string text, SDLTTFont* font, CharEncoding encoding) : m_text(text), m_font(std::make_shared<SDLTTFont>(font)), m_unicode(0), m_encoding(encoding != CharEncoding::ENC_UNICODE ? encoding : CharEncoding::ENC_LATIN1)
+	/*TTFText::TTFText(std::string text, SDLTTFont* font, CharEncoding encoding) : m_text(text), m_font(std::make_shared<SDLTTFont>(font)), m_unicode(0), m_encoding(encoding != CharEncoding::ENC_UNICODE ? encoding : CharEncoding::ENC_LATIN1)
+	{
+
+	}*/
+
+	TTFText::TTFText(std::string text, SDLTTFont* font, CharEncoding encoding) : m_text(text), m_font(font), m_unicode(0), m_encoding(encoding != CharEncoding::ENC_UNICODE ? encoding : CharEncoding::ENC_LATIN1)
 	{
 
 	}
 
-	TTFText::TTFText(Uint16 text, SDLTTFont* font) : m_unicode(text), m_font(std::make_shared<SDLTTFont>(font)), m_text(""), m_encoding(CharEncoding::ENC_UNICODE)
+	/*TTFText::TTFText(Uint16 text, SDLTTFont* font) : m_unicode(text), m_font(std::make_shared<SDLTTFont>(font)), m_text(""), m_encoding(CharEncoding::ENC_UNICODE)
+	{
+	}*/
+
+	TTFText::TTFText(Uint16 text, SDLTTFont* font) : m_unicode(text), m_font(font), m_text(""), m_encoding(CharEncoding::ENC_UNICODE)
 	{
 	}
 
@@ -15,7 +24,7 @@ namespace LM
 	{
 	}
 
-	SDLSurface TTFText::RenderToSurface(RenderMode mode, ColorRGBA fg, ColorRGBA bg)
+	SDLSurface TTFText::RenderToSurface(RenderMode mode, ColorRGBA fg, ColorRGBA bg = { 0, 0, 0, 0 })
 	{
 		SDL_Color c;
 		c.r = fg.r;
@@ -100,7 +109,8 @@ namespace LM
 
 	void TTFText::SetFont(SDLTTFont* font)
 	{
-		m_font = std::make_shared<SDLTTFont>(font);
+		m_font = font;
+		//m_font = std::make_shared<SDLTTFont>(font);
 	}
 
 	int TTFText::GetTextSize(Rect* dimensions) const
@@ -139,7 +149,7 @@ namespace LM
 
 	SDLTTFont* TTFText::GetFont() const
 	{
-		return m_font.get();
+		return m_font;// m_font.get();
 	}
 }
 
