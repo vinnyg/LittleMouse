@@ -64,13 +64,6 @@ namespace LM
 	{
 		SDL_RenderPresent(m_pRenderer);
 	}
-
-	void SDLRenderer::Render() //Defunct
-	{
-		//SDL_SetRenderDrawColor(m_pRenderer, r, g, b, a);
-		//SDL_RenderClear(m_pRenderer);
-		//SDL_RenderPresent(m_pRenderer);
-	}
 	
 	void SDLRenderer::SetTarget(SDL_Texture* tex)
 	{
