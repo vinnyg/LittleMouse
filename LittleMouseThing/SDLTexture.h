@@ -39,6 +39,7 @@ namespace LM
 		int SetColorMod(ColorRGB rgb);
 		int SetBlendMode(SDL_BlendMode blendMode);
 		void CopyToRenderer(SDLRenderer* renderer);
+		void CopyToRenderer(SDLRenderer* renderer, Rect &dstrect);
 		void CopyToRenderer(SDLRenderer* renderer, Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip);
 	};
 }

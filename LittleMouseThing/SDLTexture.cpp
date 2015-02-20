@@ -110,6 +110,11 @@ namespace LM
 		SDL_RenderCopyEx(renderer->Get(), m_pTexture, nullptr, nullptr, 0, nullptr, static_cast<SDL_RendererFlip>(SDLRenderFlipEnum::kNoFlip));
 	}
 
+	void SDLTexture::CopyToRenderer(SDLRenderer* renderer, Rect &dstrect)
+	{
+		SDL_RenderCopyEx(renderer->Get(), m_pTexture, nullptr, &dstrect, 0, nullptr, static_cast<SDL_RendererFlip>(SDLRenderFlipEnum::kNoFlip));
+	}
+
 	//Add a texture to the draw queue with additional parameters.
 	void SDLTexture::CopyToRenderer(SDLRenderer* renderer, Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip)
 	{
