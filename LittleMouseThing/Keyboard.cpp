@@ -155,7 +155,7 @@ namespace LM
 		}
 	}
 
-	bool Keyboard::IsKeyHeld(Key key)
+	bool Keyboard::KeyIsHeld(Key key)
 	{
 		//m_keyState = GetState(nullptr);
 
@@ -164,7 +164,7 @@ namespace LM
 		return m_keyState[GetSDLScanCode(key)];
 	}
 
-	const Uint8* Keyboard::GetState(int* numKeys)
+	Uint8 const* Keyboard::GetState(int* numKeys)
 	{
 		//m_keyState = SDL_GetKeyboardState(numKeys);
 		return m_keyState;

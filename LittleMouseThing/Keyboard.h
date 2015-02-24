@@ -143,19 +143,17 @@ namespace LM
 	class Keyboard
 	{
 	private:
-		//std::map<Key, bool> m_state;
-		const Uint8* m_keyState;
-		int GetSDLScanCode(Key key);
+		Uint8 const* m_keyState;
 	public:
 		Keyboard();
 		~Keyboard();
 		void SetModState(SDL_Keymod modState);
 
-		bool IsKeyHeld(Key key);
-		bool IsKeyHit(Key key);
-		const Uint8* GetState(int* numKeys);
+		bool KeyIsHeld(Key key);
+		bool KeyIsHit(Key key);
+		Uint8 const* GetState(int* numKeys);
 		SDL_Keymod GetModState();
-	//private:
-		
+	private:
+		int GetSDLScanCode(Key key);
 	};
 }
