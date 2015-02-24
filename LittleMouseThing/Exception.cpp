@@ -10,7 +10,7 @@ namespace LM
 	{
 	}
 
-	char const* Exception::what() const noexcept
+	char const* Exception::what() const
 	{
 		return exceptionString.c_str();
 	}

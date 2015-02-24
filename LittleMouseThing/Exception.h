@@ -15,7 +15,7 @@ namespace LM
 	public:
 		Exception(std::string functionName);
 		virtual ~Exception();
-		char const* what() const noexcept;
+		char const* what() const;
 		std::string GetFunction() const;
 		std::string GetSDLError() const;
 	};
