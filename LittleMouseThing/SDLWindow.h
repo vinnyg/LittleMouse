@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_syswm.h>
 #include <string>
+#include "Exception.h"
 #include "SDLWindowModeEnum.h"
 #include "SDLSurface.h"
 

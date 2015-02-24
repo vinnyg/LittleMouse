@@ -9,9 +9,15 @@ namespace LM
 	SDLSurface::SDLSurface(std::string const filepath)
 	{
 	#ifndef INCLUDE_SDL_IMAGE
-		m_pSurface = SDL_LoadBMP(filepath.c_str());
+		{
+			m_pSurface = SDL_LoadBMP(filepath.c_str());
+			if (!m_pSurface)
+				throw LM::Exception("SDL_LoadBMP");
+		}
 	#else
 		m_pSurface = IMG_Load(filepath.c_str());
+		if (!m_pSurface)
+			throw LM::Exception("IMG_Load");
 	#endif
 	}
 
@@ -20,11 +26,15 @@ namespace LM
 	SDLSurface::SDLSurface(Rect dimensions, int depth, MaskRGBA mask)
 	{
 		m_pSurface = SDL_CreateRGBSurface(0, dimensions.GetWidth(), dimensions.GetHeight(), depth, mask.r, mask.g, mask.b, mask.a);
+		if (!m_pSurface)
+			throw LM::Exception("SDL_CreateRGBSurface");
 	}
 
 	SDLSurface::SDLSurface(void* pixels, Rect dimensions, int depth, int pitch, MaskRGBA mask)
 	{
 		m_pSurface = SDL_CreateRGBSurfaceFrom(pixels, dimensions.GetWidth(), dimensions.GetHeight(), depth, pitch, mask.r, mask.g, mask.b, mask.a);
+		if (!m_pSurface)
+			throw LM::Exception("SDL_CreateRGBSurface");
 	}
 
 	SDLSurface::~SDLSurface()
@@ -40,20 +50,25 @@ namespace LM
 	SDLSurface SDLSurface::Convert(SDL_PixelFormat* format)
 	{
 		SDL_Surface* surface = SDL_ConvertSurface(m_pSurface, format, 0);
-
+		if (!surface)
+			throw LM::Exception("SDL_CreateRGBSurface");
 		return surface;
 	}
 
 	SDLSurface SDLSurface::Convert(Uint32 pixelFormat)
 	{
 		SDL_Surface* surface = SDL_ConvertSurfaceFormat(m_pSurface, pixelFormat, 0);
-
+		if (!surface)
+			throw LM::Exception("SDL_CreateRGBSurface");
 		return surface;
 	}
 
 	int SDLSurface::Blit(Rect &srcRect, SDLSurface* dst, Rect &dstRect)
 	{
-		return SDL_BlitSurface(m_pSurface, &srcRect, dst->Get(), &dstRect);
+		int res = SDL_BlitSurface(m_pSurface, &srcRect, dst->Get(), &dstRect);
+		if (!res)
+			throw LM::Exception("SDL_BlitSurface");
+		return res;
 	}
 
 	int SDLSurface::GetAlphaMod(Uint8* alpha) const

@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <String>
 #include "SDLExtensionConfig.h"
+#include "Exception.h"
 #include "Geometry.h"
 #include "Structs.h"
 #ifdef INCLUDE_SDL_IMAGE

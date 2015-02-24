@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include "Exception.h"
 #include "Geometry.h"
 #include "SDLRenderFlipEnum.h"
 
@@ -22,10 +23,8 @@ namespace LM
 		int SetDrawBlendMode(SDL_BlendMode blendMode);
 		int GetDrawColor(ColorRGBA* c);
 		int GetDrawBlendMode(SDL_BlendMode* blendMode);
-		void Clear();
+		int Clear();
 		void Present();
-		void SetTarget(SDL_Texture* tex);
-
-		//SDLTexture* BindWithTexture(SDLTexture* texture);
+		int SetTarget(SDL_Texture* tex);
 	};
 }

@@ -4,22 +4,25 @@ namespace LM
 {
 	SDLWindow::SDLWindow(std::string title, int w, int h)
 	{
-		if (!(SDL_WasInit(SDL_INIT_VIDEO) > 0))
-		{
-			SDL_Init(SDL_INIT_VIDEO);
-		}
-
 		if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
 		{
 			m_pWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
-			this->title = title;
-			m_pWindowSurface = new SDLSurface(SDL_GetWindowSurface(m_pWindow));
+
+			if (m_pWindow)
+			{
+				this->title = title;
+				m_pWindowSurface = new SDLSurface(SDL_GetWindowSurface(m_pWindow));
+			}
+			else
+				throw LM::Exception("SDL_CreateWindow");
 		}
 	}
 
 	SDLWindow::SDLWindow(void const* data)
 	{
 		m_pWindow = SDL_CreateWindowFrom(data);
+		if (!m_pWindow)
+			throw LM::Exception("SDL_CreateWindow");
 	}
 
 	SDLWindow::~SDLWindow()

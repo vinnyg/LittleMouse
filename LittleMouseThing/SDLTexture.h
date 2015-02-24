@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include "Exception.h"
 #include "SDLRenderer.h"
 #include "SDLSurface.h"
 #include "Geometry.h"

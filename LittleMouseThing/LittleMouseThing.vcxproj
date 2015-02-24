@@ -69,6 +69,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Exception.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Mouse.cpp" />
@@ -92,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharEncodingEnum.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="FontAttributeStructs.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Geometry.h" />
