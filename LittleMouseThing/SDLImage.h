@@ -13,7 +13,7 @@ namespace LM
 	public:
 		SDLImage();
 		SDLImage(int flags);
-		SDLImage(const SDLImage &other) = delete;
+		SDLImage(SDLImage const &other) = delete;
 		~SDLImage();
 		int InitLibs(int flags);
 		int GetInitFlags() const;

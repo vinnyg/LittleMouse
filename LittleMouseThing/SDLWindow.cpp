@@ -17,7 +17,7 @@ namespace LM
 		}
 	}
 
-	SDLWindow::SDLWindow(const void* data)
+	SDLWindow::SDLWindow(void const* data)
 	{
 		m_pWindow = SDL_CreateWindowFrom(data);
 	}

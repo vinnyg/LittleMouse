@@ -18,11 +18,11 @@ namespace LM
 		std::string title;
 	public:
 		SDLWindow(std::string title, int w, int h);
-		SDLWindow(const void* data);
+		SDLWindow(void const* data);
 		~SDLWindow();
 		void Destroy();
 		SDL_Window* Get() const;
-		void* GetData(const char* name);
+		void* GetData(char const* name);
 		float GetBrightness();
 		int GetDisplayIndex();
 		int GetDisplayMode(SDL_DisplayMode* mode);

@@ -6,7 +6,7 @@ namespace LM
 	{
 	}
 
-	Rect::Rect(const int _x, const int _y, const int _w, const int _h) : SDL_Rect()
+	Rect::Rect(int const _x, int const _y, int const _w, int const _h) : SDL_Rect()
 	{
 		this->x = _x;
 		this->y = _y;
@@ -16,7 +16,7 @@ namespace LM
 	}
 
 
-	Rect::Rect(const SDL_Rect &rect) : SDL_Rect()
+	Rect::Rect(SDL_Rect const &rect) : SDL_Rect()
 	{
 		this->x = rect.x;
 		this->y = rect.y;
@@ -24,7 +24,7 @@ namespace LM
 		this->h = rect.h;
 	}
 
-	Rect::Rect(const Rect &rect) : SDL_Rect()
+	Rect::Rect(Rect const &rect) : SDL_Rect()
 	{
 		this->x = rect.x;
 		this->y = rect.y;
@@ -32,7 +32,7 @@ namespace LM
 		this->h = rect.h;
 	}
 
-	Rect::Rect(const Point2 &position, Point2 &dimension) 
+	Rect::Rect(Point2 const &position, Point2 const &dimension)
 	{
 		this->x = position.GetX();
 		this->y = position.GetY();

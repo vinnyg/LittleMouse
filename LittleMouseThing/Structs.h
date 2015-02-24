@@ -9,10 +9,6 @@ namespace LM
 		Uint8 r;
 		Uint8 g;
 		Uint8 b;
-
-		/*ColorRGB(const ColorRGBA& c) : r(c.r), g(c.g), b(c.b)
-		{
-		}*/
 	};
 
 	struct ColorRGBA
@@ -21,10 +17,6 @@ namespace LM
 		Uint8 g;
 		Uint8 b;
 		Uint8 a;
-
-		/*ColorRGBA(const ColorRGB &c) : r(c.r), g(c.g), b(c.b), a(255)
-		{
-		}*/
 	};
 
 	

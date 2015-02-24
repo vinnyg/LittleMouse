@@ -9,11 +9,11 @@ namespace LM
 	{
 	public:
 		Rect();
-		Rect(const SDL_Rect &rect);
-		Rect(const Rect &rect);
-		Rect(const Point2 &position, Point2 &dimension);
+		Rect(SDL_Rect const &rect);
+		Rect(Rect const &rect);
+		Rect(Point2 const &position, Point2 const &dimension);
 
-		Rect(const int _x, const int _y, const int _w, const int _h);
+		Rect(int const _x, int const _y, int const _w, int const _h);
 
 		void SetX(int _x) { x = _x; }
 		void SetY(int _y) { y = _y; }

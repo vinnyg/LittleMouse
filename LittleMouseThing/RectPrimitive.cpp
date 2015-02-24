@@ -2,32 +2,17 @@
 
 namespace LM
 {
-	/*PrimRect::PrimRect(SDLRenderer* renderer, const Rect* rect, bool fill) : Primitive(renderer), m_Rect(std::make_shared<Rect>(rect)), m_filled(fill)
+	RectPrimitive::RectPrimitive(SDLRenderer* renderer, Rect const rect, bool fill) : Primitive(renderer), m_Rect(rect), m_filled(fill)
 	{
 
 	}
 
-	PrimRect::PrimRect(SDLRenderer* renderer, const Rect* rect, bool fill, ColorRGB color) : Primitive(renderer, color), m_Rect(std::make_shared<Rect>(rect)), m_filled(fill)
+	RectPrimitive::RectPrimitive(SDLRenderer* renderer, Rect const rect, bool fill, ColorRGB color) : Primitive(renderer, color), m_Rect(rect), m_filled(fill)
 	{
 
 	}
 
-	PrimRect::PrimRect(SDLRenderer* renderer, const Rect* rect, bool fill, ColorRGBA color) : Primitive(renderer, color), m_Rect(std::make_shared<Rect>(rect)), m_filled(fill)
-	{
-
-	}*/
-
-	RectPrimitive::RectPrimitive(SDLRenderer* renderer, const Rect rect, bool fill) : Primitive(renderer), m_Rect(rect), m_filled(fill)
-	{
-
-	}
-
-	RectPrimitive::RectPrimitive(SDLRenderer* renderer, const Rect rect, bool fill, ColorRGB color) : Primitive(renderer, color), m_Rect(rect), m_filled(fill)
-	{
-
-	}
-
-	RectPrimitive::RectPrimitive(SDLRenderer* renderer, const Rect rect, bool fill, ColorRGBA color) : Primitive(renderer, color), m_Rect(rect), m_filled(fill)
+	RectPrimitive::RectPrimitive(SDLRenderer* renderer, Rect const rect, bool fill, ColorRGBA color) : Primitive(renderer, color), m_Rect(rect), m_filled(fill)
 	{
 
 	}

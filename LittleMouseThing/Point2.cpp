@@ -10,37 +10,37 @@ namespace LM
 	{
 	}
 
-	Point2::Point2(const Point2 &point) : x(point.x), y(point.y)
+	Point2::Point2(Point2 const &point) : x(point.x), y(point.y)
 	{
 	}
 
-	Point2::Point2(const SDL_Point &point) : x(point.x), y(point.y)
+	Point2::Point2(SDL_Point const &point) : x(point.x), y(point.y)
 	{
 	}
 
-	Point2 Point2::operator=(const Point2 rhs)
+	Point2 Point2::operator=(Point2 const rhs)
 	{
 		this->x = rhs.x;
 		this->y = rhs.y;
 		return *this;
 	}
 
-	Point2 Point2::operator+(const Point2 rhs)
+	Point2 Point2::operator+(Point2 const rhs)
 	{
 		return Point2(x + rhs.x, y + rhs.y);
 	}
 
-	Point2 Point2::operator-(const Point2 rhs)
+	Point2 Point2::operator-(Point2 const rhs)
 	{
 		return Point2(x - rhs.x, y - rhs.y);
 	}
 
-	Point2 Point2::operator*(const int rhs)
+	Point2 Point2::operator*(int const rhs)
 	{
 		return Point2(x * rhs, y * rhs);
 	}
 
-	Point2 Point2::operator/(const int rhs)
+	Point2 Point2::operator/(int const rhs)
 	{
 		return Point2(x / rhs, y / rhs);
 	}

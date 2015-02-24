@@ -16,7 +16,7 @@ namespace LM
 		int m_hinting;
 		int m_kerning;
 	public:
-		SDLTTFont(const SDLTTFont &font);
+		SDLTTFont(SDLTTFont const &font);
 		SDLTTFont(SDLTTFont* font);
 		SDLTTFont(std::string file, int size);
 		~SDLTTFont();

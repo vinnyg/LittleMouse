@@ -2,11 +2,11 @@
 
 namespace LM
 {
-	SDLSurface::SDLSurface(const SDLSurface &surface) : m_pSurface(surface.Get())
+	SDLSurface::SDLSurface(SDLSurface const &surface) : m_pSurface(surface.Get())
 	{
 	}
 
-	SDLSurface::SDLSurface(const std::string filepath)
+	SDLSurface::SDLSurface(std::string const filepath)
 	{
 	#ifndef INCLUDE_SDL_IMAGE
 		m_pSurface = SDL_LoadBMP(filepath.c_str());
