@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="Point2.cpp" />
     <ClCompile Include="LinePrimitive.cpp" />
@@ -95,6 +96,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="LinePrimitive.h" />
     <ClInclude Include="PixelPrimitive.h" />

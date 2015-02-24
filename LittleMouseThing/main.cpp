@@ -15,6 +15,7 @@
 #include "TTFText.h"
 
 #include "Keyboard.h"
+#include "Mouse.h"
 
 int main(int argc, char* args[])
 {
@@ -29,23 +30,22 @@ int main(int argc, char* args[])
 
 	LM::SDLRenderer render(window.Get(), -1, 0);
 
-	//LM::SDLSurface sur("/Assets/Testing/retro_block_exclamation.bmp");
 #ifndef INCLUDE_SDL_IMAGE
 	LM::SDLSurface sur("C:\\LittleMouse\\LittleMouseThing\\Assets\\Testing\\retro_block_exclamation.bmp");
 #else
-	/*LM::SDLSurface sur("C:\\LittleMouse\\LittleMouseThing\\Assets\\Testing\\retro_block_exclamation.png");*/
 	LM::SDLSurface sur("./Assets/Testing/retro_block_exclamation.png");
 #endif
 
 	LM::SDLTexture tex(&render, &sur);
 	TTF_Init();
-	LM::SDLTTFont fon("./Assets/Fonts/Monthoers.ttf", 24);
+	//LM::SDLTTFont fon("./Assets/Fonts/Monthoers.ttf", 24);
 
-	//LM::SDLTTFont fon("%WINDIR%/fonts/arial.ttf", 24);
+	LM::SDLTTFont fon("C:/windows/fonts/arial.ttf", 24);
 	//{
 		LM::TTFText text1("this is text!!465ty", &fon, LM::CharEncoding::ENC_LATIN1);
 	//}
 	LM::Keyboard keyboard;
+	LM::Mouse mouse;
 
 	bool isRunning = true;
 
@@ -64,9 +64,24 @@ int main(int argc, char* args[])
 		255, 255, 255, 255
 	};
 
+	LM::ColorRGBA black =
+	{
+		0, 0, 0, 255
+	};
+
 	LM::ColorRGB whitergb =
 	{
 		255, 255, 255
+	};
+
+	LM::ColorRGB yellow =
+	{
+		255, 255, 0
+	};
+
+	LM::ColorRGB blue =
+	{
+		0, 0, 255
 	};
 
 	LM::Rect src(0, 0, 128, 128);
@@ -79,7 +94,7 @@ int main(int argc, char* args[])
 	LM::LinePrimitive lin(&render, pt, pt2, white);
 	LM::RectPrimitive rec(&render, rct, true, ra);
 
-	LM::SDLSurface texSurface = text1.RenderToSurface(LM::RenderMode::RenderSolid, white, white);
+	LM::SDLSurface texSurface = text1.RenderToSurface(LM::RenderMode::RenderShaded, white, black);
 	LM::SDLTexture text1rend(&render, &texSurface);
 	int t_w, t_h;
 	text1rend.Query(&t_w, &t_h);
@@ -107,9 +122,19 @@ int main(int argc, char* args[])
 			}
 		}
 		
-		if (keyboard.IsKeyHeld(LM::Key::Key_ESCAPE)/* && keyboard.IsKeyHeld(LM::Key::Key_a) *//*&& keyboard.IsKeyHeld(LM::Key::Key_w)*/)
+		if (keyboard.KeyIsHeld(LM::Key::Key_ESCAPE)/* && keyboard.IsKeyHeld(LM::Key::Key_a) *//*&& keyboard.IsKeyHeld(LM::Key::Key_w)*/)
 		{
 			isRunning = !isRunning;
+		}
+
+		if (mouse.ButtonIsPressed(LM::Button::MB_Left))
+		{
+			rec.SetDrawColor(yellow);
+		}
+
+		if (mouse.ButtonIsPressed(LM::Button::MB_Right))
+		{
+			rec.SetDrawColor(blue);
 		}
 
 		render.SetDrawColor(c);
