@@ -19,6 +19,7 @@
 
 int main(int argc, char* args[])
 {
+	SDL_Init(SDL_INIT_EVERYTHING);
 	//Testing multiple windows.
 #ifdef INCLUDE_SDL_IMAGE
 	LM::SDLImage img(IMG_INIT_PNG);
@@ -49,39 +50,9 @@ int main(int argc, char* args[])
 
 	bool isRunning = true;
 
-	LM::ColorRGBA c =
-	{
-		0, 0, 0, 255
-	};
-
 	LM::ColorRGBA ra =
 	{
 		255, 0, 0, 128
-	};
-
-	LM::ColorRGBA white =
-	{
-		255, 255, 255, 255
-	};
-
-	LM::ColorRGBA black =
-	{
-		0, 0, 0, 255
-	};
-
-	LM::ColorRGB whitergb =
-	{
-		255, 255, 255
-	};
-
-	LM::ColorRGB yellow =
-	{
-		255, 255, 0
-	};
-
-	LM::ColorRGB blue =
-	{
-		0, 0, 255
 	};
 
 	LM::Rect src(0, 0, 128, 128);
@@ -90,11 +61,11 @@ int main(int argc, char* args[])
 	LM::Point2 pt(0, 0);
 
 	LM::Point2 pt2(300, 300);
-	LM::PixelPrimitive pix(&render, pt2, white);
-	LM::LinePrimitive lin(&render, pt, pt2, white);
+	LM::PixelPrimitive pix(&render, pt2, LM::Color::WHITE);
+	LM::LinePrimitive lin(&render, pt, pt2, LM::Color::WHITE);
 	LM::RectPrimitive rec(&render, rct, true, ra);
 
-	LM::SDLSurface texSurface = text1.RenderToSurface(LM::RenderMode::RenderShaded, white, black);
+	LM::SDLSurface texSurface = text1.RenderToSurface(LM::RenderMode::RenderShaded, LM::Color::WHITE, LM::Color::BLACK);
 	LM::SDLTexture text1rend(&render, &texSurface);
 	int t_w, t_h;
 	text1rend.Query(&t_w, &t_h);
@@ -129,22 +100,22 @@ int main(int argc, char* args[])
 
 		if (mouse.ButtonIsPressed(LM::Button::MB_Left))
 		{
-			rec.SetDrawColor(yellow);
+			rec.SetDrawColor(LM::Color::YELLOW);
 		}
 
 		if (mouse.ButtonIsPressed(LM::Button::MB_Right))
 		{
-			rec.SetDrawColor(blue);
+			rec.SetDrawColor(LM::Color::BLUE);
 		}
 
-		render.SetDrawColor(c);
+		render.SetDrawColor(LM::Color::BLACK);
 		render.SetDrawBlendMode(SDL_BLENDMODE_BLEND);
 		render.Clear();
 
 		text1rend.CopyToRenderer(&render, dstText);
 		tex.CopyToRenderer(&render, src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
-		pix.SetDrawColor(whitergb);
-		lin.SetDrawColor(whitergb);
+		pix.SetDrawColor(LM::Color::WHITE);
+		lin.SetDrawColor(LM::Color::WHITE);
 		pix.Draw();
 		lin.Draw();
 		rec.Draw();
