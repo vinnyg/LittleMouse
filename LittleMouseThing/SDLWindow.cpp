@@ -6,16 +6,15 @@ namespace LM
 	{
 		if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
 		{
-			m_pWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
-
-			if (m_pWindow)
+			if (m_pWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN))
+			/*if (m_pWindow)*/
 			{
 				this->title = title;
 				m_pWindowSurface = new SDLSurface(SDL_GetWindowSurface(m_pWindow));
 			}
-			else
-				throw LM::Exception("SDL_CreateWindow");
 		}
+		if (!m_pWindow)
+			throw LM::Exception("SDL_CreateWindow");
 	}
 
 	SDLWindow::SDLWindow(void const* data)

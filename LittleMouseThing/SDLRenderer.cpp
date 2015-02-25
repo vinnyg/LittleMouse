@@ -9,19 +9,21 @@ namespace LM
 
 	SDLRenderer::SDLRenderer(SDL_Window* window, int index, Uint32 flags)
 	{
-		if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
+		/*if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
+		{*/
+		if (m_pRenderer = SDL_CreateRenderer(window, index, flags))
 		{
-			m_pRenderer = SDL_CreateRenderer(window, index, flags);
-
 			if (m_pRenderer)
 			{
 				SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
 				SDL_RenderClear(m_pRenderer);
 				SDL_RenderPresent(m_pRenderer);
 			}
-			else
-				throw LM::Exception("SDLRenderer");
 		}
+		else
+		/*}*/
+		/*if (!m_pRenderer)*/
+			throw LM::Exception("SDLRenderer");
 	}
 
 	SDLRenderer::~SDLRenderer()
