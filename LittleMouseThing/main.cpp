@@ -1,21 +1,17 @@
-//#include "SDLWindowComponentInterface.h"
-#include "SDLWindow.h"
-#include "SDLRenderer.h"
-#include "SDLTexture.h"
+// #include "SDLWindowComponentInterface.h"
+// #include "SDLWindow.h"
+// #include "SDLRenderer.h"
+// #include "SDLTexture.h"
+// #include "Primitives.h"
+// #include "SDLSurface.h"
+// #include "Keyboard.h"
+// #include "Mouse.h"
+
 #include "SDLExtensionConfig.h"
-
+#include "LMWrapper.h"
 #include "SDLImage.h"
-
-#include "SDLRenderFlipEnum.h"
-#include "PixelPrimitive.h"
-#include "LinePrimitive.h"
-#include "RectPrimitive.h"
-#include "SDLSurface.h"
 #include "SDLTTFont.h"
 #include "TTFText.h"
-
-#include "Keyboard.h"
-#include "Mouse.h"
 
 int main(int argc, char* args[])
 {
@@ -39,12 +35,9 @@ int main(int argc, char* args[])
 
 	LM::SDLTexture tex(&render, &sur);
 	TTF_Init();
-	//LM::SDLTTFont fon("./Assets/Fonts/Monthoers.ttf", 24);
 
 	LM::SDLTTFont fon("C:/windows/fonts/arial.ttf", 24);
-	//{
-		LM::TTFText text1("this is text!!465ty", &fon, LM::CharEncoding::ENC_LATIN1);
-	//}
+	LM::TTFText text1("this is text!!465ty", &fon, LM::CharEncoding::ENC_LATIN1);
 	LM::Keyboard keyboard;
 	LM::Mouse mouse;
 
