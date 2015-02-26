@@ -19,7 +19,7 @@ namespace LM
 		int GetY() const { return lengthY; }
 		float GetMagnitude();
 		Vector2 Normalise();
-		float GetDotProduct(Vector2 &operandVector);
+		int GetDotProduct(Vector2 &operandVector);
 		//LMVector2 &operator= (const LMVector2 &rhs) const;
 		//LMVector2 &operator+ (const LMVector2 &rhs) const;
 		//LMVector2 &operator- (const LMVector2 &rhs) const;

@@ -28,7 +28,7 @@ namespace LM
 		return Vector2(-lengthY, lengthX);
 	}
 
-	float Vector2::GetDotProduct(Vector2 &operandVector)
+	int Vector2::GetDotProduct(Vector2 &operandVector)
 	{
 		return lengthX * operandVector.GetX() + lengthY * operandVector.GetY();
 	}
