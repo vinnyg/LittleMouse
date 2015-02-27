@@ -9,8 +9,6 @@ namespace LM
 
 	SDLRenderer::SDLRenderer(SDL_Window* window, int index, Uint32 flags)
 	{
-		/*if (SDL_WasInit(SDL_INIT_VIDEO) != 0)
-		{*/
 		if (m_pRenderer = SDL_CreateRenderer(window, index, flags))
 		{
 			if (m_pRenderer)
@@ -21,8 +19,6 @@ namespace LM
 			}
 		}
 		else
-		/*}*/
-		/*if (!m_pRenderer)*/
 			throw LM::Exception("SDLRenderer");
 	}
 
