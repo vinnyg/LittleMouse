@@ -7,14 +7,15 @@ namespace LiME
 	class Sprite
 	{
 	private:
-		LM::Point2 position;
+		int frameCount;
+		float animationTimeline;
+		float animationSpeed;
+		LM::Rect frameDimensions;
 		std::shared_ptr<LM::SDLTexture> texture;
 	public:
-		LM::Point2 GetPosition();
 		Sprite(std::shared_ptr<LM::SDLTexture> texture);
 		~Sprite();
+		void SetAnimationSpeed(float speed);
 		void Draw(LM::Point2 position);
 	};
-
-
 }
