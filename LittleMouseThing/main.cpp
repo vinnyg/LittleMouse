@@ -13,11 +13,12 @@ int main(int argc, char* args[])
 	LM::SDLImage img(IMG_INIT_PNG);
 #endif
 	LM::SDLWindow window("Project", 640, 480);
-	LM::SDLWindow window2("Project", 320, 240);
+	LM::SDLWindow window2("Project", 640, 480);
 	window.SetMode(LM::SDLWindowMode::kBorderless);
 	window2.SetPosition(20, 40);
 
 	LM::SDLRenderer render(window.Get(), -1, 0);
+	LM::SDLRenderer render2(window2.Get(), -1, 0);
 
 #ifndef INCLUDE_SDL_IMAGE
 	LM::SDLSurface sur("C:\\LittleMouse\\LittleMouseThing\\Assets\\Testing\\retro_block_exclamation.bmp");
@@ -26,6 +27,7 @@ int main(int argc, char* args[])
 #endif
 
 	LM::SDLTexture tex(&render, &sur);
+	LM::SDLTexture tex2(&render2, &sur);
 	TTF_Init();
 
 	LM::SDLTTFont fon("C:/windows/fonts/arial.ttf", 24);
@@ -97,8 +99,13 @@ int main(int argc, char* args[])
 		render.SetDrawBlendMode(SDL_BLENDMODE_BLEND);
 		render.Clear();
 
-		text1rend.CopyToRenderer(&render, dstText);
-		tex.CopyToRenderer(&render, src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
+		render2.SetDrawColor(LM::Color::BLACK);
+		render2.SetDrawBlendMode(SDL_BLENDMODE_BLEND);
+		render2.Clear();
+
+		text1rend.CopyToRenderer(dstText);
+		tex.CopyToRenderer(src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
+		tex2.CopyToRenderer(src, dst, pt, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
 		pix.SetDrawColor(LM::Color::WHITE);
 		lin.SetDrawColor(LM::Color::WHITE);
 		pix.Draw();
@@ -106,6 +113,7 @@ int main(int argc, char* args[])
 		rec.Draw();
 
 		render.Present();
+		render2.Present();
 	}
 
 	//TTF_Quit();
