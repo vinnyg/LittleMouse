@@ -23,19 +23,17 @@ namespace LM
 
 	SDLSurface::SDLSurface(SDL_Surface* surface) : m_pSurface(surface) {}
 
-	SDLSurface::SDLSurface(Rect dimensions, int depth, MaskRGBA mask)
+	/*SDLSurface::SDLSurface(Rect<rectType> dimensions, int depth, MaskRGBA mask)
 	{
 		if ((m_pSurface = SDL_CreateRGBSurface(0, dimensions.GetWidth(), dimensions.GetHeight(), depth, mask.r, mask.g, mask.b, mask.a)) == nullptr)
-		/*if (!m_pSurface)*/
 			throw LM::Exception("SDL_CreateRGBSurface");
-	}
+	}*/
 
-	SDLSurface::SDLSurface(void* pixels, Rect dimensions, int depth, int pitch, MaskRGBA mask)
+	/*SDLSurface::SDLSurface(void* pixels, Rect dimensions, int depth, int pitch, MaskRGBA mask)
 	{
 		if ((m_pSurface = SDL_CreateRGBSurfaceFrom(pixels, dimensions.GetWidth(), dimensions.GetHeight(), depth, pitch, mask.r, mask.g, mask.b, mask.a)) == nullptr)
-		/*if (!m_pSurface)*/
 			throw LM::Exception("SDL_CreateRGBSurface");
-	}
+	}*/
 
 	SDLSurface::~SDLSurface()
 	{
@@ -63,13 +61,13 @@ namespace LM
 		return surface;
 	}
 
-	int SDLSurface::Blit(Rect &srcRect, SDLSurface* dst, Rect &dstRect)
+	/*int SDLSurface::Blit(Rect &srcRect, SDLSurface* dst, Rect &dstRect)
 	{
 		int res = SDL_BlitSurface(m_pSurface, &srcRect, dst->Get(), &dstRect);
 		if (!res)
 			throw LM::Exception("SDL_BlitSurface");
 		return res;
-	}
+	}*/
 
 	int SDLSurface::GetAlphaMod(Uint8* alpha) const
 	{

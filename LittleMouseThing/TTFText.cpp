@@ -113,7 +113,7 @@ namespace LM
 		//m_font = std::make_shared<SDLTTFont>(font);
 	}
 
-	int TTFText::GetTextSize(Rect* dimensions) const
+	/*int TTFText::GetTextSize(Rect* dimensions) const
 	{
 		int w, h;
 		int res;
@@ -133,7 +133,7 @@ namespace LM
 		dimensions->SetWidth(w);
 		dimensions->SetHeight(h);
 		return res;
-	}
+	}*/
 
 	void TTFText::GetText(std::string* text) const
 	{

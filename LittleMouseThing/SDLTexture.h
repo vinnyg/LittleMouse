@@ -35,12 +35,29 @@ namespace LM
 		int GetAlphaMod(Uint8* alpha) const;
 		int GetColorMod(ColorRGB &rgb) const;
 		int GetBlendMode(SDL_BlendMode* blendMode) const;
-		Rect GetDimensions() const;
 		int GetFrameCount() const;
 		int SetAlphaMod(Uint8 alpha);
 		int SetColorMod(ColorRGB rgb);
 		int SetBlendMode(SDL_BlendMode blendMode);
-		void CopyToRenderer(Rect &dstrect);
-		void CopyToRenderer(Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip);
+
+		template<typename rectType>
+		Rect<rectType> GetDimensions() const
+		{
+			return Rect(0, 0, m_width, m_height);
+		}
+
+		template<typename rectType>
+		void CopyToRenderer(Rect<rectType> &dstrect)
+		{
+			if (SDL_RenderCopy(m_pRenderer->Get(), m_pTexture, nullptr, &dstrect) != 0)
+				throw LM::Exception("SDL_RenderCopyEx");
+		}
+
+		template<typename rectType>
+		void CopyToRenderer(Rect<rectType> &srcrect, Rect<rectType> &dstrect, Point2<int> &center, double angle, SDLRenderFlipEnum flip)
+		{
+			if (SDL_RenderCopyEx(m_pRenderer->Get(), m_pTexture, &srcrect, &dstrect, angle, &center, static_cast<SDL_RendererFlip>(flip)) != 0)
+				throw LM::Exception("SDL_RenderCopyEx");
+		}
 	};
 }

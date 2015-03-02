@@ -119,10 +119,10 @@ namespace LM
 		return res;
 	}
 
-	Rect SDLTexture::GetDimensions() const
+	/*Rect SDLTexture::GetDimensions() const
 	{
 		return Rect(0, 0, m_width, m_height);
-	}
+	}*/
 
 	int SDLTexture::GetFrameCount() const
 	{
@@ -153,16 +153,16 @@ namespace LM
 		return res;
 	}
 
-	void SDLTexture::CopyToRenderer(Rect &dstrect)
+	/*void SDLTexture::CopyToRenderer(Rect &dstrect)
 	{
 		if (SDL_RenderCopy(m_pRenderer->Get(), m_pTexture, nullptr, &dstrect) != 0)
 			throw LM::Exception("SDL_RenderCopyEx");
 	}
 
 	//Add a texture to the draw queue with additional parameters.
-	void SDLTexture::CopyToRenderer(Rect &srcrect, Rect &dstrect, Point2 &center, double angle, SDLRenderFlipEnum flip)
+	void SDLTexture::CopyToRenderer(Rect &srcrect, Rect &dstrect, Point2<int> &center, double angle, SDLRenderFlipEnum flip)
 	{
 		if (SDL_RenderCopyEx(m_pRenderer->Get(), m_pTexture, &srcrect, &dstrect, angle, &center, static_cast<SDL_RendererFlip>(flip)) != 0)
 			throw LM::Exception("SDL_RenderCopyEx");
-	}
+	}*/
 }

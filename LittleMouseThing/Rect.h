@@ -5,27 +5,74 @@
 
 namespace LM
 {
+	template<class rectType>
 	class Rect : public SDL_Rect
 	{
 	public:
-		Rect();
-		Rect(SDL_Rect const &rect);
-		Rect(Rect const &rect);
-		Rect(Point2 const &position, Point2 const &dimension);
+		Rect() = delete;
 
-		Rect(int const _x, int const _y, int const _w, int const _h);
+		Rect(SDL_Rect const &rect) : SDL_Rect()
+		{
+			this->x = rect.x;
+			this->y = rect.y;
+			this->w = rect.w;
+			this->h = rect.h;
+		}
 
-		void SetX(int _x) { x = _x; }
-		void SetY(int _y) { y = _y; }
-		void SetWidth(int _w) { w = _w; }
-		void SetHeight(int _h) { h = _h; }
-		void SetPosition(Point2 &pos);
-		void SetDimension(Point2 &dimension);
-		int GetX() { return x; }
-		int GetY() { return y; }
-		int GetWidth() { return w; }
-		int GetHeight() { return h; }
-		Point2 GetPosition();
-		Point2 GetDimensions();
+		Rect(Rect<rectType> const &rect) : SDL_Rect()
+		{
+			this->x = rect.x;
+			this->y = rect.y;
+			this->w = rect.w;
+			this->h = rect.h;
+		}
+
+		Rect(Point2<rectType> const &position, Point2<rectType> const &dimension)
+		{
+			this->x = position.GetX();
+			this->y = position.GetY();
+			this->w = dimension.GetX();
+			this->h = dimension.GetY();
+		}
+
+		Rect(rectType const _x, rectType const _y, rectType const _w, rectType const _h) : SDL_Rect()
+		{
+			this->x = _x;
+			this->y = _y;
+			this->w = _w;
+			this->h = _h;
+		}
+
+		void SetX(rectType _x) { x = _x; }
+		void SetY(rectType _y) { y = _y; }
+		void SetWidth(rectType _w) { w = _w; }
+		void SetHeight(rectType _h) { h = _h; }
+
+		void SetPosition(Point2<rectType> &pos)
+		{
+			x = pos.GetX();
+			y = pos.GetY();
+		}
+
+		void SetDimension(Point2<rectType> &dimension)
+		{
+			w = dimension.GetX();
+			h = dimension.GetY();
+		}
+
+		rectType GetX() const { return x; }
+		rectType GetY() const { return y; }
+		rectType GetWidth() const { return w; }
+		rectType GetHeight() const { return h; }
+
+		Point2<rectType> GetPosition() const
+		{
+			return Point2<rectType><int>(x, y);
+		}
+
+		Point2<rectType> GetDimensions() const
+		{
+			return Point2<rectType>(x, y);
+		}
 	};
 }

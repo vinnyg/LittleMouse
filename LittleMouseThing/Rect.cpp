@@ -1,6 +1,6 @@
 #include "Rect.h"
 
-namespace LM
+/*namespace LM
 {
 	Rect::Rect() : SDL_Rect()
 	{
@@ -32,7 +32,7 @@ namespace LM
 		this->h = rect.h;
 	}
 
-	Rect::Rect(Point2 const &position, Point2 const &dimension)
+	Rect::Rect(Point2<int> const &position, Point2<int> const &dimension)
 	{
 		this->x = position.GetX();
 		this->y = position.GetY();
@@ -40,25 +40,25 @@ namespace LM
 		this->h = dimension.GetY();
 	}
 
-	void Rect::SetPosition(Point2 &pos)
+	void Rect::SetPosition(Point2<int> &pos)
 	{
 		x = pos.GetX();
 		y = pos.GetY();
 	}
 
-	void Rect::SetDimension(Point2 &dimension)
+	void Rect::SetDimension(Point2<int> &dimension)
 	{
 		w = dimension.GetX();
 		h = dimension.GetY();
 	}
 
-	Point2 Rect::GetPosition()
+	Point2<int> Rect::GetPosition()
 	{
-		return Point2(x, y);
+		return Point2<int>(x, y);
 	}
 
-	Point2 Rect::GetDimensions()
+	Point2<int> Rect::GetDimensions()
 	{
-		return Point2(x, y);
+		return Point2<int>(x, y);
 	}
-}
+}*/

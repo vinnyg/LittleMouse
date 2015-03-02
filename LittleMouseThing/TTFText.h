@@ -25,9 +25,32 @@ namespace LM
 		void SetText(std::string text);
 		void SetText(Uint16 text);
 		void SetFont(SDLTTFont* font);
-		int GetTextSize(Rect* dimensions) const;
 		void GetText(std::string* text) const;
 		void GetText(Uint16* text) const;
 		SDLTTFont* GetFont() const;
+
+		template <typename rectType>
+		int GetTextSize(Rect<rectType>* dimensions) const
+		{
+			int w, h;
+			int res;
+			switch (m_encoding)
+			{
+			case CharEncoding::ENC_LATIN1:
+				res = TTF_SizeText(m_font->Get(), m_text.c_str(), &w, &h);
+				break;
+			case CharEncoding::ENC_UNICODE:
+				res = TTF_SizeUNICODE(m_font->Get(), &m_unicode, &w, &h);
+				break;
+			case CharEncoding::ENC_UTF8:
+				res = TTF_SizeUTF8(m_font->Get(), m_text.c_str(), &w, &h);
+				break;
+			}
+
+			dimensions->SetWidth(w);
+			dimensions->SetHeight(h);
+			return res;
+		}
+
 	};
 }
