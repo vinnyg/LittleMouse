@@ -42,21 +42,24 @@ int main(int argc, char* args[])
 		255, 0, 0, 128
 	};
 
-	LM::Rect src(0, 0, 128, 128);
-	LM::Rect dst(0, 0, 256, 256);
-	LM::Rect rct(100, 100, 300, 310);
-	LM::Point2 pt(0, 0);
+	LM::Rect<int> src(0, 0, 128, 128);
+	LM::Rect<int> dst(0, 0, 256, 256);
+	LM::Rect<int> rct(100, 100, 300, 310);
+	LM::Point2<double> d_pt(0.0, 0.0);
+	LM::Point2<double> d_ptu = d_pt;
+	LM::Point2<int> pt(20, 20);
+	pt = pt + d_pt;
 
-	LM::Point2 pt2(300, 300);
-	LM::PixelPrimitive pix(&render, pt2, LM::Color::WHITE);
-	LM::LinePrimitive lin(&render, pt, pt2, LM::Color::WHITE);
-	LM::RectPrimitive rec(&render, rct, true, ra);
+	LM::Point2<int> pt2(300, 300);
+	LM::PixelPrimitive<float> pix(&render, pt2, LM::Color::WHITE);
+	LM::LinePrimitive<int> lin(&render, pt, pt2, LM::Color::WHITE);
+	LM::RectPrimitive<int> rec(&render, rct, true, ra);
 
 	LM::SDLSurface texSurface = text1.RenderToSurface(LM::RenderMode::RenderShaded, LM::Color::WHITE, LM::Color::BLACK);
 	LM::SDLTexture text1rend(&render, &texSurface);
 	int t_w, t_h;
 	text1rend.Query(&t_w, &t_h);
-	LM::Rect dstText(200, 250, t_w, t_h);
+	LM::Rect<int> dstText(200, 250, t_w, t_h);
 
 	//sur.Blit(src, window.GetSurface(), dst);
 
