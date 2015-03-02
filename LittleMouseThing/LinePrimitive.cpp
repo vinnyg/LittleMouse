@@ -1,18 +1,18 @@
 #include "LinePrimitive.h"
 
-namespace LM
+/*namespace LM
 {
-	LinePrimitive::LinePrimitive(SDLRenderer* renderer, Point2 srcPosition, Point2 dstPosition) : Primitive(renderer), m_srcPos(srcPosition), m_dstPos(dstPosition)
+	LinePrimitive::LinePrimitive(SDLRenderer* renderer, Point2<int> srcPosition, Point2<int> dstPosition) : Primitive(renderer), m_srcPos(srcPosition), m_dstPos(dstPosition)
 	{
 
 	}
 
-	LinePrimitive::LinePrimitive(SDLRenderer* renderer, Point2 srcPosition, Point2 dstPosition, ColorRGB color) : Primitive(renderer, color), m_srcPos(srcPosition), m_dstPos(dstPosition)
+	LinePrimitive::LinePrimitive(SDLRenderer* renderer, Point2<int> srcPosition, Point2<int> dstPosition, ColorRGB color) : Primitive(renderer, color), m_srcPos(srcPosition), m_dstPos(dstPosition)
 	{
 
 	}
 
-	LinePrimitive::LinePrimitive(SDLRenderer* renderer, Point2 srcPosition, Point2 dstPosition, ColorRGBA color) : Primitive(renderer, color), m_srcPos(srcPosition), m_dstPos(dstPosition)
+	LinePrimitive::LinePrimitive(SDLRenderer* renderer, Point2<int> srcPosition, Point2<int> dstPosition, ColorRGBA color) : Primitive(renderer, color), m_srcPos(srcPosition), m_dstPos(dstPosition)
 	{
 
 	}
@@ -21,7 +21,7 @@ namespace LM
 	{
 	}
 
-	void LinePrimitive::SetSrcPosition(Point2 pos)
+	void LinePrimitive::SetSrcPosition(Point2<int> pos)
 	{
 		m_srcPos = pos;
 	}
@@ -32,7 +32,7 @@ namespace LM
 		m_srcPos.SetY(y);
 	}
 
-	void LinePrimitive::SetDstPosition(Point2 pos)
+	void LinePrimitive::SetDstPosition(Point2<int> pos)
 	{
 		m_dstPos = pos;
 	}
@@ -43,12 +43,12 @@ namespace LM
 		m_dstPos.SetY(y);
 	}
 
-	Point2 LinePrimitive::GetSrcPosition() const
+	Point2<int> LinePrimitive::GetSrcPosition() const
 	{
 		return m_srcPos;
 	}
 
-	Point2 LinePrimitive::GetDstPosition() const
+	Point2<int> LinePrimitive::GetDstPosition() const
 	{
 		return m_dstPos;
 	}
@@ -59,3 +59,4 @@ namespace LM
 		return SDL_RenderDrawLine(GetRenderer()->Get(), m_srcPos.GetX(), m_srcPos.GetY(), m_dstPos.GetX(), m_dstPos.GetY());
 	}
 }
+*/
