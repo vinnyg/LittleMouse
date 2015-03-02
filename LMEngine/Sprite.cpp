@@ -13,6 +13,15 @@ namespace LiME
 
 	void Sprite::Draw(LM::Point2 position)
 	{
+
+	}
+
+	void Sprite::Draw(LM::Point2 position, int frame, LM::Point2 scale, float angle, float alpha)
+	{
+		drawPosition.SetX(position.GetX());
+		drawPosition.SetY(position.GetY());
+		drawPosition.SetWidth(frameDimensions.GetWidth() * scale.GetX());
+		drawPosition.SetHeight(frameDimensions.GetHeight() * scale.GetY());
 		texture->CopyToRenderer()
 	}
 }
