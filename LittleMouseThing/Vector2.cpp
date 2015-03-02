@@ -1,6 +1,6 @@
 #include "Vector2.h"
 
-namespace LM
+/*namespace LM
 {
 	Vector2::Vector2()
 	{
@@ -8,7 +8,7 @@ namespace LM
 		lengthY = 0;
 	}
 
-	Vector2::Vector2(LM::Point2 p1, LM::Point2 p2)
+	Vector2::Vector2(LM::Point2<int> p1, LM::Point2<int> p2)
 	{
 		lengthX = p2.GetX() - p1.GetX();
 		lengthY = p2.GetY() - p1.GetY();
@@ -57,5 +57,6 @@ namespace LM
 	{
 
 	}*/
-}
+/*}
 
+*/
