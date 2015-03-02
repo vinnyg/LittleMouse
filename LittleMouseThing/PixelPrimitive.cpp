@@ -2,15 +2,15 @@
 
 namespace LM
 {
-	PixelPrimitive::PixelPrimitive(SDLRenderer* renderer, Point2 position) : Primitive(renderer), m_pos(position)
+	/*PixelPrimitive::PixelPrimitive(SDLRenderer* renderer, Point2<int> position) : Primitive(renderer), m_pos(position)
 	{
 	}
 
-	PixelPrimitive::PixelPrimitive(SDLRenderer* renderer, Point2 position, ColorRGB color) : Primitive(renderer, color), m_pos(position)
+	PixelPrimitive::PixelPrimitive(SDLRenderer* renderer, Point2<int> position, ColorRGB color) : Primitive(renderer, color), m_pos(position)
 	{
 	}
 
-	PixelPrimitive::PixelPrimitive(SDLRenderer* renderer, Point2 position, ColorRGBA color) : Primitive(renderer, color), m_pos(position)
+	PixelPrimitive::PixelPrimitive(SDLRenderer* renderer, Point2<int> position, ColorRGBA color) : Primitive(renderer, color), m_pos(position)
 	{
 	}
 
@@ -18,7 +18,7 @@ namespace LM
 	{
 	}
 
-	void PixelPrimitive::SetPosition(Point2 pos)
+	void PixelPrimitive::SetPosition(Point2<int> pos)
 	{
 		m_pos = pos;
 	}
@@ -29,7 +29,7 @@ namespace LM
 		m_pos.SetY(y);
 	}
 
-	Point2 PixelPrimitive::GetPosition() const
+	Point2<int> PixelPrimitive::GetPosition() const
 	{
 		return m_pos;
 	}
@@ -42,5 +42,5 @@ namespace LM
 	#else
 		return pixelRGBA(GetRenderer()->Get(), m_pos.GetX(), m_pos.GetY(), GetDrawColor().r, GetDrawColor().b, GetDrawColor().g, GetDrawAlpha());
 	#endif
-	}
+	}*/
 }
