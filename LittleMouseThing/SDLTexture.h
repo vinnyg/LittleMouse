@@ -14,8 +14,7 @@ namespace LM
 	private:
 		SDL_Texture* m_pTexture;
 		SDLRenderer* m_pRenderer;
-		int m_width;
-		int m_height;
+		LM::Point2<int> m_dimensions;
 		int m_frameCount;
 		Uint32 m_format;
 		int m_access;
@@ -30,11 +29,11 @@ namespace LM
 		void Destroy();
 		SDL_Texture* Get() const;
 		SDLRenderer* GetRenderer() const;
-		int Query(int* width, int* height);
-		int Query(Uint32* format, int* access, int* width, int* height);
-		int GetAlphaMod(Uint8* alpha) const;
+		int Query(LM::Point2<int> &dimensions);
+		int Query(Uint32& format, int& access, LM::Point2<int> &dimensions);
+		int GetAlphaMod(Uint8 &alpha) const;
 		int GetColorMod(ColorRGB &rgb) const;
-		int GetBlendMode(SDL_BlendMode* blendMode) const;
+		int GetBlendMode(SDL_BlendMode &blendMode) const;
 		int GetFrameCount() const;
 		int SetAlphaMod(Uint8 alpha);
 		int SetColorMod(ColorRGB rgb);
@@ -42,7 +41,7 @@ namespace LM
 
 		Point2<int> GetDimensions() const
 		{
-			return Point2<int>(m_width, m_height);
+			return m_dimensions;
 		}
 
 		template<typename rectType>

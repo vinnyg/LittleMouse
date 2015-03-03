@@ -79,25 +79,31 @@ namespace LM
 		return m_pRenderer;
 	}
 
-	int SDLTexture::Query(int* width, int* height)
+	int SDLTexture::Query(LM::Point2<int> &dimensions)
 	{
-		int res = SDL_QueryTexture(m_pTexture, nullptr, nullptr, width, height);
+		int w, h;
+		int res = SDL_QueryTexture(m_pTexture, nullptr, nullptr, &w, &h);
 		if (res != 0)
 			throw LM::Exception("SDL_QueryTexture");
+		dimensions.SetX(w);
+		dimensions.SetY(h);
 		return res;
 	}
 
-	int SDLTexture::Query(Uint32* format, int* access, int* width, int* height)
+	int SDLTexture::Query(Uint32 &format, int &access, LM::Point2<int> &dimensions)
 	{
-		int res = SDL_QueryTexture(m_pTexture, format, access, width, height);
+		int w, h;
+		int res = SDL_QueryTexture(m_pTexture, &format, &access, &w, &h);
 		if (res != 0)
 			throw LM::Exception("SDL_QueryTexture");
+		dimensions.SetX(w);
+		dimensions.SetY(h);
 		return res;
 	}
 
-	int SDLTexture::GetAlphaMod(Uint8* alpha) const
+	int SDLTexture::GetAlphaMod(Uint8 &alpha) const
 	{
-		int res = SDL_GetTextureAlphaMod(m_pTexture, alpha);
+		int res = SDL_GetTextureAlphaMod(m_pTexture, &alpha);
 		if (res != 0)
 			throw LM::Exception("SDL_GetTextureAlphaMod");
 		return res;
@@ -111,9 +117,9 @@ namespace LM
 		return res;
 	}
 
-	int SDLTexture::GetBlendMode(SDL_BlendMode* blendMode) const
+	int SDLTexture::GetBlendMode(SDL_BlendMode &blendMode) const
 	{
-		int res = SDL_GetTextureBlendMode(m_pTexture, blendMode);
+		int res = SDL_GetTextureBlendMode(m_pTexture, &blendMode);
 		if (res != 0)
 			throw LM::Exception("SDL_GetTextureBlendMode");
 		return res;
