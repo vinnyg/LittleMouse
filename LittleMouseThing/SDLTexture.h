@@ -7,8 +7,20 @@
 #include "Geometry.h"
 #include "Structs.h"
 
+namespace LiME
+{
+	class Sprite;
+}
+
 namespace LM
 {
+	class SDLTexturePassKey
+	{
+		friend class LiME::Sprite;
+	private:
+		SDLTexturePassKey();
+	};
+
 	class SDLTexture
 	{
 	private:
@@ -19,6 +31,8 @@ namespace LM
 		int m_frameCount;
 		Uint32 m_format;
 		int m_access;
+		//Keeps count of how many instances of Sprite refer to this class - prevents deletion.
+		int refCount;
 	public:
 		/*SDLTexture(SDL_Texture* texture);*/
 		SDLTexture(SDLTexture const &texture);
@@ -58,5 +72,8 @@ namespace LM
 			if (SDL_RenderCopyEx(m_pRenderer->Get(), m_pTexture, &srcrect, &dstrect, angle, &center, static_cast<SDL_RendererFlip>(flip)) != 0)
 				throw LM::Exception("SDL_RenderCopyEx");
 		}
+
+		void IncrementRef(SDLTexturePassKey);
+		void DecrementRef(SDLTexturePassKey);
 	};
 }

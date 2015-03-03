@@ -165,4 +165,14 @@ namespace LM
 		if (SDL_RenderCopyEx(m_pRenderer->Get(), m_pTexture, &srcrect, &dstrect, angle, &center, static_cast<SDL_RendererFlip>(flip)) != 0)
 			throw LM::Exception("SDL_RenderCopyEx");
 	}*/
+
+	void SDLTexture::IncrementRef(SDLTexturePassKey)
+	{
+		++refCount;
+	}
+
+	void SDLTexture::DecrementRef(SDLTexturePassKey)
+	{
+		--refCount;
+	}
 }
