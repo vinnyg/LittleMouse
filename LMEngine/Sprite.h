@@ -14,6 +14,7 @@ namespace LiME
 		Uint8 alpha;
 		std::shared_ptr<LM::SDLTexture> texture;
 		LM::Point2<int> origin;
+		LM::Point2<float> scale;
 		LM::Rect<int> frameDimensions;
 		LM::Rect<float> drawPosition;
 		LM::Rect<float> frameDimensionsFloatCast;
@@ -23,6 +24,7 @@ namespace LiME
 		~Sprite();
 		LM::Point2<int> GetOrigin() const;
 		Uint8 GetAlpha() const;
+		float GetScale() const;
 		void SetAnimationSpeed(float speed);
 		void SetPosition(LM::Point2<float> position);
 		void SetScale(LM::Point2<float> scale);
