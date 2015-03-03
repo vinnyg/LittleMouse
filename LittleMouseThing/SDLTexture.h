@@ -18,6 +18,7 @@ namespace LM
 		//int m_frameCount;
 		Uint32 m_format;
 		int m_access;
+		void Destroy();
 	public:
 		/*SDLTexture(SDL_Texture* texture);*/
 		SDLTexture(SDLTexture const &texture);
@@ -26,7 +27,6 @@ namespace LM
 		/*SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameCount);
 		SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameWidth, int frameHeight, int frameCount);*/
 		~SDLTexture();
-		void Destroy();
 		SDL_Texture* Get() const;
 		SDLRenderer* GetRenderer() const;
 		int Query(LM::Point2<int> &dimensions);
