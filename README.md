@@ -1,2 +1,2 @@
-# LittleMouse
-WIP C++ SDL Wrapper
+# LiME
+WIP C++ SDL Wrapper & Engine
