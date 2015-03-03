@@ -8,13 +8,16 @@ namespace LM
 	throw LM::Exception("SDL_QueryTexture");
 	}*/
 
-	SDLTexture::SDLTexture(SDLTexture const &texture) : m_pTexture(texture.Get()), m_pRenderer(texture.GetRenderer())
+	SDLTexture::SDLTexture(SDLTexture const &texture) : m_pTexture(texture.Get()), m_pRenderer(texture.GetRenderer()), m_dimensions(0, 0)
 	{
-		if (SDL_QueryTexture(texture.Get(), &m_format, &m_access, &m_width, &m_height) != 0)
+		int w, h;
+		if (SDL_QueryTexture(texture.Get(), &m_format, &m_access, &w, &h) != 0)
 			throw LM::Exception("SDL_QueryTexture");
+		m_dimensions.SetX(w);
+		m_dimensions.SetY(h);
 	}
 
-	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int width, int height) : m_width(width), m_height(height), m_frameCount(1), m_pRenderer(renderer)
+	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface, LM::Point2<int> dimensions) : m_dimensions(dimensions), m_pRenderer(renderer)
 	{
 		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
 		if (!m_pTexture)
@@ -23,7 +26,7 @@ namespace LM
 			throw LM::Exception("SDL_QueryTexture");
 	}
 
-	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frames) : m_frameCount((frames > 0 ? frames : 1)), m_pRenderer(renderer)
+	/*SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frames) : m_frameCount((frames > 0 ? frames : 1)), m_pRenderer(renderer)
 	{
 		int tmp_width, tmp_height;
 		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
@@ -45,15 +48,18 @@ namespace LM
 		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
 		if (!m_pTexture)
 			throw LM::Exception("SDL_CreateTextureFromSurface");
-	}
+	}*/
 
-	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface) : m_pRenderer(renderer)
+	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface) : m_pRenderer(renderer), m_dimensions(0, 0)
 	{
+		int w, h;
 		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
 		if (!m_pTexture)
 			throw LM::Exception("SDL_CreateTextureFromSurface");
-		if (SDL_QueryTexture(m_pTexture, &m_format, &m_access, &m_width, &m_height) != 0)
+		if (SDL_QueryTexture(m_pTexture, &m_format, &m_access, &w, &h) != 0)
 			throw LM::Exception("SDL_QueryTexture");
+		m_dimensions.SetX(w);
+		m_dimensions.SetY(h);
 	}
 
 	SDLTexture::~SDLTexture()
@@ -125,15 +131,11 @@ namespace LM
 		return res;
 	}
 
-	/*Rect SDLTexture::GetDimensions() const
-	{
-		return Rect(0, 0, m_width, m_height);
-	}*/
-
-	int SDLTexture::GetFrameCount() const
+	/*int SDLTexture::GetFrameCount() const
 	{
 		return m_frameCount;
 	}
+*/
 
 	int SDLTexture::SetAlphaMod(Uint8 alpha)
 	{
@@ -158,17 +160,4 @@ namespace LM
 			throw LM::Exception("SDL_SetTextureBlendMode");
 		return res;
 	}
-
-	/*void SDLTexture::CopyToRenderer(Rect &dstrect)
-	{
-		if (SDL_RenderCopy(m_pRenderer->Get(), m_pTexture, nullptr, &dstrect) != 0)
-			throw LM::Exception("SDL_RenderCopyEx");
-	}
-
-	//Add a texture to the draw queue with additional parameters.
-	void SDLTexture::CopyToRenderer(Rect &srcrect, Rect &dstrect, Point2<int> &center, double angle, SDLRenderFlipEnum flip)
-	{
-		if (SDL_RenderCopyEx(m_pRenderer->Get(), m_pTexture, &srcrect, &dstrect, angle, &center, static_cast<SDL_RendererFlip>(flip)) != 0)
-			throw LM::Exception("SDL_RenderCopyEx");
-	}*/
 }

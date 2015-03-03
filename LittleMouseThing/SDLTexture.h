@@ -15,16 +15,16 @@ namespace LM
 		SDL_Texture* m_pTexture;
 		SDLRenderer* m_pRenderer;
 		LM::Point2<int> m_dimensions;
-		int m_frameCount;
+		//int m_frameCount;
 		Uint32 m_format;
 		int m_access;
 	public:
 		/*SDLTexture(SDL_Texture* texture);*/
 		SDLTexture(SDLTexture const &texture);
 		SDLTexture(SDLRenderer* renderer, SDLSurface* surface);
-		SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameWidth, int frameHeight);
-		SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameCount);
-		SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameWidth, int frameHeight, int frameCount);
+		SDLTexture(SDLRenderer* renderer, SDLSurface* surface, LM::Point2<int> dimensions);
+		/*SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameCount);
+		SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frameWidth, int frameHeight, int frameCount);*/
 		~SDLTexture();
 		void Destroy();
 		SDL_Texture* Get() const;
@@ -34,7 +34,7 @@ namespace LM
 		int GetAlphaMod(Uint8 &alpha) const;
 		int GetColorMod(ColorRGB &rgb) const;
 		int GetBlendMode(SDL_BlendMode &blendMode) const;
-		int GetFrameCount() const;
+		//int GetFrameCount() const;
 		int SetAlphaMod(Uint8 alpha);
 		int SetColorMod(ColorRGB rgb);
 		int SetBlendMode(SDL_BlendMode blendMode);
