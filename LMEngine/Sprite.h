@@ -22,7 +22,7 @@ namespace LiME
 		Sprite(std::shared_ptr<LM::SDLTexture> texture, LM::Point2<int> origin);
 		~Sprite();
 		LM::Point2<int> GetOrigin() const;
-		float GetAlpha() const;
+		Uint8 GetAlpha() const;
 		void SetAnimationSpeed(float speed);
 		void SetPosition(LM::Point2<float> position);
 		void SetScale(LM::Point2<float> scale);
