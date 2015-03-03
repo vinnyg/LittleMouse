@@ -40,10 +40,9 @@ namespace LM
 		int SetColorMod(ColorRGB rgb);
 		int SetBlendMode(SDL_BlendMode blendMode);
 
-		template<typename rectType>
-		Rect<rectType> GetDimensions() const
+		Point2<int> GetDimensions() const
 		{
-			return Rect(0, 0, m_width, m_height);
+			return Point2<int>(m_width, m_height);
 		}
 
 		template<typename rectType>
