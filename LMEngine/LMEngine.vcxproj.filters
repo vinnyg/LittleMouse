@@ -18,9 +18,21 @@
     <ClInclude Include="Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAnimationProperties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteProperties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
