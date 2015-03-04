@@ -2,48 +2,80 @@
 
 namespace LiME
 {
-	Sprite::Sprite(std::shared_ptr<LM::SDLTexture> texture) : frameCount(1), currentFrame(0), animationSpeed(1.0f), angle(0), alpha(255), texture(texture), frameDimensions(LM::Point2<int>(0, 0), texture->GetDimensions()), origin(0, 0), scale(1.0f, 1.0f), drawPosition(frameDimensions), frameDimensionsFloatCast(LM::Point2<float>(0.0f, 0.0f), static_cast<LM::Point2<float>>(frameDimensions.GetDimensions())) {}
+	Sprite::Sprite(std::shared_ptr<LM::SDLTexture> texture) :
+		Sprite(texture, 1, LM::Rect<int>({ 0, 0 }, texture->GetDimensions())) {}
 
-	Sprite::Sprite(std::shared_ptr<LM::SDLTexture> texture, LM::Point2<int> origin) : frameCount(1), currentFrame(0), animationSpeed(1.0f), angle(0), alpha(255), texture(texture), frameDimensions(LM::Point2<int>(0, 0), texture->GetDimensions()), origin(origin), scale(1.0f, 1.0f), drawPosition(frameDimensions), frameDimensionsFloatCast(LM::Point2<float>(0.0f, 0.0f), static_cast<LM::Point2<float>>(frameDimensions.GetDimensions())) {}
+	Sprite::Sprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames) :
+		Sprite(texture, numFrames, LM::Rect<int>({ 0, 0 }, texture->GetDimensions())) {}
+
+	Sprite::Sprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames, LM::Rect<int> sheetSrcRegion) :
+		texture(texture), properties(sheetSrcRegion),
+		animProperties(LM::Rect<int>(0, 0, sheetSrcRegion.GetDimensions().GetX() / numFrames, sheetSrcRegion.GetDimensions().GetY()), numFrames, 0.0f, ((numFrames > 1) ? 1.0f : 0.0f)),
+		drawRegion(animProperties.frameRegion) {}
 
 	Sprite::~Sprite() {}
 
 	void Sprite::SetAnimationSpeed(float speed)
 	{
-		animationSpeed = speed;
+		animProperties.animationSpeed = speed;
 	}
 
 	LM::Point2<int> Sprite::GetOrigin() const
 	{
-		return origin;
+		return properties.origin;
+	}
+
+	float Sprite::GetAnimationSpeed() const
+	{
+		return animProperties.animationSpeed;
+	}
+
+	void Sprite::SetOrigin(LM::Point2<int> origin)
+	{
+		properties.origin = origin;
 	}
 
 	void Sprite::SetPosition(LM::Point2<float> position)
 	{
-		drawPosition.SetX(position.GetX());
-		drawPosition.SetY(position.GetY());
+		drawRegion.SetX(position.GetX());
+		drawRegion.SetY(position.GetY());
 	}
 
 	void Sprite::SetScale(LM::Point2<float> scale)
 	{
-		this->scale = scale;
-		drawPosition.SetWidth(frameDimensions.GetWidth() * scale.GetX());
-		drawPosition.SetHeight(frameDimensions.GetHeight() * scale.GetY());
+		properties.scale = scale;
+		drawRegion.SetWidth(animProperties.frameRegion.GetWidth() * scale.GetX());
+		drawRegion.SetHeight(animProperties.frameRegion.GetHeight() * scale.GetY());
 	}
 
 	void Sprite::SetAlpha(Uint8 alpha)
 	{
-		this->alpha = alpha;
+		properties.alpha = alpha;
 	}
 
 	void Sprite::Draw()
 	{
-		if (alpha < 255)
+		if (properties.alpha < 255)
 		{
 			texture->SetBlendMode(SDL_BLENDMODE_BLEND);
-			texture->SetAlphaMod(alpha);
+			texture->SetAlphaMod(properties.alpha);
 		}
 
-		texture->CopyToRenderer<float>(frameDimensionsFloatCast, drawPosition, origin, angle, LM::SDLRenderFlipEnum::kNoFlip);
+		//If animation reaches the end (or start) of its cycle, loop it.
+		if (animProperties.frameIndex > animProperties.frameCount)
+			animProperties.frameIndex = animProperties.frameIndex - animProperties.frameCount;
+		else if (animProperties.frameIndex < 0)
+			animProperties.frameIndex = animProperties.frameIndex + animProperties.frameCount;
+		
+		//Animate if there is more than a single frame in the sprite.
+		if (animProperties.frameCount > 1)
+		{
+			animProperties.frameIndex = animProperties.frameIndex + animProperties.animationSpeed;
+
+			animProperties.frameRegion.SetX(animProperties.frameRegion.GetWidth() * animProperties.frameIndex);
+		}
+
+		//Render the sprite.
+		texture->CopyToRenderer<float>(animProperties.frameRegion, drawRegion, properties.origin, properties.angle, LM::SDLRenderFlipEnum::kNoFlip);
 	}
 }

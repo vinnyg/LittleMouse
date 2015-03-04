@@ -1,30 +1,28 @@
 #pragma once
 #include <memory>
 #include "SDLTexture.h"
+#include "SpriteProperties.h"
+#include "SpriteAnimationProperties.h"
 
 namespace LiME
 {
 	class Sprite
 	{
 	private:
-		int frameCount;
-		float currentFrame;
-		float animationSpeed;
-		float angle;
-		Uint8 alpha;
 		std::shared_ptr<LM::SDLTexture> texture;
-		LM::Point2<int> origin;
-		LM::Point2<float> scale;
-		LM::Rect<int> frameDimensions;
-		LM::Rect<float> drawPosition;
-		LM::Rect<float> frameDimensionsFloatCast;
+		SpriteProperties properties;
+		SpriteAnimationProperties animProperties;
+		LM::Rect<float> drawRegion;
 	public:
 		Sprite(std::shared_ptr<LM::SDLTexture> texture);
-		Sprite(std::shared_ptr<LM::SDLTexture> texture, LM::Point2<int> origin);
+		Sprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames);
+		Sprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames, LM::Rect<int> sheetSrcRegion);
 		~Sprite();
 		LM::Point2<int> GetOrigin() const;
 		Uint8 GetAlpha() const;
 		float GetScale() const;
+		float GetAnimationSpeed() const;
+		void SetOrigin(LM::Point2<int> origin);
 		void SetAnimationSpeed(float speed);
 		void SetPosition(LM::Point2<float> position);
 		void SetScale(LM::Point2<float> scale);
