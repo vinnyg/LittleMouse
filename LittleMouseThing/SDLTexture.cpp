@@ -26,30 +26,6 @@ namespace LM
 			throw LM::Exception("SDL_QueryTexture");
 	}
 
-	/*SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int frames) : m_frameCount((frames > 0 ? frames : 1)), m_pRenderer(renderer)
-	{
-		int tmp_width, tmp_height;
-		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
-		if (!m_pTexture)
-			throw LM::Exception("SDL_CreateTextureFromSurface");
-
-		if (SDL_QueryTexture(m_pTexture, &m_format, &m_access, (m_frameCount > 1) ? &tmp_width : &m_width, (m_frameCount > 1) ? &tmp_height : &m_height) != 0)
-			throw LM::Exception("SDL_QueryTexture");
-
-		if (m_frameCount > 1)
-		{
-			m_width = tmp_width / m_frameCount;
-			m_height = tmp_height / m_frameCount;
-		}
-	}
-
-	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface, int width, int height, int frames) : m_width(width), m_height(height), m_frameCount(frames)
-	{
-		m_pTexture = SDL_CreateTextureFromSurface(renderer->Get(), surface->Get());
-		if (!m_pTexture)
-			throw LM::Exception("SDL_CreateTextureFromSurface");
-	}*/
-
 	SDLTexture::SDLTexture(SDLRenderer* renderer, SDLSurface* surface) : m_pRenderer(renderer), m_dimensions(0, 0)
 	{
 		int w, h;
@@ -130,12 +106,6 @@ namespace LM
 			throw LM::Exception("SDL_GetTextureBlendMode");
 		return res;
 	}
-
-	/*int SDLTexture::GetFrameCount() const
-	{
-		return m_frameCount;
-	}
-*/
 
 	int SDLTexture::SetAlphaMod(Uint8 alpha)
 	{
