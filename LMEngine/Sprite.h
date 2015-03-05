@@ -18,6 +18,7 @@ namespace LiME
 		Sprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames);
 		Sprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames, LM::Rect<int> sheetSrcRegion);
 		~Sprite();
+		void Free();
 		LM::Point2<int> GetOrigin() const;
 		Uint8 GetAlpha() const;
 		float GetScale() const;

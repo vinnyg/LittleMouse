@@ -13,7 +13,15 @@ namespace LiME
 		animProperties(LM::Rect<int>(0, 0, sheetSrcRegion.GetDimensions().GetX() / numFrames, sheetSrcRegion.GetDimensions().GetY()), numFrames, 0.0f, ((numFrames > 1) ? 1.0f : 0.0f)),
 		drawRegion(animProperties.frameRegion) {}
 
-	Sprite::~Sprite() {}
+	Sprite::~Sprite()
+	{
+		Free();
+	}
+
+	void Sprite::Free()
+	{
+		texture.reset();
+	}
 
 	void Sprite::SetAnimationSpeed(float speed)
 	{
