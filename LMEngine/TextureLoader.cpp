@@ -1,25 +1,19 @@
 #include "TextureLoader.h"
+#include "SDLRenderer.h"
 
 namespace LiME
 {
-	TextureLoader::TextureLoader()
-	{
-	}
+	TextureLoader::TextureLoader(LM::SDLRenderer* renderer) : renderer(renderer) {}
 
 	TextureLoader::~TextureLoader()
 	{
-		//if (!textureList.empty())
-			textureList.clear();
+		textureList.clear();
 	}
 
-	std::shared_ptr<LM::SDLTexture> TextureLoader::LoadTexture(std::string filePath)
+	std::shared_ptr<LM::SDLTexture> TextureLoader::LoadTexture(std::string const filePath)
 	{
-		std::shared_ptr<LM::SDLTexture> t = LM::SDLTexture(filePath)
+		std::unique_ptr<LM::SDLSurface> s(new LM::SDLSurface(filePath));
+		std::shared_ptr<LM::SDLTexture> t(new LM::SDLTexture(renderer.get(), s.get()));
 		textureList.push_back(t);
-	}
-
-	void TextureLoader::FreeTexture(std::shared_ptr<LM::SDLTexture>)
-	{
-
 	}
 }
