@@ -15,5 +15,7 @@ namespace LiME
 		std::unique_ptr<LM::SDLSurface> s(new LM::SDLSurface(filePath));
 		std::shared_ptr<LM::SDLTexture> t(new LM::SDLTexture(renderer.get(), s.get()));
 		textureList.push_back(t);
+		s.reset();
+		return t;
 	}
 }
