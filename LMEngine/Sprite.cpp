@@ -80,7 +80,7 @@ namespace LiME
 		{
 			animProperties.frameIndex = animProperties.frameIndex + animProperties.animationSpeed;
 
-			animProperties.frameRegion.SetX(animProperties.frameRegion.GetWidth() * animProperties.frameIndex);
+			animProperties.frameRegion.SetX(animProperties.frameRegion.GetWidth() * (int)std::floor(animProperties.frameIndex));
 		}
 
 		//Render the sprite.
