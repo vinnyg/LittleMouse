@@ -19,7 +19,7 @@ namespace LiME
 	void SpriteManager::Draw()
 	{
 		std::vector<std::shared_ptr<Sprite>>::iterator it;
-		for (it = spriteList.begin; it != spriteList.end; ++it)
+		for (it = spriteList.begin(); it != spriteList.end(); ++it)
 		{
 			(*it)->Draw();
 		}
