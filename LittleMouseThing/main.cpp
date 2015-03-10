@@ -1,13 +1,14 @@
 // #include "SDLWindowComponentInterface.h"
-#include "SDLExtensionConfig.h"
+/*#include "SDLExtensionConfig.h"
 #include "LMWrapper.h"
 #include "SDLImage.h"
 #include "SDLTTFont.h"
-#include "TTFText.h"
+#include "TTFText.h"*/
+#include "LMWrapper.h"
 
 int main(int argc, char* args[])
 {
-	SDL_Init(SDL_INIT_EVERYTHING);
+	/*SDL_Init(SDL_INIT_EVERYTHING);
 	//Testing multiple windows.
 #ifdef INCLUDE_SDL_IMAGE
 	LM::SDLImage img(IMG_INIT_PNG);
@@ -83,8 +84,8 @@ int main(int argc, char* args[])
 			}
 		}
 		
-		if (keyboard.KeyIsHeld(LM::Key::Key_ESCAPE)/* && keyboard.IsKeyHeld(LM::Key::Key_a) *//*&& keyboard.IsKeyHeld(LM::Key::Key_w)*/)
-		{
+		if (keyboard.KeyIsHeld(LM::Key::Key_ESCAPE)/* && keyboard.IsKeyHeld(LM::Key::Key_a) *//*&& keyboard.IsKeyHeld(LM::Key::Key_w))*/
+		/*{
 			isRunning = !isRunning;
 		}
 
@@ -117,9 +118,11 @@ int main(int argc, char* args[])
 
 		render.Present();
 		render2.Present();
-	}
+	}*/
 
 	//TTF_Quit();
+
+
 
 	return 0;
 }
