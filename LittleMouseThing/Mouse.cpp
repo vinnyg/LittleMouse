@@ -34,19 +34,19 @@ namespace LM
 		switch (mb)
 		{
 		case Button::MB_Left:
-			isPressed = (GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_LEFT) != 0);
+			isPressed = ((GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0);
 			break;
 		case Button::MB_Middle:
-			isPressed = (GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_MIDDLE) != 0);
+			isPressed = ((GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_MIDDLE)) != 0);
 			break;
 		case Button::MB_Right:
-			isPressed = (GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_RIGHT) != 0);
+			isPressed = ((GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_RIGHT)) != 0);
 			break;
 		case Button::MB_X1:
-			isPressed = (GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_X1) != 0);
+			isPressed = ((GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_X1)) != 0);
 			break;
 		case Button::MB_X2:
-			isPressed = (GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_X2) != 0);
+			isPressed = ((GetState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_X2)) != 0);
 			break;
 		default:
 			isPressed = false;
