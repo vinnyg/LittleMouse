@@ -22,11 +22,15 @@ namespace LM
 		virtual int Draw()
 		{
 			GetRenderer()->SetDrawColor(GetDrawRGBA());
+			SDL_Rect rect = m_Rect.ToSDLRect();
+			int res;
 
 			if (m_filled)
-				return SDL_RenderFillRect(GetRenderer()->Get(), &m_Rect);
+				res = SDL_RenderFillRect(GetRenderer()->Get(), &rect);
 			else
-				return SDL_RenderDrawRect(GetRenderer()->Get(), &m_Rect);
+				res = SDL_RenderDrawRect(GetRenderer()->Get(), &rect);
+
+			return res;
 		}
 	};
 }
