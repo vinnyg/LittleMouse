@@ -12,8 +12,8 @@ namespace LM
 	public:
 		Point2() = delete;
 		Point2(type _x, type _y) : x(_x), y(_y) {}
-		Point2(SDL_Point const &point) : x(point.x), y(point.y) {}
-		Point2(Point2 const &point) : x(point.x), y(point.y) {}
+		//Point2(SDL_Point const &point) : x(point.x), y(point.y) {}
+		Point2(Point2<type> const &point) : x(point.x), y(point.y) {}
 
 		void SetX(type _x) { x = _x; }
 		void SetY(type _y) { y = _y; }
