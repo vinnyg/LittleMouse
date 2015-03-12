@@ -11,7 +11,7 @@ namespace LiME
 	Sprite::Sprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames, LM::Rect<int> sheetSrcRegion) :
 		texture(texture), properties(sheetSrcRegion),
 		animProperties(LM::Rect<int>(0, 0, properties.srcRegion_.GetDimensions().GetX() / numFrames, properties.srcRegion_.GetDimensions().GetY()), numFrames, 0.0f, ((numFrames > 1) ? 1.0f : 0.0f)),
-		drawRegion(animProperties.frameRegion_) {}
+		drawRegion(LM::Rect<float>(0.0f, 0.0f, float(animProperties.frameRegion_.GetDimensions().GetX()), float(animProperties.frameRegion_.GetDimensions().GetY()))) {}
 
 	Sprite::~Sprite()
 	{
