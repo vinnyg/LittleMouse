@@ -72,7 +72,7 @@ namespace LM
 
 		Point2<rectType> GetDimensions() const
 		{
-			return Point2<rectType>(x, y);
+			return Point2<rectType>(w, h);
 		}
 	};
 }
