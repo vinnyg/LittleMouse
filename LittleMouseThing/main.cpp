@@ -82,7 +82,6 @@ int main(int argc, char* args[])
 	std::shared_ptr<LiME::Sprite> spr = manager.CreateSprite(t);
 	spr->SetPosition(LM::Point2<float>(20.0f, 20.0f));
 	spr->SetScale(LM::Point2<float>(2.0f, 2.0f));
-	//LM::SDLTexture tex = ;
 
 	while (isRunning)
 	{

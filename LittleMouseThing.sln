@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LittleMouseThing", "LittleM
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LiMEngine", "LMEngine\LMEngine.vcxproj", "{0F431D26-2510-448C-AD0C-95DD9B19B8E8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDLWrapper", "SDLWrapper\SDLWrapper.vcxproj", "{F7BBD90A-D75D-44BE-9A44-F1D6EFE49787}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -23,10 +21,6 @@ Global
 		{0F431D26-2510-448C-AD0C-95DD9B19B8E8}.Debug|Win32.Build.0 = Debug|Win32
 		{0F431D26-2510-448C-AD0C-95DD9B19B8E8}.Release|Win32.ActiveCfg = Release|Win32
 		{0F431D26-2510-448C-AD0C-95DD9B19B8E8}.Release|Win32.Build.0 = Release|Win32
-		{F7BBD90A-D75D-44BE-9A44-F1D6EFE49787}.Debug|Win32.ActiveCfg = Debug|Win32
-		{F7BBD90A-D75D-44BE-9A44-F1D6EFE49787}.Debug|Win32.Build.0 = Debug|Win32
-		{F7BBD90A-D75D-44BE-9A44-F1D6EFE49787}.Release|Win32.ActiveCfg = Release|Win32
-		{F7BBD90A-D75D-44BE-9A44-F1D6EFE49787}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
