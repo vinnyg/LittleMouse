@@ -72,6 +72,9 @@
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="LiME\Sprite.cpp" />
+    <ClCompile Include="LiME\SpriteManager.cpp" />
+    <ClCompile Include="LiME\TextureLoader.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="Point2.cpp" />
@@ -98,6 +101,11 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="LiME\Sprite.h" />
+    <ClInclude Include="LiME\SpriteAnimationProperties.h" />
+    <ClInclude Include="LiME\SpriteManager.h" />
+    <ClInclude Include="LiME\SpriteProperties.h" />
+    <ClInclude Include="LiME\TextureLoader.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="LinePrimitive.h" />
