@@ -6,12 +6,15 @@
 namespace LM
 {
 	template<class rectType>
-	class Rect : public SDL_Rect
+	class Rect// : public SDL_Rect
 	{
+	private:
+		rectType x, y;
+		rectType w, h;
 	public:
 		Rect() = delete;
 
-		Rect(SDL_Rect const &rect) : SDL_Rect()
+		Rect(SDL_Rect const &rect)// : SDL_Rect()
 		{
 			this->x = rect.x;
 			this->y = rect.y;
@@ -19,7 +22,7 @@ namespace LM
 			this->h = rect.h;
 		}
 
-		Rect(Rect<rectType> const &rect) : SDL_Rect()
+		Rect(Rect<rectType> const &rect)// : SDL_Rect()
 		{
 			this->x = rect.x;
 			this->y = rect.y;
@@ -35,7 +38,7 @@ namespace LM
 			this->h = dimension.GetY();
 		}
 
-		Rect(rectType const _x, rectType const _y, rectType const _w, rectType const _h) : SDL_Rect()
+		Rect(rectType const _x, rectType const _y, rectType const _w, rectType const _h)// : SDL_Rect()
 		{
 			this->x = _x;
 			this->y = _y;
@@ -73,6 +76,11 @@ namespace LM
 		Point2<rectType> GetDimensions() const
 		{
 			return Point2<rectType>(w, h);
+		}
+
+		SDL_Rect ToSDLRect()
+		{
+			return SDL_Rect = { float(x), float(y), float(w), float(h) };
 		}
 	};
 }
