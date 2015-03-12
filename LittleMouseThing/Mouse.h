@@ -20,8 +20,8 @@ namespace LM
 	public:
 		Mouse();
 		~Mouse();
-		Uint32 GetState(int* x, int*y);
-		Uint32 GetRelativeState(int* x, int*y);
+		Uint32 GetState(int* x, int* y);
+		Uint32 GetRelativeState(int* x, int* y);
 		int SetRelativeMode(bool enabled);
 		bool ButtonIsPressed(Button mb);
 	};
