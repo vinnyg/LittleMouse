@@ -2,29 +2,11 @@
 
 namespace LM
 {
-	Primitive::Primitive(SDLRenderer* renderer) : m_pRenderer(std::make_shared<SDLRenderer>(renderer)), m_drawRGBA({ 0, 0, 0, 255 })
-	{
-	}
+	Primitive::Primitive(SDLRenderer &renderer) : m_Renderer(renderer), m_drawRGBA({ 0, 0, 0, 255 }) {}
 
-	Primitive::Primitive(SDLRenderer* renderer, ColorRGB color) : m_pRenderer(std::make_shared<SDLRenderer>(renderer)), m_drawRGBA({ color.r, color.g, color.b, 255 })
-	{
-	}
+	Primitive::Primitive(SDLRenderer &renderer, ColorRGB color) : m_Renderer(renderer), m_drawRGBA({ color.r, color.g, color.b, 255 }) {}
 
-	Primitive::Primitive(SDLRenderer* renderer, ColorRGBA color) : m_pRenderer(std::make_shared<SDLRenderer>(renderer)), m_drawRGBA({ color.r, color.g, color.b, color.a })
-	{
-	}
-
-	/*Primitive::Primitive(SDLRenderer* renderer) : m_pRenderer(renderer), m_drawColor({ 0, 0, 0 }), m_drawAlpha(255)
-	{
-	}
-
-	Primitive::Primitive(SDLRenderer* renderer, ColorRGB color) : m_pRenderer(renderer), m_drawColor(color), m_drawAlpha(255)
-	{
-	}
-
-	Primitive::Primitive(SDLRenderer* renderer, ColorRGBA color) : m_pRenderer(renderer), m_drawColor({ color.r, color.g, color.b }), m_drawAlpha(color.a)
-	{
-	}*/
+	Primitive::Primitive(SDLRenderer &renderer, ColorRGBA color) : m_Renderer(renderer), m_drawRGBA({ color.r, color.g, color.b, color.a }) {}
 
 	Primitive::~Primitive()
 	{
@@ -57,7 +39,8 @@ namespace LM
 
 	SDLRenderer* Primitive::GetRenderer() const
 	{
-		return m_pRenderer.get();
+		//return m_Renderer.get();
+		return &m_Renderer;
 	}
 
 	ColorRGB Primitive::GetDrawColor() const

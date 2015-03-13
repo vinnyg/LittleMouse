@@ -16,12 +16,12 @@ namespace LM
 	class Primitive
 	{
 	private:
-		std::shared_ptr<SDLRenderer> m_pRenderer;
+		SDLRenderer &m_Renderer;
 		ColorRGBA m_drawRGBA;
 	public:
-		Primitive(SDLRenderer* renderer);
-		Primitive(SDLRenderer* renderer, ColorRGB color);
-		Primitive(SDLRenderer* renderer, ColorRGBA color);
+		Primitive(SDLRenderer &renderer);
+		Primitive(SDLRenderer &renderer, ColorRGB color);
+		Primitive(SDLRenderer &renderer, ColorRGBA color);
 		~Primitive();
 		void SetDrawColor(ColorRGB color);
 		void SetDrawAlpha(Uint8 alpha);
