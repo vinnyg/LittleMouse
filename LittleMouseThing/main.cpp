@@ -23,8 +23,8 @@ int main(int argc, char* args[])
 	window.SetMode(LM::SDLWindowMode::kBorderless);
 	window2.SetPosition(20, 40);
 
-	LM::SDLRenderer render(window.Get(), -1, 0);
-	LM::SDLRenderer render2(window2.Get(), -1, 0);
+	LM::SDLRenderer render(window, -1, 0);
+	LM::SDLRenderer render2(window2, -1, 0);
 	/*
 #ifndef INCLUDE_SDL_IMAGE
 	LM::SDLSurface sur("C:\\LittleMouse\\LittleMouseThing\\Assets\\Testing\\retro_block_exclamation.bmp");
