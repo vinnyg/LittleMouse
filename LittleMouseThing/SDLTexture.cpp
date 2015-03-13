@@ -130,4 +130,12 @@ namespace LM
 			throw LM::Exception("SDL_SetTextureBlendMode");
 		return res;
 	}
+
+	int SDLTexture::SetAsRendererTarget()
+	{
+		int res = SDL_SetRenderTarget(m_pRenderer->Get(), m_pTexture);
+		if (res != 0)
+			throw LM::Exception("SDL_SetRenderTarget");
+		return res;
+	}
 }

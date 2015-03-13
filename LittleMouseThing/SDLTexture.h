@@ -36,6 +36,7 @@ namespace LM
 		int SetAlphaMod(Uint8 alpha);
 		int SetColorMod(ColorRGB rgb);
 		int SetBlendMode(SDL_BlendMode blendMode);
+		int SetAsRendererTarget();
 
 		Point2<int> GetDimensions() const
 		{
