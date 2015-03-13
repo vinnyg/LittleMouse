@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include "Geometry.h"
 
 namespace LM
 {
@@ -16,11 +17,12 @@ namespace LM
 	class Mouse
 	{
 	private:
-
+		Point2<int> position;
 	public:
 		Mouse();
 		~Mouse();
-		Uint32 GetState(int* x, int* y);
+		Uint32 GetState();
+		Point2<int> GetPosition();
 		Uint32 GetRelativeState(int* x, int* y);
 		int SetRelativeMode(bool enabled);
 		bool ButtonIsPressed(Button mb);
