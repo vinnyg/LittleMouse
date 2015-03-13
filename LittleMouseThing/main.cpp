@@ -61,7 +61,7 @@ int main(int argc, char* args[])
 
 	//TTF_Quit();
 
-	LiME::TextureLoader tLoader(&render);
+	LiME::TextureLoader tLoader(render);
 	LiME::SpriteManager manager;
 
 	LM::Keyboard keyboard;
@@ -76,12 +76,16 @@ int main(int argc, char* args[])
 	LM::RectPrimitive<int> rec(&render, rct, true, ra);
 
 	bool isRunning = true;
-	//std::shared_ptr<LM::SDLSurface> s(new LM::SDLSurface("./Assets/Testing/retro_block_exclamation.png"));
-	//std::shared_ptr<LM::SDLTexture> t(new LM::SDLTexture(&render, s.get()));
 	std::shared_ptr<LM::SDLTexture> t = tLoader.LoadTexture("./Assets/Testing/retro_block_exclamation.png");
+	std::shared_ptr<LM::SDLTexture> t2 = tLoader.LoadTexture("C:/Users/Vinny/Google Drive/Sham & Vinny/Fotos/GAF (NOT JIF)/Cute/Cutedash.png");
 	std::shared_ptr<LiME::Sprite> spr = manager.CreateSprite(t);
+	std::shared_ptr<LiME::Sprite> spr_dash = manager.CreateSprite(t2);
 	spr->SetPosition(LM::Point2<float>(20.0f, 20.0f));
 	spr->SetScale(LM::Point2<float>(2.0f, 2.0f));
+	spr->SetAlpha(220);
+
+	spr_dash->SetPosition(LM::Point2<float>(50, 70));
+	spr_dash->SetScale(LM::Point2<float>(0.75f, 0.75f));
 
 	while (isRunning)
 	{
