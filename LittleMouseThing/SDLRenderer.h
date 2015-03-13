@@ -4,6 +4,7 @@
 #include "Exception.h"
 #include "Geometry.h"
 #include "SDLRenderFlipEnum.h"
+#include "SDLWindow.h"
 
 #include "Structs.h"
 
@@ -15,7 +16,7 @@ namespace LM
 		SDL_Renderer* m_pRenderer;
 	public:
 		SDLRenderer(SDLRenderer* r);
-		SDLRenderer(SDL_Window* window, int index = -1, Uint32 flags = 0);
+		SDLRenderer(SDLWindow &window, int index = -1, Uint32 flags = 0);
 		~SDLRenderer();
 		SDL_Renderer* Get() { return m_pRenderer; }
 		int SetDrawColor(ColorRGB c);

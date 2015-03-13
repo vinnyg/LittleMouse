@@ -7,9 +7,9 @@ namespace LM
 		m_pRenderer = r->Get();
 	}
 
-	SDLRenderer::SDLRenderer(SDL_Window* window, int index, Uint32 flags)
+	SDLRenderer::SDLRenderer(SDLWindow &window, int index, Uint32 flags)
 	{
-		if (m_pRenderer = SDL_CreateRenderer(window, index, flags))
+		if (m_pRenderer = SDL_CreateRenderer(window.Get(), index, flags))
 		{
 			if (m_pRenderer)
 			{
