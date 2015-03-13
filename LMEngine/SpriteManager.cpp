@@ -12,7 +12,7 @@ namespace LiME
 	std::shared_ptr<Sprite> SpriteManager::CreateSprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames, LM::Rect<int> sheetSrcRegion)
 	{
 		std::shared_ptr<Sprite> spr(new Sprite(texture, numFrames, sheetSrcRegion));
-		spriteList.push_back(spr);
+		spriteList.push_back(std::move(spr));
 		return spr;
 	}
 
