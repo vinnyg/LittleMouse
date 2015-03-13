@@ -14,6 +14,7 @@ namespace LM
 	{
 	private:
 		SDL_Renderer* m_pRenderer;
+		SDLWindow* m_pWindow;
 	public:
 		SDLRenderer(SDLRenderer* r);
 		SDLRenderer(SDLWindow &window, int index = -1, Uint32 flags = 0);
@@ -22,10 +23,11 @@ namespace LM
 		int SetDrawColor(ColorRGB c);
 		int SetDrawColor(ColorRGBA c);
 		int SetDrawBlendMode(SDL_BlendMode blendMode);
-		int GetDrawColor(ColorRGBA* c);
-		int GetDrawBlendMode(SDL_BlendMode* blendMode);
+		int GetDrawColor(ColorRGBA* c) const;
+		int GetDrawBlendMode(SDL_BlendMode* blendMode) const;
+		SDLWindow* GetWindow() const;
 		int Clear();
 		void Present();
-		int SetTarget(SDL_Texture* tex);
+		//int SetTarget(SDL_Texture* tex);
 	};
 }

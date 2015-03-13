@@ -11,6 +11,7 @@ namespace LM
 	{
 		if (m_pRenderer = SDL_CreateRenderer(window.Get(), index, flags))
 		{
+			m_pWindow = &window;
 			if (m_pRenderer)
 			{
 				SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
@@ -54,7 +55,7 @@ namespace LM
 		return res;
 	}
 
-	int SDLRenderer::GetDrawColor(ColorRGBA* c)
+	int SDLRenderer::GetDrawColor(ColorRGBA* c) const
 	{
 		int res = SDL_GetRenderDrawColor(m_pRenderer, &(c->r), &(c->g), &(c->b), &(c->a));
 		if (res != 0)
@@ -62,12 +63,17 @@ namespace LM
 		return res;
 	}
 
-	int SDLRenderer::GetDrawBlendMode(SDL_BlendMode* blendMode)
+	int SDLRenderer::GetDrawBlendMode(SDL_BlendMode* blendMode) const
 	{
 		int res = SDL_GetRenderDrawBlendMode(m_pRenderer, blendMode);
 		if (res != 0)
 			throw LM::Exception("SDL_GetRendererDrawBlendMode");
 		return res;
+	}
+
+	SDLWindow* SDLRenderer::GetWindow() const
+	{
+		return m_pWindow;
 	}
 
 	int SDLRenderer::Clear()
@@ -83,11 +89,11 @@ namespace LM
 		SDL_RenderPresent(m_pRenderer);
 	}
 	
-	int SDLRenderer::SetTarget(SDL_Texture* tex)
+	/*int SDLRenderer::SetTarget(SDL_Texture* tex)
 	{
 		int res = SDL_SetRenderTarget(m_pRenderer, tex);
 		if (res != 0)
 			throw LM::Exception("SDL_SetRenderTarget");
 		return res;
-	}
+	}*/
 }
