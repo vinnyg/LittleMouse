@@ -80,7 +80,7 @@ namespace LM
 
 		SDL_Rect ToSDLRect()
 		{
-			return SDL_Rect = { float(x), float(y), float(w), float(h) };
+			return SDL_Rect { int(x), int(y), int(w), int(h) };
 		}
 	};
 }
