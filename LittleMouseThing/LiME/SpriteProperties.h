@@ -1,4 +1,5 @@
 #include "../Geometry.h"
+#pragma once
 
 namespace LiME
 {
