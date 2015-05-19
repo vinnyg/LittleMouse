@@ -13,6 +13,7 @@ namespace LiME
 		//SpriteProperties properties;
 		int frameCount_;							//Number of frames in animation
 		LM::Rect<int> frameRegion_;					//Region of the texture which represents a single frame in the animation
+		
 		//SpriteAnimationProperties animProperties;
 		//LM::Rect<float> drawRegion;
 	public:
@@ -21,6 +22,7 @@ namespace LiME
 		Sprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames, LM::Rect<int> srcRegion);
 		~Sprite();
 		void Free();
+		std::shared_ptr<LM::SDLTexture> GetTexture() const;
 		int GetFrameCount() const;
 		LM::Rect<int> GetFrameRegion() const;
 		void SetFrameCount(int count);
