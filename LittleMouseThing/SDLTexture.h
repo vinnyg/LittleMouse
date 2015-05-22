@@ -43,17 +43,18 @@ namespace LM
 			return m_dimensions;
 		}
 
-		template<typename rectType>
-		void CopyToRenderer(Rect<rectType> &dstrect)
+		//template<typename rectType>
+		void CopyToRenderer(Rect<int> &dstrect)
 		{
 			m_dstRect = dstrect.ToSDLRect();
 			if (SDL_RenderCopy(m_pRenderer->Get(), m_pTexture, nullptr, &m_dstRect) != 0)
 				throw LM::Exception("SDL_RenderCopyEx");
 		}
 
-		template<typename rectType>
-		void CopyToRenderer(Rect<int> &srcrect, Rect<rectType> &dstrect, Point2<int> &center, double angle, SDLRenderFlipEnum flip)
+		//template<typename rectType>
+		void CopyToRenderer(Rect<int> &srcrect, Rect<int> &dstrect, Point2<int> &center, double angle, SDLRenderFlipEnum flip)
 		{
+			m_pTexture = m_pTexture;
 			m_srcRect = srcrect.ToSDLRect();
 			m_dstRect = dstrect.ToSDLRect();
 			if (SDL_RenderCopyEx(m_pRenderer->Get(), m_pTexture, &m_srcRect, &m_dstRect, angle, &center, static_cast<SDL_RendererFlip>(flip)) != 0)
