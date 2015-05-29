@@ -2,20 +2,20 @@
 
 namespace LiME
 {
-	SpriteDrawingSystem::SpriteDrawingSystem() {}
+	SpriteDrawingSystem::SpriteDrawingSystem() : tmpFrameRegion({ 0, 0, 0, 0 }), tmpDrawRegion({ 0, 0, 0, 0 }), tmpOrigin({ 0, 0 }) {}
 
 	SpriteDrawingSystem::~SpriteDrawingSystem() {}
 
-	SpriteComponent* SpriteDrawingSystem::AddComponent(int id)
+	SpriteComponent* SpriteDrawingSystem::AddComponent(int id, Sprite* sprite)
 	{
-		SpriteComponent* tmp = new SpriteComponent(id);
+		SpriteComponent* tmp = new SpriteComponent(id, sprite);
 		components_.push_back(tmp);
 		return tmp;
 	}
 
 	void SpriteDrawingSystem::RemoveComponent(SpriteComponent* component)
 	{
-		//This is not very efficient and requires review!
+		//TODO: This is not very efficient and requires review!
 		std::vector<LiME::SpriteComponent*>::iterator it;
 		it = std::find(components_.begin(), components_.end(), component);
 		if (it != components_.end())
@@ -27,13 +27,18 @@ namespace LiME
 
 	void SpriteDrawingSystem::Update()
 	{
-		std::vector<LiME::SpriteComponent*>::iterator it;
+		std::vector<LiME::SpriteComponent*>::iterator it = components_.begin();
 
-		while (it++ != components_.end())
+		while (it != components_.end())
 		{
-			//std::shared_ptr<LM::SDLTexture> spr = (*it)->GetSprite()->GetTexture();
-			LiME::Sprite* spr = (*it)->GetSprite();
-			spr->GetTexture()->CopyToRenderer<float>(spr->GetFrameRegion(), (*it)->GetDrawRegion(), (*it)->GetOrigin(), (*it)->GetAngle(), LM::SDLRenderFlipEnum::kNoFlip);
+			tmpSprite = (*it)->GetSprite();
+			/*tmpFrameRegion = tmpSprite->GetFrameRegion();
+			tmpDrawRegion = (*it)->GetDrawRegion();
+			tmpOrigin = (*it)->GetOrigin();
+			tmpAngle = (*it)->GetAngle();
+			tmpSprite->GetTexture()->CopyToRenderer(tmpFrameRegion, tmpDrawRegion, tmpOrigin, tmpAngle, LM::SDLRenderFlipEnum::kNoFlip);*/
+			tmpSprite->GetTexture()->CopyToRenderer(tmpSprite->GetFrameRegion(), (*it)->GetDrawRegion(), (*it)->GetOrigin(), (*it)->GetAngle(), LM::SDLRenderFlipEnum::kNoFlip);
+			it++;
 		}
 	}
 }

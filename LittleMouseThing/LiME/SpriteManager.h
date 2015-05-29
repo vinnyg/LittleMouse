@@ -14,8 +14,8 @@ namespace LiME
 		SpriteManager();
 		~SpriteManager();
 		std::shared_ptr<Sprite> CreateSprite(std::shared_ptr<LM::SDLTexture> texture);
-		std::shared_ptr<Sprite> CreateSprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames, LM::Rect<int> sheetSrcRegion);
-		void Draw();
+		std::shared_ptr<Sprite> CreateSprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames, LM::Rect<int> &sheetSrcRegion);
+		//void Draw();
 	};
 }
 

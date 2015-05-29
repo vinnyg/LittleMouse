@@ -2,12 +2,12 @@
 
 namespace LiME
 {
-	SimpleObject::SimpleObject(int id) : Entity(id), draw(GetID()) {}
+	SimpleObject::SimpleObject(int id) : Entity(id), draw(GetID(), nullptr) {}
 
 	SimpleObject::~SimpleObject() {}
 
 	void SimpleObject::Update()
 	{
-		draw.Draw();
+		//draw.Draw();
 	}
 }

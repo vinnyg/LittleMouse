@@ -72,8 +72,16 @@
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="LiME\AnimationComponent.cpp" />
+    <ClCompile Include="LiME\Component.cpp" />
+    <ClCompile Include="LiME\SpriteComponent.cpp" />
+    <ClCompile Include="LiME\Entity.cpp" />
+    <ClCompile Include="LiME\InputComponent.cpp" />
+    <ClCompile Include="LiME\PositionComponent.cpp" />
     <ClCompile Include="LiME\Sprite.cpp" />
+    <ClCompile Include="LiME\SpriteDrawingSystem.cpp" />
     <ClCompile Include="LiME\SpriteManager.cpp" />
+    <ClCompile Include="LiME\System.cpp" />
     <ClCompile Include="LiME\TextureLoader.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Primitive.cpp" />
@@ -86,6 +94,7 @@
     <ClCompile Include="SDLImage.cpp" />
     <ClCompile Include="SDLSurface.cpp" />
     <ClCompile Include="SDLTTFont.cpp" />
+    <ClCompile Include="SimpleObject.cpp" />
     <ClCompile Include="TTFText.cpp" />
     <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="main.cpp" />
@@ -96,15 +105,26 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharEncodingEnum.h" />
+    <ClInclude Include="ExampleProject\SimpleObject.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="FontAttributeStructs.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="LiME\AnimatedSpriteProperties.h" />
+    <ClInclude Include="LiME\AnimationComponent.h" />
+    <ClInclude Include="LiME\Component.h" />
+    <ClInclude Include="LiME\SpriteComponent.h" />
+    <ClInclude Include="LiME\Entity.h" />
+    <ClInclude Include="LiME\InputComponent.h" />
+    <ClInclude Include="LiME\LiME.h" />
+    <ClInclude Include="LiME\PositionComponent.h" />
     <ClInclude Include="LiME\Sprite.h" />
     <ClInclude Include="LiME\SpriteAnimationProperties.h" />
+    <ClInclude Include="LiME\SpriteDrawingSystem.h" />
     <ClInclude Include="LiME\SpriteManager.h" />
     <ClInclude Include="LiME\SpriteProperties.h" />
+    <ClInclude Include="LiME\System.h" />
     <ClInclude Include="LiME\TextureLoader.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Primitive.h" />

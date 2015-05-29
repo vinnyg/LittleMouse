@@ -2,7 +2,9 @@
 
 namespace LiME
 {
-	AnimationComponent::AnimationComponent(int id) : Component(id) {}
+
+
+	/*AnimationComponent::AnimationComponent(int id) : Component(id), frameRegion_(0.0f, 0.0f, 0.0f, 0.0f) {}
 
 	AnimationComponent::~AnimationComponent()
 	{
@@ -11,11 +13,6 @@ namespace LiME
 	float AnimationComponent::GetAnimationSpeed() const
 	{
 		return animationSpeed_;
-	}
-
-	void AnimationComponent::SetAnimationSpeed(float speed)
-	{
-		animationSpeed_ = speed;
 	}
 
 	int AnimationComponent::GetCurrentFrame() const
@@ -51,5 +48,5 @@ namespace LiME
 	void AnimationComponent::SetFrameRegion(LM::Rect<int> frameRegion)
 	{
 		frameRegion_ = frameRegion;
-	}
+	}*/
 }

@@ -12,7 +12,7 @@ namespace LiME
 		std::shared_ptr<LM::SDLTexture> texture;
 		SpriteProperties properties;
 		SpriteAnimationProperties animProperties;
-		LM::Rect<float> drawRegion;
+		LM::Rect<int> drawRegion;
 	public:
 		Sprite(std::shared_ptr<LM::SDLTexture> texture);
 		Sprite(std::shared_ptr<LM::SDLTexture> texture, int numFrames);

@@ -84,6 +84,6 @@ namespace LiME
 		}
 
 		//Render the sprite.
-		texture->CopyToRenderer<float>(animProperties.frameRegion, drawRegion, properties.origin, properties.angle, LM::SDLRenderFlipEnum::kNoFlip);
+		/*texture->CopyToRenderer<float>(animProperties.frameRegion, drawRegion, properties.origin, properties.angle, LM::SDLRenderFlipEnum::kNoFlip);*/
 	}
 }

@@ -9,7 +9,7 @@ namespace LiME
 	class Sprite
 	{
 	private:
-		std::shared_ptr<LM::SDLTexture> texture;	//Texture for sprite
+		std::shared_ptr<LM::SDLTexture> texture_;	//Texture for sprite
 		//SpriteProperties properties;
 		int frameCount_;							//Number of frames in animation
 		LM::Rect<int> frameRegion_;					//Region of the texture which represents a single frame in the animation
@@ -36,6 +36,6 @@ namespace LiME
 		//void SetPosition(LM::Point2<float> position);
 		//void SetScale(LM::Point2<float> scale);
 		//void SetAlpha(Uint8 alpha);
-		//void Draw();
+		//void Draw(LM::Point2<float> scale, LM::Point2<float> position);
 	};
 }

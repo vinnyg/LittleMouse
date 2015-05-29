@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F7BBD90A-D75D-44BE-9A44-F1D6EFE49787}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>SDLWrapper</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>D:\Home\Software Projects\SDL 2.0\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SDLWRAPPER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>D:\Home\Software Projects\SDL 2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;SDLWRAPPER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\LittleMouseThing\CharEncodingEnum.h" />
+    <ClInclude Include="..\LittleMouseThing\Exception.h" />
+    <ClInclude Include="..\LittleMouseThing\FontAttributeStructs.h" />
+    <ClInclude Include="..\LittleMouseThing\Geometry.h" />
+    <ClInclude Include="..\LittleMouseThing\ImageLoader.h" />
+    <ClInclude Include="..\LittleMouseThing\Keyboard.h" />
+    <ClInclude Include="..\LittleMouseThing\LinePrimitive.h" />
+    <ClInclude Include="..\LittleMouseThing\LMWrapper.h" />
+    <ClInclude Include="..\LittleMouseThing\Mouse.h" />
+    <ClInclude Include="..\LittleMouseThing\PixelPrimitive.h" />
+    <ClInclude Include="..\LittleMouseThing\Point2.h" />
+    <ClInclude Include="..\LittleMouseThing\Primitive.h" />
+    <ClInclude Include="..\LittleMouseThing\Primitives.h" />
+    <ClInclude Include="..\LittleMouseThing\Rect.h" />
+    <ClInclude Include="..\LittleMouseThing\RectPrimitive.h" />
+    <ClInclude Include="..\LittleMouseThing\SDLExtensionConfig.h" />
+    <ClInclude Include="..\LittleMouseThing\SDLImage.h" />
+    <ClInclude Include="..\LittleMouseThing\SDLRenderer.h" />
+    <ClInclude Include="..\LittleMouseThing\SDLRenderFlipEnum.h" />
+    <ClInclude Include="..\LittleMouseThing\SDLSurface.h" />
+    <ClInclude Include="..\LittleMouseThing\SDLTexture.h" />
+    <ClInclude Include="..\LittleMouseThing\SDLTTFont.h" />
+    <ClInclude Include="..\LittleMouseThing\SDLWindow.h" />
+    <ClInclude Include="..\LittleMouseThing\SDLWindowModeEnum.h" />
+    <ClInclude Include="..\LittleMouseThing\Structs.h" />
+    <ClInclude Include="..\LittleMouseThing\TextRenderModeEnum.h" />
+    <ClInclude Include="..\LittleMouseThing\TTFText.h" />
+    <ClInclude Include="..\LittleMouseThing\Vector2.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\LittleMouseThing\Exception.cpp" />
+    <ClCompile Include="..\LittleMouseThing\ImageLoader.cpp" />
+    <ClCompile Include="..\LittleMouseThing\Keyboard.cpp" />
+    <ClCompile Include="..\LittleMouseThing\LinePrimitive.cpp" />
+    <ClCompile Include="..\LittleMouseThing\Mouse.cpp" />
+    <ClCompile Include="..\LittleMouseThing\PixelPrimitive.cpp" />
+    <ClCompile Include="..\LittleMouseThing\Point2.cpp" />
+    <ClCompile Include="..\LittleMouseThing\Primitive.cpp" />
+    <ClCompile Include="..\LittleMouseThing\Rect.cpp" />
+    <ClCompile Include="..\LittleMouseThing\RectPrimitive.cpp" />
+    <ClCompile Include="..\LittleMouseThing\SDLImage.cpp" />
+    <ClCompile Include="..\LittleMouseThing\SDLRenderer.cpp" />
+    <ClCompile Include="..\LittleMouseThing\SDLSurface.cpp" />
+    <ClCompile Include="..\LittleMouseThing\SDLTexture.cpp" />
+    <ClCompile Include="..\LittleMouseThing\SDLTTFont.cpp" />
+    <ClCompile Include="..\LittleMouseThing\SDLWindow.cpp" />
+    <ClCompile Include="..\LittleMouseThing\TTFText.cpp" />
+    <ClCompile Include="..\LittleMouseThing\Vector2.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SDLWrapper.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

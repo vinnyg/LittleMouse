@@ -70,7 +70,7 @@ namespace LM
 
 		Point2<rectType> GetPosition() const
 		{
-			return Point2<rectType><int>(x, y);
+			return Point2<rectType>(x, y);
 		}
 
 		Point2<rectType> GetDimensions() const
@@ -82,5 +82,14 @@ namespace LM
 		{
 			return SDL_Rect { int(x), int(y), int(w), int(h) };
 		}
+
+		/*Rect<rectType> &operator=(Rect<rectType> const rhs)
+		{
+			this->x = rhs.GetX();
+			this->y = rhs.GetY();
+			this->w = rhs.GetWidth();
+			this->h = rhs.GetHeight();
+			return this;
+		}*/
 	};
 }
