@@ -19,6 +19,8 @@ namespace LM
 		int m_access;
 		SDL_Rect m_srcRect;
 		SDL_Rect m_dstRect;
+
+		LM::Point2<int> p = { 0, 0 };
 	public:
 		/*SDLTexture(SDL_Texture* texture);*/
 		SDLTexture(SDLTexture const &texture);
@@ -54,7 +56,6 @@ namespace LM
 		//template<typename rectType>
 		void CopyToRenderer(Rect<int> &srcrect, Rect<int> &dstrect, Point2<int> &center, double angle, SDLRenderFlipEnum flip)
 		{
-			m_pTexture = m_pTexture;
 			m_srcRect = srcrect.ToSDLRect();
 			m_dstRect = dstrect.ToSDLRect();
 			if (SDL_RenderCopyEx(m_pRenderer->Get(), m_pTexture, &m_srcRect, &m_dstRect, angle, &center, static_cast<SDL_RendererFlip>(flip)) != 0)

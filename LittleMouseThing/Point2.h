@@ -14,6 +14,7 @@ namespace LM
 		Point2(type _x, type _y) : x(_x), y(_y) {}
 		//Point2(SDL_Point const &point) : x(point.x), y(point.y) {}
 		Point2(Point2<type> const &point) : x(point.x), y(point.y) {}
+		~Point2() {}
 
 		void SetX(type _x) { x = _x; }
 		void SetY(type _y) { y = _y; }
@@ -41,7 +42,7 @@ namespace LM
 		template <typename operandType>
 		Point2<type> operator/(operandType const rhs)
 		{ 
-			return Point2<type>(x / rhs, y / rhs)
+			return Point2<type>(x / rhs, y / rhs);
 		}
 
 		template <typename operandType>
