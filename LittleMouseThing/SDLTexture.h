@@ -19,6 +19,7 @@ namespace LM
 		int m_access;
 		SDL_Rect m_srcRect;
 		SDL_Rect m_dstRect;
+		SDL_Point m_center;
 
 		LM::Point2<int> p = { 0, 0 };
 	public:
@@ -58,7 +59,8 @@ namespace LM
 		{
 			m_srcRect = srcrect.ToSDLRect();
 			m_dstRect = dstrect.ToSDLRect();
-			if (SDL_RenderCopyEx(m_pRenderer->Get(), m_pTexture, &m_srcRect, &m_dstRect, angle, &center, static_cast<SDL_RendererFlip>(flip)) != 0)
+			m_center = center.ToSDLPoint();
+			if (SDL_RenderCopyEx(m_pRenderer->Get(), m_pTexture, &m_srcRect, &m_dstRect, angle, &m_center, static_cast<SDL_RendererFlip>(flip)) != 0)
 				throw LM::Exception("SDL_RenderCopyEx");
 		}
 	};

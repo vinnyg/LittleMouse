@@ -32,12 +32,12 @@ namespace LiME
 		while (it != components_.end())
 		{
 			tmpSprite = (*it)->GetSprite();
-			/*tmpFrameRegion = tmpSprite->GetFrameRegion();
+			tmpFrameRegion = tmpSprite->GetFrameRegion();
 			tmpDrawRegion = (*it)->GetDrawRegion();
 			tmpOrigin = (*it)->GetOrigin();
 			tmpAngle = (*it)->GetAngle();
-			tmpSprite->GetTexture()->CopyToRenderer(tmpFrameRegion, tmpDrawRegion, tmpOrigin, tmpAngle, LM::SDLRenderFlipEnum::kNoFlip);*/
-			tmpSprite->GetTexture()->CopyToRenderer(tmpSprite->GetFrameRegion(), (*it)->GetDrawRegion(), (*it)->GetOrigin(), (*it)->GetAngle(), LM::SDLRenderFlipEnum::kNoFlip);
+			tmpSprite->GetTexture()->CopyToRenderer(tmpFrameRegion, tmpDrawRegion, tmpOrigin, tmpAngle, LM::SDLRenderFlipEnum::kNoFlip);
+			/*tmpSprite->GetTexture()->CopyToRenderer(tmpSprite->GetFrameRegion(), (*it)->GetDrawRegion(), (*it)->GetOrigin(), (*it)->GetAngle(), LM::SDLRenderFlipEnum::kNoFlip);*/
 			it++;
 		}
 	}

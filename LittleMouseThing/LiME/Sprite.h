@@ -26,7 +26,7 @@ namespace LiME
 		int GetFrameCount() const;
 		LM::Rect<int> GetFrameRegion() const;
 		void SetFrameCount(int count);
-		void SetFrameRegion(LM::Rect<int> region);
+		void SetFrameRegion(LM::Rect<int> &region);
 		//LM::Point2<int> GetOrigin() const;
 		//Uint8 GetAlpha() const;
 		//float GetScale() const;

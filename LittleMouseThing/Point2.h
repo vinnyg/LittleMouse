@@ -16,10 +16,15 @@ namespace LM
 		Point2(Point2<type> const &point) : x(point.x), y(point.y) {}
 		~Point2() {}
 
-		void SetX(type _x) { x = _x; }
-		void SetY(type _y) { y = _y; }
 		type GetX() const { return x; }
 		type GetY() const { return y; }
+		void SetX(type _x) { x = _x; }
+		void SetY(type _y) { y = _y; }
+
+		SDL_Point ToSDLPoint() const
+		{
+			return SDL_Point{ int(x), int(y) };
+		}
 
 		template <typename operandType>
 		Point2<type> operator+(Point2<operandType> const rhs)
@@ -52,5 +57,7 @@ namespace LM
 			this->y = rhs.GetY();
 			return this;
 		}
+
+		//TODO: ToSDL_Point Method()
 	};
 }

@@ -109,6 +109,13 @@ int main(int argc, char* args[])
 
 	float x = 0.f, y = 0.f;
 
+	LM::Point2<int> o(0, 0);
+	LM::Point2<int> q(0, 0);
+	t->Query(q);
+	LM::Rect<int> sr({ 0, 0 }, q);
+	LM::Rect<int> dr({ 150, 200 }, q*x);
+	LM::Point2<float> scale({ x, y });
+	
 	while (isRunning)
 	{
 		SDL_Event e;
@@ -167,13 +174,9 @@ int main(int argc, char* args[])
 		//spr->Draw(LM::Point2<float>(x, y), LM::Point2<float>(200.f, 200.f));
 
 		//blockCom->SetScale(LM::Point2<float>(x, y));
-		/*LM::Point2<int> o(0, 0);
-		LM::Point2<int> q(0, 0);
-		t->Query(q);
-		LM::Rect<int> sr({ 0, 0 }, q);
-		LM::Rect<int> dr({ 150, 200 }, q*x);
+		//dr.SetDimension();
 		//t->CopyToRenderer(sr, dr, o, 0.0, LM::SDLRenderFlipEnum::kNoFlip);
-		t->CopyToRenderer(dr);*/
+		/*t->CopyToRenderer(dr);*/
 
 		/*int qw, qh;
 		SDL_QueryTexture(t->Get(), nullptr, nullptr, &qw, &qh);
@@ -185,6 +188,7 @@ int main(int argc, char* args[])
 		SDL_Rect dst_r2 = dr.ToSDLRect();
 		LM::SDLRenderFlipEnum flip = LM::SDLRenderFlipEnum::kNoFlip;
 		/*if (SDL_RenderCopyEx(render.Get(), t->Get(), &src_r2, &dst_r2, 0.0f, &p, static_cast<SDL_RendererFlip>(flip)));*/
+
 		blockScale.SetX(x);
 		blockScale.SetY(y);
 		blockCom->SetScale(blockScale);

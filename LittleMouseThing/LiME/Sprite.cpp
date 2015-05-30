@@ -111,7 +111,7 @@ namespace LiME
 		frameCount_ = count;
 	}
 
-	void Sprite::SetFrameRegion(LM::Rect<int> region)
+	void Sprite::SetFrameRegion(LM::Rect<int> &region)
 	{
 		frameRegion_ = region;
 	}
