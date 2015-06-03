@@ -80,6 +80,7 @@
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="LiME\AnimationComponent.cpp" />
     <ClCompile Include="LiME\Component.cpp" />
+    <ClCompile Include="LiME\SpriteAnimatorSystem.cpp" />
     <ClCompile Include="LiME\SpriteComponent.cpp" />
     <ClCompile Include="LiME\Entity.cpp" />
     <ClCompile Include="LiME\InputComponent.cpp" />
@@ -120,6 +121,7 @@
     <ClInclude Include="LiME\AnimatedSpriteProperties.h" />
     <ClInclude Include="LiME\AnimationComponent.h" />
     <ClInclude Include="LiME\Component.h" />
+    <ClInclude Include="LiME\SpriteAnimatorSystem.h" />
     <ClInclude Include="LiME\SpriteComponent.h" />
     <ClInclude Include="LiME\Entity.h" />
     <ClInclude Include="LiME\InputComponent.h" />

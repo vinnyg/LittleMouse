@@ -61,6 +61,18 @@
     <Filter Include="Source Files\Example Project">
       <UniqueIdentifier>{37fc3417-1f1e-41e9-9824-c122558f2a3a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\LiMEngine\Entity Component System\Component">
+      <UniqueIdentifier>{91e71d24-f11e-4f72-bb06-82a7953d5d62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LiMEngine\Entity Component System\System">
+      <UniqueIdentifier>{303a155c-fbd9-419a-b04d-22de3aeb2084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LiMEngine\Entity Component System\Component">
+      <UniqueIdentifier>{2633a96a-b165-4837-a3db-f20e934fa003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LiMEngine\Entity Component System\System">
+      <UniqueIdentifier>{bfce3695-7efb-4dc9-a1d2-a1d5b2925500}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Primitive.cpp">
@@ -135,32 +147,35 @@
     <ClCompile Include="LiME\TextureLoader.cpp">
       <Filter>Source Files\LiMEngine</Filter>
     </ClCompile>
-    <ClCompile Include="LiME\Component.cpp">
-      <Filter>Source Files\LiMEngine\Entity Component System</Filter>
-    </ClCompile>
     <ClCompile Include="LiME\Entity.cpp">
-      <Filter>Source Files\LiMEngine\Entity Component System</Filter>
-    </ClCompile>
-    <ClCompile Include="LiME\InputComponent.cpp">
-      <Filter>Source Files\LiMEngine\Entity Component System</Filter>
-    </ClCompile>
-    <ClCompile Include="LiME\PositionComponent.cpp">
       <Filter>Source Files\LiMEngine\Entity Component System</Filter>
     </ClCompile>
     <ClCompile Include="SimpleObject.cpp">
       <Filter>Source Files\Example Project</Filter>
     </ClCompile>
-    <ClCompile Include="LiME\SpriteComponent.cpp">
-      <Filter>Source Files\LiMEngine\Entity Component System</Filter>
-    </ClCompile>
     <ClCompile Include="LiME\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LiME\AnimationComponent.cpp">
-      <Filter>Source Files\LiMEngine\Entity Component System</Filter>
+      <Filter>Source Files\LiMEngine\Entity Component System\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="LiME\Component.cpp">
+      <Filter>Source Files\LiMEngine\Entity Component System\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="LiME\InputComponent.cpp">
+      <Filter>Source Files\LiMEngine\Entity Component System\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="LiME\PositionComponent.cpp">
+      <Filter>Source Files\LiMEngine\Entity Component System\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="LiME\SpriteComponent.cpp">
+      <Filter>Source Files\LiMEngine\Entity Component System\Component</Filter>
     </ClCompile>
     <ClCompile Include="LiME\SpriteDrawingSystem.cpp">
-      <Filter>Source Files\LiMEngine\Entity Component System</Filter>
+      <Filter>Source Files\LiMEngine\Entity Component System\System</Filter>
+    </ClCompile>
+    <ClCompile Include="LiME\SpriteAnimatorSystem.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -269,9 +284,6 @@
     <ClInclude Include="LiME\TextureLoader.h">
       <Filter>Header Files\LiMEngine</Filter>
     </ClInclude>
-    <ClInclude Include="LiME\Component.h">
-      <Filter>Header Files\LiMEngine\Entity Component System</Filter>
-    </ClInclude>
     <ClInclude Include="LiME\Entity.h">
       <Filter>Header Files\LiMEngine\Entity Component System</Filter>
     </ClInclude>
@@ -281,26 +293,32 @@
     <ClInclude Include="ExampleProject\SimpleObject.h">
       <Filter>Header Files\Example Project</Filter>
     </ClInclude>
-    <ClInclude Include="LiME\SpriteComponent.h">
-      <Filter>Header Files\LiMEngine\Entity Component System</Filter>
-    </ClInclude>
-    <ClInclude Include="LiME\InputComponent.h">
-      <Filter>Header Files\LiMEngine\Entity Component System</Filter>
-    </ClInclude>
-    <ClInclude Include="LiME\PositionComponent.h">
-      <Filter>Header Files\LiMEngine\Entity Component System</Filter>
-    </ClInclude>
-    <ClInclude Include="LiME\System.h">
-      <Filter>Header Files\LiMEngine\Entity Component System</Filter>
-    </ClInclude>
-    <ClInclude Include="LiME\AnimationComponent.h">
-      <Filter>Header Files\LiMEngine\Entity Component System</Filter>
-    </ClInclude>
     <ClInclude Include="LiME\AnimatedSpriteProperties.h">
       <Filter>Header Files\LiMEngine</Filter>
     </ClInclude>
+    <ClInclude Include="LiME\AnimationComponent.h">
+      <Filter>Header Files\LiMEngine\Entity Component System\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="LiME\Component.h">
+      <Filter>Header Files\LiMEngine\Entity Component System\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="LiME\InputComponent.h">
+      <Filter>Header Files\LiMEngine\Entity Component System\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="LiME\PositionComponent.h">
+      <Filter>Header Files\LiMEngine\Entity Component System\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="LiME\SpriteComponent.h">
+      <Filter>Header Files\LiMEngine\Entity Component System\Component</Filter>
+    </ClInclude>
     <ClInclude Include="LiME\SpriteDrawingSystem.h">
-      <Filter>Header Files\LiMEngine\Entity Component System</Filter>
+      <Filter>Header Files\LiMEngine\Entity Component System\System</Filter>
+    </ClInclude>
+    <ClInclude Include="LiME\System.h">
+      <Filter>Header Files\LiMEngine\Entity Component System\System</Filter>
+    </ClInclude>
+    <ClInclude Include="LiME\SpriteAnimatorSystem.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

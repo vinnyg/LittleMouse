@@ -12,6 +12,7 @@
 #include "LiME/PositionComponent.h"
 
 #include "LiME/SpriteDrawingSystem.h"
+#include "LiME/SpriteAnimatorSystem.h"
 
 //#include "ExampleProject/SimpleObject.h"
 
@@ -82,8 +83,11 @@ int main(int argc, char* args[])
 	bool isRunning = true;
 	std::shared_ptr<LM::SDLTexture> t = tLoader.LoadTexture("./Assets/Testing/retro_block_exclamation.png");
 	std::shared_ptr<LM::SDLTexture> t2 = tLoader.LoadTexture("C:/Users/Vinny/Google Drive/Sham & Vinny/Fotos/GAF (NOT JIF)/Cute/Cutedash.png");
+	std::shared_ptr<LM::SDLTexture> t3 = tLoader.LoadTexture("C:/Users/Vinny/Google Drive/Sham & Vinny/Fotos/GAF (NOT JIF)/Cute/pinkiewalk.png");
 	std::shared_ptr<LiME::Sprite> spr = manager.CreateSprite(t);
 	std::shared_ptr<LiME::Sprite> spr_dash = manager.CreateSprite(t2);
+	LM::Rect<int> pinkieRect(0, 0, 64, 65);
+	std::shared_ptr<LiME::Sprite> spr_pink = manager.CreateSprite(t3, 16, pinkieRect);
 	/*spr->SetPosition(LM::Point2<float>(20.0f, 20.0f));
 	spr->SetScale(LM::Point2<float>(2.0f, 2.0f));
 	spr->SetAlpha(220);
@@ -99,13 +103,18 @@ int main(int argc, char* args[])
 	//simpleObjectDrawable.SetScale(LM::Point2<float>(0.75f, 0.75f));
 
 	LiME::SpriteDrawingSystem dSys;
-	LiME::SpriteComponent* ponyCom = dSys.AddComponent(0, spr_dash.get());
-	LiME::SpriteComponent* blockCom = dSys.AddComponent(0, spr.get());
+	LiME::SpriteAnimatorSystem aSys;
+	std::shared_ptr<LiME::SpriteComponent> ponyCom = dSys.AddComponent(0, spr_dash);
+	std::shared_ptr<LiME::SpriteComponent> blockCom = dSys.AddComponent(1, spr);
+	std::shared_ptr<LiME::SpriteComponent> pinkieCom = dSys.AddComponent(2, spr_pink);
+	std::shared_ptr<LiME::AnimationComponent> pinkieAnimCom = aSys.AddComponent(pinkieCom);
 	LM::Rect<int> sqr = blockCom->GetDrawRegion();
 	LM::Point2<float> blockScale = { 0.0f, 0.0f };
 	blockCom->SetScale(blockScale);
 	ponyCom->SetScale(LM::Point2<float>(0.4f, 0.4f));
 	//ponyCom->SetSprite(spr_dash.get());
+
+	pinkieAnimCom->SetAnimationSpeed(0.01f);
 
 	float x = 0.f, y = 0.f;
 
@@ -141,8 +150,8 @@ int main(int argc, char* args[])
 			rec.SetDrawColor(LM::Color::YELLOW);
 		}
 
-		x = x + .0002f;
-		y = y + .0002f;
+		x = x + .0001f;
+		y = y + .0001f;
 
 		if (mouse.ButtonIsPressed(LM::Button::MB_Right))
 		{
@@ -194,7 +203,7 @@ int main(int argc, char* args[])
 		blockCom->SetScale(blockScale);
 
 		dSys.Update();
-		
+		aSys.Update();
 
 		render.Present();
 		render2.Present();
