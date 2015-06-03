@@ -41,7 +41,7 @@ namespace LM
 		template <typename operandType>
 		Point2<type> operator*(operandType const rhs)
 		{
-			return Point2<type>(x * rhs, y * rhs);
+			return Point2<type>((type)(x * rhs), (type)(y * rhs));
 		}
 
 		template <typename operandType>
