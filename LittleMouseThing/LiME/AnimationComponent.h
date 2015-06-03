@@ -1,6 +1,8 @@
 #pragma once
-#include "C:\LittleMouse\LittleMouseThing\LiME\Component.h"
-#include "SpriteAnimationProperties.h"
+#include <memory>
+#include "..\LiME\Component.h"
+#include "..\LiME\SpriteComponent.h"
+//#include "SpriteAnimationProperties.h"
 
 namespace LiME
 {
@@ -14,11 +16,15 @@ namespace LiME
 		float animationSpeed_;
 		int currentFrame_;
 		LM::Rect<int> frameRegion_;*/
-
+		std::shared_ptr<SpriteComponent> spriteComponent_;
+		//This will break if the number of frames in a sprite's animation cycle is changed after this component is constructed.
+		int frameCount_;
+		float timeline_;
 		float animationSpeed_;
-		bool canLoop;
+		bool canLoop_;
 	public:
-		AnimationComponent(int id);
+		AnimationComponent(int id, std::shared_ptr<SpriteComponent> component);
+		AnimationComponent(int id, std::shared_ptr<SpriteComponent> component, float animationSpeed, bool loop);
 		virtual ~AnimationComponent();
 		/*float GetAnimationSpeed() const;
 		int GetCurrentFrame() const;
@@ -28,9 +34,12 @@ namespace LiME
 		void SetCurrentFrame(int currentFrame);
 		void SetFrameCount(int frameCount);
 		void SetFrameRegion(LM::Rect<int> frameRegion);*/
-
+		void Free();
+		std::shared_ptr<SpriteComponent> GetSpriteComponent() const;
+		float GetTimeline() const;
 		float GetAnimationSpeed() const;
 		bool CanLoop() const;
+		void SetTimeline(float timeline);
 		void SetAnimationSpeed(float speed);
 		void SetCanLoop(bool loop);
 	};
