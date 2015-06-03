@@ -2,7 +2,7 @@
 
 namespace LiME
 {
-	SpriteComponent::SpriteComponent(int id, Sprite* sprite) : Component(id),
+	SpriteComponent::SpriteComponent(int id, std::shared_ptr<Sprite> sprite) : Component(id),
 		//properties(LM::Rect<int>({ 0, 0 }, {0, 0})),
 		//srcRegion_(LM::Rect<int>({ 0, 0 }, { 0, 0 })),
 		//frameRegion_(LM::Rect<int>(0, 0, 0, 0)),
@@ -40,7 +40,7 @@ namespace LiME
 		return origin_;
 	}
 
-	Sprite* SpriteComponent::GetSprite() const
+	std::shared_ptr<Sprite> SpriteComponent::GetSprite() const
 	{
 		return sprite_;
 	}

@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <iterator>
+#include <memory>
 #include <vector>
 #include "System.h"
 #include "SpriteComponent.h"
@@ -11,18 +12,18 @@ namespace LiME
 		public System
 	{
 	private:
-		std::vector<LiME::SpriteComponent*> components_;
+		std::vector<std::shared_ptr<SpriteComponent>> components_;
 		//Temp test
-		LiME::Sprite* tmpSprite;
-		LM::Rect<int> tmpFrameRegion;
-		LM::Rect<int> tmpDrawRegion;
+		std::shared_ptr<Sprite> tmpSprite_;
+		LM::Rect<int> tmpFrameRegion_;
+		/*LM::Rect<int> tmpDrawRegion;
 		LM::Point2<int> tmpOrigin;
-		double tmpAngle;
+		double tmpAngle;*/
 	public:
 		SpriteDrawingSystem();
 		virtual ~SpriteDrawingSystem();
-		SpriteComponent* AddComponent(int id, Sprite* sprite);
-		void RemoveComponent(SpriteComponent* component);
+		std::shared_ptr<SpriteComponent> AddComponent(int id, std::shared_ptr<Sprite> sprite);
+		void RemoveComponent(std::shared_ptr<SpriteComponent> component);
 		void Update();
 	};
 }

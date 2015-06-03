@@ -14,19 +14,20 @@ namespace LiME
 		public Component
 	{
 	private:
-		Sprite* sprite_;
+		std::shared_ptr<Sprite> sprite_;
 		std::shared_ptr<LM::SDLTexture> texturePtr_;
 		//std::shared_ptr<LM::SDLTexture> texture;
 		//SpriteProperties properties;
 		//LM::Rect<int> frameRegion_;			//The region from the texture which will be used for rendering.
 		//LiME::AnimatedSpriteProperties properties;
+		//int spriteComponentID;			//Reference for other components
 		LM::Point2<int> origin_;		//Origin position of sprite, used for rotations
 		float angle_;
 		Uint8 alpha_;
 		LM::Point2<float> scale_;		//x and y scaling for sprite
-		float frameIndex_;				//Current frame in animation cycle as a float
+		//float frameIndex_;			//Current frame in animation cycle as a float
 		int currentFrame_;				//Current frame in animation cycle
-		LM::Rect<int> drawRegion_;		//A rectangle representing the resulting region to which the texture will be rendered after properties are applied.
+		LM::Rect<int> drawRegion_;		//A rectangle representing the resulting region to which the texture will be rendered to after position and scale are applied.
 
 		//float angle_;
 		//Uint8 alpha_;
@@ -34,11 +35,11 @@ namespace LiME
 		//LM::Point2<float> scale_;
 		//LM::Rect<int> srcRegion_;
 	public:
-		SpriteComponent(int id, Sprite* sprite);
+		SpriteComponent(int id, std::shared_ptr<Sprite> sprite);
 		virtual ~SpriteComponent();
 		void Free();
 		LM::Point2<int> GetOrigin() const;
-		Sprite* GetSprite() const;
+		std::shared_ptr<Sprite> GetSprite() const;
 		float GetAngle() const;
 		Uint8 GetAlpha() const;
 		float GetScale() const;
