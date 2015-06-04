@@ -2,8 +2,11 @@
 
 namespace LM
 {
-	Exception::Exception(std::string functionName) : function(functionName), sdlError(SDL_GetError()), exceptionString(function + " threw an exception: " + sdlError)
+	Exception::Exception(std::string functionName)
 	{
+		function = functionName;
+		sdlError = SDL_GetError();
+		exceptionString = function + " threw an exception: " + sdlError;
 	}
 
 	Exception::~Exception()
